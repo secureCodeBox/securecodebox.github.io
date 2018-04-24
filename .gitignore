@@ -1,0 +1,71 @@
+#################
+## Eclipse
+#################
+
+.project
+.classpath
+.loadpath
+.settings
+.gradle
+.groovy
+.idea
+.metadata
+*.tmp
+*.bak
+*.class
+*.log
+
+# exclude the following folder in the top project and all submodules
+.settings/
+bin/
+tmp/
+build/
+results/
+
+# External tool builders (in top folder and all submodules)
+target/
+
+################
+## Intermediate
+################
+MANIFEST.MF
+
+############
+## Windows
+############
+
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+############
+## Mac
+############
+
+# Folder config file
+.DS_Store
+
+
+###########
+# Elastic searchguard ssl certs
+###########
+
+secureBox-dockerfiles/logging/elasticsearch/secured/certs/*
+secureBox-dockerfiles/logging/elasticsearch5/secured/certs/*
+secureBox-dockerfiles/logging/kibana4/secured/root-ca.pem
+secureBox-dockerfiles/logging/kibana5/secured/certs/root-ca.pem
+
+!secureBox-dockerfiles/logging/elasticsearch/secured/certs/*.sh
+!secureBox-dockerfiles/logging/elasticsearch/secured/certs/etc
+secureBox-dockerfiles/infrastructure/nginx/ssl/*
+.env
+/secureBox-dockerfiles/ui/config/local.json
+!/secureBox-dockerfiles/logging/elasticsearch5/secured/certs/Dockerfile
+!/secureBox-dockerfiles/logging/elasticsearch5/secured/certs/entrypoint.sh
+!/secureBox-dockerfiles/logging/elasticsearch5/secured/certs/docker-compose.yml
+/secureBox-dockerfiles/ui/config/securebox.ui.db
+
+
+/secureBox-dockerfiles/docker-compose.energy.*
