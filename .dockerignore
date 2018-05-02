@@ -1,0 +1,6 @@
+.idea/
+.next/
+dist/
+www/LandingPage-Example
+
+*.log
