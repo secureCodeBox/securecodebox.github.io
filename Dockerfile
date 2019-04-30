@@ -1,2 +1,3 @@
 FROM nginx:1-alpine
-COPY www/secureCodeBox.io /usr/share/nginx/html
+
+COPY src/www /usr/share/nginx/html
