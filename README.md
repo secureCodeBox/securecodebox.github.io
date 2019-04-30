@@ -12,5 +12,3 @@ docker container run -p 8080:80 --rm -d landing-page
 ```
 
 And then visit [this](http://localhost:8080/) in your browser.
-
-**NOTE**: If the Nginx complains about permissions you need to check that `src/www` has the access rights `a+rX`.
