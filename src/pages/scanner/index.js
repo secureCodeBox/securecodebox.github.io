@@ -3,10 +3,10 @@ import { graphql } from 'gatsby';
 import SEO from '../../components/SEO';
 import Layout from '../../components/Layout';
 
-const Testimonials = (props) => {
+const scanner = (props) => {
   const testimonials = props.data.allMarkdownRemark.edges;
   return (
-    <Layout bodyClass="page-testimonials">
+    <Layout bodyClass="page-scanner">
       <SEO title="Testimonials" />
       <div className="intro">
         <div className="container">
@@ -44,7 +44,7 @@ const Testimonials = (props) => {
 export const query = graphql`
   query TestimonialsQuery {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/testimonials/" } }
+      filter: { fileAbsolutePath: { regex: "/scanner/" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {
@@ -62,4 +62,4 @@ export const query = graphql`
   }
 `;
 
-export default Testimonials;
+export default scanner;

@@ -17,17 +17,19 @@ module.exports = {
     },
     menuLinks: [
       {
-        name: 'Services',
-        link: '/services',
+        name: 'Get Started',
+        // link: '/getStarted',
+        link: 'https://github.com/secureCodeBox/secureCodeBox',
       },
       {
-        name: 'Team',
-        link: '/team',
+        name: 'Docs',
+        // link: '/docs',
+        link: 'https://github.com/secureCodeBox/secureCodeBox/tree/master/docs',
       },
-      {
-        name: 'Testimonials',
-        link: '/testimonials',
-      },
+      // {
+      //   name: 'Scanner',
+      //   link: '/scanner',
+      // },
       {
         name: 'Contact',
         link: '/contact',

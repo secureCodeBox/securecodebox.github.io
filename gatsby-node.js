@@ -8,7 +8,7 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(`
            {
             services: allMarkdownRemark(
-              filter: { fileAbsolutePath: { regex: "/services/" } }
+              filter: { fileAbsolutePath: { regex: "/get-Started/" } }
               sort: { fields: [frontmatter___date], order: DESC }
             ) {
               edges {
@@ -24,7 +24,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
             team: allMarkdownRemark(
-              filter: { fileAbsolutePath: { regex: "/team/" } }
+              filter: { fileAbsolutePath: { regex: "/docs/" } }
               sort: { fields: [frontmatter___date], order: DESC }
             ) {
               edges {
@@ -40,7 +40,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
             testimonials: allMarkdownRemark(
-              filter: { fileAbsolutePath: { regex: "/testimonials/" } }
+              filter: { fileAbsolutePath: { regex: "/scanner/" } }
               sort: { fields: [frontmatter___date], order: DESC }
             ) {
               edges {
@@ -59,7 +59,7 @@ exports.createPages = ({ graphql, actions }) => {
         `,
       ).then((result) => {
         result.data.services.edges.forEach(({ node }) => {
-          const component = path.resolve('src/templates/service.js');
+          const component = path.resolve('src/templates/getStarted.js');
           createPage({
             path: node.frontmatter.path,
             component,
@@ -69,7 +69,7 @@ exports.createPages = ({ graphql, actions }) => {
           });
         });
         result.data.team.edges.forEach(({ node }) => {
-          const component = path.resolve('src/templates/team.js');
+          const component = path.resolve('src/templates/docs.js');
           createPage({
             path: node.frontmatter.path,
             component,
@@ -79,7 +79,7 @@ exports.createPages = ({ graphql, actions }) => {
           });
         });
         result.data.testimonials.edges.forEach(({ node }) => {
-          const component = path.resolve('src/templates/testimonial.js');
+          const component = path.resolve('src/templates/scanner.js');
           createPage({
             path: node.frontmatter.path,
             component,
