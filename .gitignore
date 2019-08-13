@@ -2,3 +2,4 @@ public/
 !public/.gitkeep
 .cache/
 node_modules/
+src/pages/www/
