@@ -1,17 +1,22 @@
 [
   {
-    "title": "Free Consultation",
-    "description": "New clients recieve an obligation free consultation.",
+    "title": "Cloud Ready",
+    "description": "Ready to be deployed on a Cloud Server",
     "image": "/features/noun_branding_1885335.svg"
   },
   {
-    "title": "Certified Accountants",
-    "description": "All members of our team are certified accountants.",
+    "title": "Open Source",
+    "description": "We are an Open Scource project and happy about your contribution",
     "image": "/features/noun_The Process_1885341.svg"
   },
   {
-    "title": "Tax Compliance",
-    "description": "We stay up to date on the latest changes to the tax code.",
+    "title": "Scanner out of the box",
+    "description": "We integrate Open Source Scanner ready to use",
+    "image": "/features/noun_3d modeling_1885342.svg"
+  },
+  {
+    "title": "Scans behind the firewall",
+    "description": "Our Scans can dig deeply in your Network",
     "image": "/features/noun_3d modeling_1885342.svg"
   }
 ]

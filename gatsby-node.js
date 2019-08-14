@@ -74,7 +74,7 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         `,
-      ).then((result) => {
+      ).then(result => {
         result.data.provisions.edges.forEach(({ node }) => {
           const component = path.resolve('src/templates/provision.js');
           createPage({

@@ -17,9 +17,12 @@
     flex: 1;
     h2 {
       font-family: $font-family-heading;
-      font-size: 1.6rem;
+      font-size: 1.4rem;
+      color: $primary;
     }
     p {
+      font-family: $font-family-heading;
+      font-size: 0.9rem;
     }
   }
   .card-description {

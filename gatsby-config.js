@@ -49,7 +49,12 @@ module.exports = {
     `gatsby-plugin-emotion`,
     `gatsby-plugin-sass`,
     `gatsby-transformer-json`,
-    `gatsby-transformer-remark`,
+    {
+      "resolve": `gatsby-transformer-remark`,
+      "options": {
+        "excerpt_separator": `<!-- end -->`
+      }
+    },
     {
       resolve: `gatsby-plugin-typography`,
       options: {
