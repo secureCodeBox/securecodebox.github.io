@@ -15,6 +15,7 @@ module.exports = {
       phone: 'XXX XXX XXX',
       email: 'security@iteratec.de',
     },
+    // TODO: replace links with actual pages here and link the correct reference in Menu.js
     menuLinks: [
       {
         name: 'Get Started',

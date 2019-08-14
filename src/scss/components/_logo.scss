@@ -1,8 +1,9 @@
 .logo {
+  // TODO: adjust the logo position
   display: none;
   @include media-breakpoint-up(sm) {
     display: block;
-    width: 120px;
+    width: 150px;
   }
   img {
     width: 100%;

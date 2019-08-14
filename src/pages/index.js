@@ -29,7 +29,8 @@ const Home = (props) => {
         <div className="container pt-8 pt-md-10">
           <div className="row justify-content-start">
             <div className="col-12">
-              <h2 className="title-3 text-dark mb-3">Our Services</h2>
+              <Link to="/provisions/"><h2 className="title-3 text-dark mb-3">What the secureCodeBox provides</h2></Link>
+              
             </div>
             {markdown.map(edge => (
               <div key={edge.node.frontmatter.path} className="col-12 col-md-4 mb-1">
@@ -43,11 +44,6 @@ const Home = (props) => {
                 </div>
               </div>
             ))}
-            <div className="col-12 text-center">
-              <Link className="button button-primary mt-2" to="/services">
-                View All Services
-            </Link>
-            </div>
           </div>
         </div>
              
@@ -78,7 +74,7 @@ const Home = (props) => {
 export const query = graphql`
    query {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/services/" } }
+      filter: { fileAbsolutePath: { regex: "/provisions/" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {

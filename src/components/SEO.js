@@ -3,6 +3,7 @@ import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 import favicon from '../../static/Favicon@1x.svg';
 
+// TODO: Fix favicon
 const SEO = props => (
   <StaticQuery
     query={detailsQuery}
@@ -16,7 +17,7 @@ const SEO = props => (
           title={title}
           titleTemplate={`%s - ${data.site.siteMetadata.title}`}
           link={[
-            { rel: 'shortcut icon', type: 'image/ico', href: `${favicon}` },
+            { rel: 'shortcut icon', type: 'image/svg', href: `${favicon}` },
           ]}
         />
       );
