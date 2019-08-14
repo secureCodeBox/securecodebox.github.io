@@ -32,7 +32,8 @@ module.exports = {
       // },
       {
         name: 'Contact',
-        link: '/contact',
+        // link: '/contact',
+        link: 'https://www.securecodebox.io/',
       },
     ],
   },
