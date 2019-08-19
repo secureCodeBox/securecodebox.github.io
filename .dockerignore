@@ -1,6 +1,5 @@
 .idea/
-.next/
-dist/
-www/LandingPage-Example
-
 *.log
+node_modules/
+public/
+Dockerfile
