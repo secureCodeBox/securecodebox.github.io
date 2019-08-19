@@ -2,21 +2,25 @@
   {
     "title": "Cloud Ready",
     "description": "Ready to be deployed on a Cloud Server",
-    "image": "/features/cloud.svg"
+    "image": "/features/cloud.svg",
+    "tag": "provision"
   },
   {
     "title": "Open Source",
     "description": "We are an Open Scource project and happy about your contribution",
-    "image": "/features/Open Source.svg"
+    "image": "/features/Open Source.svg",
+    "tag": "provision"
   },
   {
     "title": "Scanner out of the box",
     "description": "We integrate Open Source Scanner ready to use",
-    "image": "/features/scan.svg"
+    "image": "/features/scan.svg",
+    "tag": "provision"
   },
   {
     "title": "Scans behind the firewall",
     "description": "Our Scans can dig deeply in your Network",
-    "image": "/features/firewall.svg"
+    "image": "/features/firewall.svg",
+    "tag": "provision"
   }
 ]

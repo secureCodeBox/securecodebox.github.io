@@ -41,4 +41,24 @@
       }
     }
   }
+  .feature-table {
+    table-layout: auto;
+    table {
+      thead {
+        tr {
+          th{
+            color: $secondary;
+          }
+        }
+      }
+      tbody { 
+        tr { 
+          td {
+            color: $secondary;
+            font-size: 0.75rem;
+          }
+        }
+      }
+    }
+  }
 }

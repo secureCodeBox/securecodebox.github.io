@@ -6,23 +6,6 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     resolve(
       graphql(`
-            {
-            provisions: allMarkdownRemark(
-              filter: { fileAbsolutePath: { regex: "/provisions/" } }
-              sort: { fields: [frontmatter___date], order: DESC }
-            ) {
-              edges {
-                node {
-                  id
-                  frontmatter {
-                    path
-                    title
-                    date(formatString: "DD MMMM YYYY")
-                  }
-                  excerpt
-                }
-              }
-            }
            {
             getStarted: allMarkdownRemark(
               filter: { fileAbsolutePath: { regex: "/getStarted/" } }
@@ -75,16 +58,6 @@ exports.createPages = ({ graphql, actions }) => {
           }
         `,
       ).then(result => {
-        result.data.provisions.edges.forEach(({ node }) => {
-          const component = path.resolve('src/templates/provision.js');
-          createPage({
-            path: node.frontmatter.path,
-            component,
-            context: {
-              id: node.id,
-            },
-          });
-        });
         result.data.getStarted.edges.forEach(({ node }) => {
           const component = path.resolve('src/templates/getStarted.js');
           createPage({

@@ -6,6 +6,7 @@ import Layout from "../components/Layout";
 
 const Home = (props) => {
   const json = props.data.allFeaturesJson.edges;
+  const markdownRemark = props.data.markdownRemark;
     return(
         <Layout bodyClass="page-home">
           <SEO title="Home" />
@@ -25,7 +26,7 @@ const Home = (props) => {
             </div>
           </div>
              
-        <div className="container pt-5 pb-5 pt-md-7 pb-md-7">
+        <div className="container pt-5 pb-2 pt-md-7 pb-md-3">
           <div className="row justify-content-center">
             <div className="col-12">
               <h2 className="title-3 text-dark mb-4">What the secureCodeBox provides</h2>
@@ -47,8 +48,9 @@ const Home = (props) => {
         </div>
 
         <div className="container pb-5 pb-md-7">
-          <div className="col-12">
-            <h2 className="title-3 text-dark mb-4">When is the secureCodeBox right for your team?</h2>
+          <div className="feature">
+            <h2 className="feature-title">{markdownRemark.frontmatter.title}</h2>
+            <div className="feature-table" dangerouslySetInnerHTML={{ __html: markdownRemark.html }}></div>
           </div>
         </div>
         </Layout>
@@ -57,13 +59,21 @@ const Home = (props) => {
 
 export const query = graphql`
    query {
-    allFeaturesJson {
+    markdownRemark (frontmatter: {title: {eq: "When is the secureCodeBox right for your team?"}}){
+      frontmatter{
+        title
+        date
+      }
+      html
+    }
+    allFeaturesJson (filter: {tag: {eq: "provision"}}){
       edges {
         node {
           id
           title
           description
           image
+          tag
         }
       }
     }
