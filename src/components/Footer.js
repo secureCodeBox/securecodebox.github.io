@@ -22,7 +22,7 @@ const Footer = props => (
 {' '}
 {new Date().getFullYear()}
 {' '}
-{props.data.site.siteMetadata.title}
+{props.data.site.siteMetadata.company}
               </li>
             </ul>
           </div>
@@ -39,6 +39,7 @@ export default props => (
         site {
           siteMetadata {
             title
+            company
           }
         }
       }

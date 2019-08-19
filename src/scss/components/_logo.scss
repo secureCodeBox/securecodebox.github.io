@@ -1,5 +1,4 @@
 .logo {
-  // TODO: adjust the logo position
   display: none;
   @include media-breakpoint-up(sm) {
     display: block;
@@ -8,6 +7,7 @@
   img {
     width: 100%;
     height: auto;
+    background-color: $white;
   }
   a {
     display: block;
@@ -25,6 +25,7 @@
   img {
     width: 100%;
     height: auto;
+    background-color: $white;
   }
   a {
     display: block;

@@ -19,7 +19,7 @@
   },
   {
     "title": "Scans behind the firewall",
-    "description": "Our Scans can dig deeply in your Network",
+    "description": "Our Scans can dig deeply into your Network",
     "image": "/features/firewall.svg",
     "tag": "provision"
   }

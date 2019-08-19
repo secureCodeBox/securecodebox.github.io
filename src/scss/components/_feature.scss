@@ -48,6 +48,10 @@
         tr {
           th{
             color: $secondary;
+            border-right: 1px solid $primary;
+          }
+          th:last-child {
+            border-right: none;
           }
         }
       }
@@ -55,7 +59,11 @@
         tr { 
           td {
             color: $secondary;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
+            border-right: 1px solid $primary;
+          }
+          td:last-child {
+            border-right: none;
           }
         }
       }

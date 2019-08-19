@@ -8,7 +8,7 @@ module.exports = {
 
   siteMetadata: {
     title: `secureCodeBox`,
-    company: 'iteratec',
+    company: `iteratec GmbH`,
     description: '',
     // siteUrl: '',
     contact: {

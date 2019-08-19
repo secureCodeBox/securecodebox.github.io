@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import Menu from './Menu';
 import Hamburger from './Hamburger';
 import logo from '../images/Logo Color.svg';
-import logoMobile from '../images/Logo Color.svg';
+import logoMobile from '../../static/Favicon@1x.svg';
 import MenuMobile from './MenuMobile';
 
 class Header extends React.Component {

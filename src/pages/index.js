@@ -26,7 +26,7 @@ const Home = (props) => {
             </div>
           </div>
              
-        <div className="container pt-5 pb-2 pt-md-7 pb-md-3">
+        <div className="container pt-3 pb-2 pt-md-3 pb-md-3">
           <div className="row justify-content-center">
             <div className="col-12">
               <h2 className="title-3 text-dark mb-4">What the secureCodeBox provides</h2>
