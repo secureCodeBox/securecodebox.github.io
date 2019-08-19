@@ -17,7 +17,6 @@ exports.createPages = ({ graphql, actions }) => {
                   frontmatter {
                     path
                     title
-                    date(formatString: "DD MMMM YYYY")
                   }
                   excerpt
                 }
@@ -33,7 +32,6 @@ exports.createPages = ({ graphql, actions }) => {
                   frontmatter {
                     path
                     title
-                    date(formatString: "DD MMMM YYYY")
                   }
                   excerpt
                 }
@@ -49,7 +47,6 @@ exports.createPages = ({ graphql, actions }) => {
                   frontmatter {
                     path
                     title
-                    date(formatString: "DD MMMM YYYY")
                   }
                   excerpt
                 }

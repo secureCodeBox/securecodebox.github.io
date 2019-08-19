@@ -3,11 +3,11 @@ import { graphql } from 'gatsby';
 import SEO from '../../components/SEO';
 import Layout from '../../components/Layout';
 
-const docs = (props) => {
-  const teams = props.data.allMarkdownRemark.edges;
+const Docs = (props) => {
+  const docs = props.data.allMarkdownRemark.edges;
   return (
     <Layout bodyClass="page-docs">
-      <SEO title="Team" />
+      <SEO title="Documentation" />
       <div className="intro">
         <div className="container">
           <div className="row">
@@ -23,7 +23,7 @@ const docs = (props) => {
       </div>
 
       <div className="container pb-6">
-        <div className="row">
+        {/* <div className="row">
           {teams.map(edge => (
             <div key={edge.node.frontmatter.path} className="col-12 col-md-6 mb-1">
               <div className="team card-two">
@@ -63,7 +63,7 @@ const docs = (props) => {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </Layout>
   );
@@ -73,7 +73,7 @@ export const query = graphql`
   query TeamQuery {
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/docs/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___title], order: DESC }
     ) {
       edges {
         node {
@@ -81,10 +81,6 @@ export const query = graphql`
           frontmatter {
             title
             path
-            image
-            jobtitle
-            linkedinurl
-            email
           }
         }
       }
@@ -92,4 +88,4 @@ export const query = graphql`
   }
 `;
 
-export default docs;
+export default Docs;

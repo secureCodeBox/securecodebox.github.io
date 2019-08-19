@@ -12,14 +12,14 @@ const GetStarted = (props) => {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <h1>Services</h1>
+              <h1>Tutorials</h1>
             </div>
           </div>
         </div>
       </div>
 
       <div className="container pb-6">
-        <div className="row">
+        {/* <div className="row">
           {getStarted.map(edge => (
             <div key={edge.node.frontmatter.path} className="col-12 col-md-4 mb-1">
               <div className="card service service-teaser">
@@ -32,7 +32,7 @@ const GetStarted = (props) => {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </Layout>
   );
@@ -42,7 +42,7 @@ export const query = graphql`
   query ServicesQuery {
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/getStarted/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___title], order: DESC }
     ) {
       edges {
         node {

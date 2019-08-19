@@ -3,23 +3,23 @@ import { graphql } from 'gatsby';
 import SEO from '../../components/SEO';
 import Layout from '../../components/Layout';
 
-const scanner = (props) => {
-  const testimonials = props.data.allMarkdownRemark.edges;
+const Scanner = (props) => {
+  const scanner = props.data.allMarkdownRemark.edges;
   return (
     <Layout bodyClass="page-scanner">
-      <SEO title="Testimonials" />
+      <SEO title="Scanner" />
       <div className="intro">
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <h1>Testimonals</h1>
+              <h1>Scanner</h1>
             </div>
           </div>
         </div>
       </div>
 
       <div className="container pb-6">
-        <div className="row">
+        {/* <div className="row">
           {testimonials.map(edge => (
             <div key={edge.node.frontmatter.path} className="col-12 col-md-6 mb-1">
               <div className="testimonial">
@@ -35,7 +35,7 @@ const scanner = (props) => {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </Layout>
   );
@@ -45,7 +45,7 @@ export const query = graphql`
   query TestimonialsQuery {
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/scanner/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___title], order: DESC }
     ) {
       edges {
         node {
@@ -53,8 +53,6 @@ export const query = graphql`
           frontmatter {
             title
             path
-            name
-            jobtitle
           }
         }
       }
@@ -62,4 +60,4 @@ export const query = graphql`
   }
 `;
 
-export default scanner;
+export default Scanner;
