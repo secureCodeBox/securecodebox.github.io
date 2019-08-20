@@ -3,11 +3,13 @@
   @include media-breakpoint-up(sm) {
     display: block;
     width: 150px;
+    height: auto;
   }
   img {
+    position: relative;
+    top: 9.72px;
     width: 100%;
-    height: auto;
-    background-color: $white;
+    height: 100%;
   }
   a {
     display: block;
@@ -23,9 +25,10 @@
     display: none;
   }
   img {
+    position: relative;
+    top: 9.72px;
     width: 100%;
     height: auto;
-    background-color: $white;
   }
   a {
     display: block;

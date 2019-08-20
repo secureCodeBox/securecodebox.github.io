@@ -40,7 +40,7 @@ const Home = (props) => {
                     </div>
                   )}
                   <h2 className="feature-title">{edge.node.title}</h2>
-                  <div className="feature-content">{edge.node.description}</div>
+                  {/* TODO add link to corresponding pages */}
                 </div>
               </div>
             ))}
@@ -71,7 +71,6 @@ export const query = graphql`
         node {
           id
           title
-          description
           image
           tag
         }
