@@ -26,12 +26,12 @@
   font-family: $font-family-base;
   font-weight: light;
   color: #333333;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   @include media-breakpoint-up(sm) {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   @include media-breakpoint-up(md) {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
   }
   a {
     display: block;

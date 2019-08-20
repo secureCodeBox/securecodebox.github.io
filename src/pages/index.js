@@ -3,69 +3,83 @@ import { graphql, withPrefix, Link } from "gatsby";
 import Helmet from 'react-helmet';
 import SEO from '../components/SEO';
 import Layout from "../components/Layout";
+import approved from "../images/approved.svg";
+import notApproved from "../images/not approved.svg";
 
 const Home = (props) => {
   const json = props.data.allFeaturesJson.edges;
-  const markdownRemark = props.data.markdownRemark;
-    return(
-        <Layout bodyClass="page-home">
-          <SEO title="Home" />
-          <Helmet>
-            <meta
-              name="description"
-              content="The official secureCodeBox Website."
-            />
-          </Helmet>
-          <div className="intro pb-4">
-            <div className="container">
-              <h1>secureCodeBox - Testing your Software Security.</h1>
-              <p>
-                secureCodeBox is a docker based, modularized toolchain for continuous security scans of your software project.
-                Its goal is to orchestrate and easily automate a bunch of security-testing tools out of the box.
+  return (
+    <Layout bodyClass="page-home">
+      <SEO title="Home" />
+      <Helmet>
+        <meta
+          name="description"
+          content="The official secureCodeBox Website."
+        />
+      </Helmet>
+      <div className="intro pb-4">
+        <div className="container">
+          <h1>secureCodeBox</h1>
+          <h2>Testing your Software Security</h2>
+          <p>
+            secureCodeBox is a docker based, modularized toolchain for continuous security scans of your software project.
+            Its goal is to orchestrate and easily automate a bunch of security-testing tools out of the box.
             </p>
-            </div>
-          </div>
-             
-        <div className="container pt-3 pb-2 pt-md-3 pb-md-3">
-          <div className="row justify-content-center">
-            <div className="col-12">
-              <h2 className="title-3 text-dark mb-4">What the secureCodeBox provides</h2>
-            </div>
-            {json.map(edge => (
-              <div key={edge.node.id} className="col-12 col-md-3 col-lg-3 mb-2">
-                <div className="feature">
-                  {edge.node.image && (
-                    <div className="feature-image">
-                      <img src={withPrefix(edge.node.image)} />
-                    </div>
-                  )}
-                  <h2 className="feature-title">{edge.node.title}</h2>
-                  {/* TODO add link to corresponding pages */}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
+      </div>
 
-        <div className="container pb-5 pb-md-7">
-          <div className="feature">
-            <h2 className="feature-title">{markdownRemark.frontmatter.title}</h2>
-            <div className="feature-table" dangerouslySetInnerHTML={{ __html: markdownRemark.html }}></div>
+      <div className="container pt-3 pb-2 pt-md-3 pb-md-3">
+        <div className="row justify-content-center">
+          <div className="col-12">
+            <h2 className="title-3 text-dark mb-2">What the secureCodeBox provides</h2>
           </div>
+          {json.map(edge => (
+            <div key={edge.node.id} className="col-12 col-md-3 col-lg-3 mb-2">
+              <div className="feature">
+                {edge.node.image && (
+                  <div className="feature-image">
+                    <img src={withPrefix(edge.node.image)} />
+                  </div>
+                )}
+                <h2 className="feature-title">{edge.node.title}</h2>
+                {/* TODO add link to corresponding pages */}
+              </div>
+            </div>
+          ))}
         </div>
-        </Layout>
-    )
+      </div>
+
+      <div className="container pt-3 pb-5 pb-md-7">
+        <div className="col-12">
+          <h2 className="title-3 text-dark mb-2">When is the secureCodeBox right for your team?</h2>
+        </div>
+        <div className="feature">
+          <h2 className="feature-title"></h2>
+          <div className="feature-list" >
+            <ul className="pro">
+              <li> <img src={approved}/>
+                Teams with a medium to advanced security program</li>
+              <li> <img src={approved} />
+                Multi-team setups</li>
+              <li> <img src={approved} />
+                Integration into fast moving teams</li>
+            </ul>    
+
+            <ul className="con">
+              <li> <img src={notApproved}/>
+                Teams just starting with a security program</li>
+              <li><img src={notApproved} />
+                Teams with separate dev, ops and security teams</li>
+            </ul >
+          </div >
+        </div >
+      </div >
+    </Layout >
+  )
 }
 
 export const query = graphql`
    query {
-    markdownRemark (frontmatter: {title: {eq: "When is the secureCodeBox right for your team?"}}){
-      frontmatter{
-        title
-        date
-      }
-      html
-    }
     allFeaturesJson (filter: {tag: {eq: "provision"}}){
       edges {
         node {
