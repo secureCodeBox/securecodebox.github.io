@@ -22,5 +22,23 @@
     "description": "Our Scans can dig deeply into your Network",
     "image": "/features/firewall.svg",
     "tag": "provision"
+  },
+  {
+    "title": "Github",
+    "image": "/features/github logo.svg",
+    "link": "https://github.com/secureCodeBox",
+    "tag": "social"
+  },
+  {
+    "title": "Twitter",
+    "image": "/features/twitter logo white.svg",
+    "link": "https://twitter.com/securecodebox",
+    "tag": "social"
+  },
+  {
+    "title": "Slack",
+    "image": "/features/slack-new-logo.svg",
+    "link": "https://join.slack.com/t/securecodebox/shared_invite/enQtNDU3MTUyOTM0NTMwLTJiNzg3MmU2ZDY2NDFiMGI0Y2FkM2I5Mzc2ZmEzYTcyN2FlN2Y2NDFiZDE5NjAxMjg1M2IxNDViNzE3OTIxMGU",
+    "tag": "social"
   }
 ]

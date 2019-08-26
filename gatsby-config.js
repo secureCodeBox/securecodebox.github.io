@@ -31,11 +31,6 @@ module.exports = {
       //   name: 'Scanner',
       //   link: '/scanner',
       // },
-      {
-        name: 'Contact',
-        // link: '/contact',
-        link: 'https://www.securecodebox.io/',
-      },
     ],
   },
 

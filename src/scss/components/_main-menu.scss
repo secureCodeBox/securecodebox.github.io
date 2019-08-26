@@ -35,6 +35,11 @@
           color: #fff;
           text-decoration: none;
         }
+        img {
+          position: relative;
+          width: 25px;
+          height: auto;
+        }
       }
     }
     > li.active {
@@ -47,6 +52,11 @@
           background: $iteragenta;
           transition: all 225ms ease-in 0s;
           color: #fff;
+        }
+        img {
+          position: relative;
+          width: 25px;
+          height: auto;
         }
         span {
           display: block;
