@@ -1,0 +1,16 @@
+name: 'Build and Deploy Page'
+
+on:
+  push:
+    branches:
+      - gh-source
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: enriikke/gatsby-gh-pages-action@6f11d33d3ef1c31d7962f855e73d4fdcf0dcb8b7
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          DEPLOY_BRANCH: 'master'
