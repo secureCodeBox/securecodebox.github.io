@@ -31,7 +31,7 @@ const Home = (props) => {
       <div className="container pt-3 pb-2 pt-md-3 pb-md-3">
         <div className="row justify-content-center">
           <div className="col-12">
-            <h2 className="title-3 text-dark mb-2">What the secureCodeBox provides</h2>
+            <h2 className="title-3 text-dark mb-2">What the secureCodeBox provides:</h2>
           </div>
           {json.map(edge => (
             <div key={edge.node.id} className="col-12 col-md-3 col-lg-3 mb-2">
