@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: enriikke/gatsby-gh-pages-action@6f11d33d3ef1c31d7962f855e73d4fdcf0dcb8b7
+      - uses: docker://securecodebox/gatsby-gh-pages-action@sha256:003347a815f64a16c3be4c49f672e352525a61b209c2bc4e9c5c32ab6ad372b7
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           DEPLOY_BRANCH: 'master'
