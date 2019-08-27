@@ -17,6 +17,10 @@ const Footer = props => (
                 {' '}
                 <Link to="/contact">Contact</Link>
               </li>
+              <li>
+                {' '}
+                <a href="https://www.iteratec.de/impressum/">Impressum</a>
+              </li>
               <li className="copyright">
                 ©
 {' '}
