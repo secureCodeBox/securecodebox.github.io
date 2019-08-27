@@ -1,5 +1,5 @@
-import React from 'react';
-import { graphql, Link, StaticQuery } from 'gatsby';
+import React from "react";
+import { graphql, Link, StaticQuery } from "gatsby";
 
 const Footer = props => (
   <div className="footer-strip">
@@ -7,26 +7,25 @@ const Footer = props => (
       <div className="row">
         <div className="col-12">
           <div className="footer">
-            <h3 className="footer-title">{props.data.site.siteMetadata.title}</h3>
+            <h3 className="footer-title">
+              {props.data.site.siteMetadata.title}
+            </h3>
             <ul className="footer-menu">
               <li>
-                {' '}
+                {" "}
                 <Link to="/">Home</Link>
               </li>
               <li>
-                {' '}
+                {" "}
                 <Link to="/contact">Contact</Link>
               </li>
               <li>
-                {' '}
+                {" "}
                 <a href="https://www.iteratec.de/impressum/">Impressum</a>
               </li>
               <li className="copyright">
-                ©
-{' '}
-{new Date().getFullYear()}
-{' '}
-{props.data.site.siteMetadata.company}
+                © {new Date().getFullYear()}{" "}
+                {props.data.site.siteMetadata.company}
               </li>
             </ul>
           </div>

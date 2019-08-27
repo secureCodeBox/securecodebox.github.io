@@ -58,7 +58,7 @@ const Home = (props) => {
           <div className="feature-list" >
             <ul className="pro">
               <li> <img src={approved}/>
-                Teams with a medium to advanced security program</li>
+                Teams with an already medium to advanced security program</li>
               <li> <img src={approved} />
                 Multi-team setups</li>
               <li> <img src={approved} />
@@ -67,7 +67,7 @@ const Home = (props) => {
 
             <ul className="con">
               <li> <img src={notApproved}/>
-                Teams just starting with a security program</li>
+                As the first security steps</li>
               <li><img src={notApproved} />
                 Teams with separate dev, ops and security teams</li>
             </ul >
