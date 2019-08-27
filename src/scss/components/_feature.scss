@@ -51,7 +51,7 @@
       padding: 0;
       float: left;
       max-width: 45%;
-      @include media-breakpoint-up(sm) {
+      @include media-breakpoint-down(sm) {
         max-width: 90%;
         float: unset;
       }
@@ -78,7 +78,7 @@
       padding: 0;
       max-width: 40%;
       float: right;
-      @include media-breakpoint-up(sm) {
+      @include media-breakpoint-down(sm) {
         max-width: 90%;
         float: unset;
       }
