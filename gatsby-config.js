@@ -60,11 +60,11 @@ module.exports = {
         name: "Docs",
         // link: '/docs',
         link: "https://github.com/secureCodeBox/secureCodeBox/tree/master/docs"
-      }
-      // {
-      //   name: 'Scanner',
-      //   link: '/scanner',
-      // },
+      },
+      {
+        name: 'Scanner',
+        link: '/scanner',
+      },
     ]
   },
 

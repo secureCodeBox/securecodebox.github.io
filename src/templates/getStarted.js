@@ -6,6 +6,7 @@ import Layout from '../components/Layout';
 const getStarted = ({ data }) => {
   const { title } = data.markdownRemark.frontmatter;
   const { html } = data.markdownRemark;
+  const { excerpt } = data.markdownRemark;
   return (
     <Layout bodyClass="page-getStarted">
       <SEO title={title} />
@@ -16,6 +17,7 @@ const getStarted = ({ data }) => {
               <div className="service service-single">
                 <h1 className="title">{title}</h1>
                 <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
+                <p>{excerpt}</p>
               </div>
             </div>
           </div>
@@ -32,6 +34,7 @@ export const query = graphql`
         title
       }
       html
+      excerpt
     }
   }
 `;

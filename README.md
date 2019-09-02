@@ -2,8 +2,6 @@
 
 This repository sources the [secureCodeBox landing page][prod-website].
 
-The actual content of the static site is in `src/www/`. 
-
 ## Build and Run
 
 For development: 

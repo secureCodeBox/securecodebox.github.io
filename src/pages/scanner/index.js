@@ -1,9 +1,10 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import SEO from '../../components/SEO';
-import Layout from '../../components/Layout';
+import React from "react";
+import { graphql } from "gatsby";
+import { Link } from "gatsby";
+import SEO from "../../components/SEO";
+import Layout from "../../components/Layout";
 
-const Scanner = (props) => {
+const Scanner = props => {
   const scanner = props.data.allMarkdownRemark.edges;
   return (
     <Layout bodyClass="page-scanner">
@@ -13,39 +14,57 @@ const Scanner = (props) => {
           <div className="row">
             <div className="col-12">
               <h1>Scanner</h1>
+              <h2>Out of the Box</h2>
+              <p>
+                Each Scanner is an individual tool. We took no part in building
+                them and did not adjust them for our purposes, which is great,
+                because, like so we can provide them as they are and ready for
+                use.
+              </p>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="container pb-6">
-        {/* <div className="row">
-          {testimonials.map(edge => (
-            <div key={edge.node.frontmatter.path} className="col-12 col-md-6 mb-1">
-              <div className="testimonial">
-                <div className="testimonials-meta">
-                  <h2 className="testimonials-title">{edge.node.frontmatter.title}</h2>
-                  <p className="testimonials-name">{edge.node.frontmatter.name}</p>
-                  <p className="testimonials-jobtitle">{edge.node.frontmatter.jobtitle}</p>
+      <div className="container  pb-2  pb-md-3">
+        <div className="row justify-content-center">
+          {scanner.map(edge => (
+            <div
+              key={edge.node.id}
+              className="col-12 col-md-6 col-lg-6 col-sm-12 mb-2"
+            >
+              <div className="feature">
+                {/* TODO add images 
+                    {edge.node.image && (
+                      <div className="feature-image">
+                        <img src={withPrefix(edge.node.image)} />
+                      </div>
+                    )} */}
+                <Link
+                  to={edge.node.frontmatter.path}
+                  
+                >
+                  <h2 className="feature-title">
+                    {edge.node.frontmatter.title}
+                  </h2>
+                </Link>
+                <div className="feature-content">
+                  <p>{edge.node.excerpt}</p>
                 </div>
-                <div
-                  className="testimonials-content"
-                  dangerouslySetInnerHTML={{ __html: edge.node.html }}
-                />
               </div>
             </div>
           ))}
-        </div> */}
+        </div>
       </div>
     </Layout>
   );
 };
 
 export const query = graphql`
-  query TestimonialsQuery {
+  query ScannerQuery {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/scanner/" } }
-      sort: { fields: [frontmatter___title], order: DESC }
+      filter: { frontmatter: { category: { eq: "scanner" } } }
+      sort: { fields: [frontmatter___title], order: ASC }
     ) {
       edges {
         node {
@@ -53,7 +72,9 @@ export const query = graphql`
           frontmatter {
             title
             path
+            category
           }
+          excerpt
         }
       }
     }

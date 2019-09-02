@@ -44,8 +44,11 @@ exports.createPages = ({ graphql, actions }) => {
               node {
                 frontmatter {
                   title
+                  path
+                  category
                 }
                 id
+                excerpt
               }
             }
           }
@@ -74,7 +77,7 @@ exports.createPages = ({ graphql, actions }) => {
         result.data.scanner.edges.forEach(({ node }) => {
           const component = path.resolve("src/templates/scanner.js");
           createPage({
-            path: "/scanner/" + node.frontmatter.title,
+            path: node.frontmatter.path,
             component,
             context: {
               id: node.id

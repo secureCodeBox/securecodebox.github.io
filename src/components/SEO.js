@@ -3,7 +3,6 @@ import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 import favicon from '../../static/Favicon@1x.svg';
 
-// TODO: Fix favicon
 const SEO = props => (
   <StaticQuery
     query={detailsQuery}
