@@ -1,16 +1,16 @@
-.testimonial {
+.scanner {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
-  .testimonials-image {
+  .scanner-image {
     flex: 0;
     margin-right: 10px;
     img {
       width: 160px;
     }
   }
-  .testimonials-meta {
+  .scanner-meta {
     flex: 1;
     margin-bottom: 10px;
     p {
@@ -19,19 +19,15 @@
     a {
     }
   }
-  .testimonials-title {
+  .scanner-title {
     margin-bottom: 5px;
   }
-  .testimonials-name {
+  .scaner-name {
     font-weight: bold;
     display: inline-block;
     margin-right: 10px;
   }
-  .testimonials-jobtitle {
-    display: inline-block;
-    color: $secondary;
-  }
-  .testimonials-content {
+  .scanner-content {
     flex: 1 0 100%;
 
     blockquote {
@@ -56,12 +52,5 @@
       color: $primary;
       text-align: center;
     }
-    // blockquote:after {
-    //   content: "\2013 \2003" attr(cite);
-    //   display: block;
-    //   text-align: right;
-    //   font-size: 0.875em;
-    //   color: #e74c3c;
-    // }
   }
 }

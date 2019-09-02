@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require("path");
 
 // Create pages from markdown files
 exports.createPages = ({ graphql, actions }) => {
@@ -6,87 +6,83 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     resolve(
       graphql(`
-           {
-            getStarted: allMarkdownRemark(
-              filter: { fileAbsolutePath: { regex: "/getStarted/" } }
-              sort: { fields: [frontmatter___date], order: DESC }
-            ) {
-              edges {
-                node {
-                  id
-                  frontmatter {
-                    path
-                    title
-                  }
-                  excerpt
+        {
+          getStarted: allMarkdownRemark(
+            filter: { fileAbsolutePath: { regex: "/getStarted/" } }
+            sort: { fields: [frontmatter___date], order: DESC }
+          ) {
+            edges {
+              node {
+                id
+                frontmatter {
+                  path
+                  title
                 }
-              }
-            }
-            docs: allMarkdownRemark(
-              filter: { fileAbsolutePath: { regex: "/docs/" } }
-              sort: { fields: [frontmatter___date], order: DESC }
-            ) {
-              edges {
-                node {
-                  id
-                  frontmatter {
-                    path
-                    title
-                  }
-                  excerpt
-                }
-              }
-            }
-            scanner: allMarkdownRemark(
-              filter: { fileAbsolutePath: { regex: "/scanner/" } }
-              sort: { fields: [frontmatter___date], order: DESC }
-            ) {
-              edges {
-                node {
-                  id
-                  frontmatter {
-                    path
-                    title
-                  }
-                  excerpt
-                }
+                excerpt
               }
             }
           }
-        `,
-      ).then(result => {
+          docs: allMarkdownRemark(
+            filter: { fileAbsolutePath: { regex: "/docs/" } }
+            sort: { fields: [frontmatter___date], order: DESC }
+          ) {
+            edges {
+              node {
+                id
+                frontmatter {
+                  path
+                  title
+                }
+                excerpt
+              }
+            }
+          }
+          scanner: allMarkdownRemark(
+            filter: {fileAbsolutePath: { regex: "/gatsby-source-git/"} }
+          ) {
+            edges {
+              node {
+                frontmatter {
+                  title
+                }
+                id
+              }
+            }
+          }
+        }
+      `).then(result => {
         result.data.getStarted.edges.forEach(({ node }) => {
-          const component = path.resolve('src/templates/getStarted.js');
+          const component = path.resolve("src/templates/getStarted.js");
           createPage({
             path: node.frontmatter.path,
             component,
             context: {
-              id: node.id,
-            },
+              id: node.id
+            }
           });
         });
         result.data.docs.edges.forEach(({ node }) => {
-          const component = path.resolve('src/templates/docs.js');
+          const component = path.resolve("src/templates/docs.js");
           createPage({
             path: node.frontmatter.path,
             component,
             context: {
-              id: node.id,
-            },
+              id: node.id
+            }
           });
         });
         result.data.scanner.edges.forEach(({ node }) => {
-          const component = path.resolve('src/templates/scanner.js');
+          const component = path.resolve("src/templates/scanner.js");
           createPage({
-            path: node.frontmatter.path,
+            path: "/scanner/" + node.frontmatter.title,
             component,
             context: {
-              id: node.id,
-            },
+              id: node.id
+            }
           });
         });
         resolve();
-      }),
+      })
     );
   });
 };
