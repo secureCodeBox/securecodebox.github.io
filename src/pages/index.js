@@ -64,26 +64,26 @@ const Home = props => {
           <div className="feature-list">
             <ul className="pro">
               <li>
-                <img src={approved} />
+                <img src={approved} alt="checked icon" />
                 Teams with an already medium to advanced security program
               </li>
               <li>
-                <img src={approved} />
+                <img src={approved} alt="checked icon" />
                 Multi-team setups
               </li>
               <li>
-                <img src={approved} />
+                <img src={approved} alt="checked icon" />
                 Integration into fast moving teams
               </li>
             </ul>
 
             <ul className="con">
               <li>
-                <img src={notApproved} />
+                <img src={notApproved} alt="unchecked icon" />
                 As the first security steps
               </li>
               <li>
-                <img src={notApproved} />
+                <img src={notApproved} alt="unchecked icon" />
                 Teams with separate dev, ops and security teams
               </li>
             </ul>
