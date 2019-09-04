@@ -39,7 +39,7 @@ const Scanner = props => {
                     {edge.node.frontmatter.title}
                   </h2>
                   <div className="feature-content">
-                    <p>{edge.node.excerpt}</p>
+                    <p>{edge.node.frontmatter.usecase}</p>
                   </div>
                 </div>
               </Link>
@@ -64,8 +64,8 @@ export const query = graphql`
             title
             path
             category
+            usecase
           }
-          excerpt
         }
       }
     }
