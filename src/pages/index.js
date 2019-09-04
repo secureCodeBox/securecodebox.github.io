@@ -1,12 +1,12 @@
-import React from "react";
-import { graphql, withPrefix, Link } from "gatsby";
+import React from 'react';
+import { graphql, withPrefix, Link } from 'gatsby';
 import Helmet from 'react-helmet';
 import SEO from '../components/SEO';
-import Layout from "../components/Layout";
-import approved from "../images/approved.svg";
-import notApproved from "../images/not approved.svg";
+import Layout from '../components/Layout';
+import approved from '../images/approved.svg';
+import notApproved from '../images/not approved.svg';
 
-const Home = (props) => {
+const Home = props => {
   const json = props.data.allFeaturesJson.edges;
   return (
     <Layout bodyClass="page-home">
@@ -22,16 +22,20 @@ const Home = (props) => {
           <h1>secureCodeBox</h1>
           <h2>Testing your Software Security</h2>
           <p>
-            secureCodeBox is a docker based, modularized toolchain for continuous security scans of your software project.
-            Its goal is to orchestrate and easily automate a bunch of security-testing tools out of the box.
-            </p>
+            secureCodeBox is a docker based, modularized toolchain for
+            continuous security scans of your software project. Its goal is to
+            orchestrate and easily automate a bunch of security-testing tools
+            out of the box.
+          </p>
         </div>
       </div>
 
       <div className="container pt-3 pb-2 pt-md-3 pb-md-3">
         <div className="row justify-content-center">
           <div className="col-12">
-            <h2 className="title-3 text-dark mb-2">What the secureCodeBox provides:</h2>
+            <h2 className="title-3 text-dark mb-2">
+              What the secureCodeBox provides:
+            </h2>
           </div>
           {json.map(edge => (
             <div key={edge.node.id} className="col-12 col-md-3 col-lg-3 mb-2">
@@ -51,36 +55,48 @@ const Home = (props) => {
 
       <div className="container pt-3 pb-5 pb-md-7">
         <div className="col-12">
-          <h2 className="title-3 text-dark mb-2">When is the secureCodeBox right for your team?</h2>
+          <h2 className="title-3 text-dark mb-2">
+            When is the secureCodeBox right for your team?
+          </h2>
         </div>
         <div className="feature">
           <h2 className="feature-title"></h2>
-          <div className="feature-list" >
+          <div className="feature-list">
             <ul className="pro">
-              <li> <img src={approved}/>
-                Teams with an already medium to advanced security program</li>
-              <li> <img src={approved} />
-                Multi-team setups</li>
-              <li> <img src={approved} />
-                Integration into fast moving teams</li>
-            </ul>    
+              <li>
+                <img src={approved} />
+                Teams with an already medium to advanced security program
+              </li>
+              <li>
+                <img src={approved} />
+                Multi-team setups
+              </li>
+              <li>
+                <img src={approved} />
+                Integration into fast moving teams
+              </li>
+            </ul>
 
             <ul className="con">
-              <li> <img src={notApproved}/>
-                As the first security steps</li>
-              <li><img src={notApproved} />
-                Teams with separate dev, ops and security teams</li>
-            </ul >
-          </div >
-        </div >
-      </div >
-    </Layout >
-  )
-}
+              <li>
+                <img src={notApproved} />
+                As the first security steps
+              </li>
+              <li>
+                <img src={notApproved} />
+                Teams with separate dev, ops and security teams
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </Layout>
+  );
+};
 
 export const query = graphql`
-   query {
-    allFeaturesJson (filter: {tag: {eq: "provision"}}){
+  query {
+    allFeaturesJson(filter: { tag: { eq: "provision" } }) {
       edges {
         node {
           id
