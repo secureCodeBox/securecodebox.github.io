@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, withPrefix, Link } from 'gatsby';
+import { graphql, withPrefix } from 'gatsby';
 import Helmet from 'react-helmet';
 import SEO from '../components/SEO';
 import Layout from '../components/Layout';
@@ -39,7 +39,7 @@ const Home = props => {
           </div>
           {json.map(edge => (
             <div key={edge.node.id} className="col-12 col-md-3 col-lg-3 mb-2">
-              <div className="feature">
+              <div className="feature hoverable">
                 {edge.node.image && (
                   <div className="feature-image">
                     <img src={withPrefix(edge.node.image)} />
@@ -84,7 +84,7 @@ const Home = props => {
               </li>
               <li>
                 <img src={notApproved} alt="unchecked icon" />
-                Teams with separate dev, ops and security teams
+                Organizations with separate dev, ops and security teams
               </li>
             </ul>
           </div>
