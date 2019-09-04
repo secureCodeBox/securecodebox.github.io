@@ -53,16 +53,19 @@ module.exports = {
     menuLinks: [
       {
         name: 'Get Started',
+        external: true,
         // link: '/getStarted',
         link: 'https://github.com/secureCodeBox/secureCodeBox',
       },
       {
         name: 'Docs',
+        external: true,
         // link: '/docs',
         link: 'https://github.com/secureCodeBox/secureCodeBox/tree/master/docs',
       },
       {
         name: 'Scanner',
+        external: false,
         link: '/scanner',
       },
     ],
@@ -71,7 +74,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-emotion`,
     `gatsby-plugin-sass`,
-    `gatsby-transformer-json`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
