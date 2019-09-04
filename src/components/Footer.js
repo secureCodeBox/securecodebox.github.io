@@ -18,7 +18,7 @@ const Footer = props => (
                 <Link to="/contact">Contact</Link>
               </li>
               <li>
-                <a href="https://www.iteratec.de/impressum/">Impressum</a>
+                <a href="https://www.iteratec.de/impressum/">Imprint</a>
               </li>
               <li className="copyright">
                 © {new Date().getFullYear()}{' '}
