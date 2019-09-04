@@ -1,12 +1,12 @@
-import React from 'react';
-import { withPrefix } from 'gatsby';
-import Helmet from 'react-helmet';
-import SEO from '../components/SEO';
-import Layout from '../components/Layout';
-import approved from '../images/approved.svg';
-import notApproved from '../images/not approved.svg';
+import React from "react";
+import { withPrefix } from "gatsby";
+import Helmet from "react-helmet";
+import SEO from "../components/SEO";
+import Layout from "../components/Layout";
+import approved from "../images/approved.svg";
+import notApproved from "../images/not approved.svg";
 
-import features from '../data/features.json';
+import features from "../data/features.json";
 
 const Home = () => {
   return (
@@ -58,10 +58,12 @@ const Home = () => {
       </div>
 
       <div className="container pt-3 pb-5 pb-md-7">
-        <div className="col-12">
-          <h2 className="title-3 text-dark mb-2">
-            When is the secureCodeBox right for your team?
-          </h2>
+        <div className="row justify-content-center">
+          <div className="col-12">
+            <h2 className="title-3 text-dark mb-2">
+              When is the secureCodeBox right for your team?
+            </h2>
+          </div>
         </div>
         <div className="feature">
           <h2 className="feature-title"></h2>
