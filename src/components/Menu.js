@@ -16,8 +16,12 @@ const Menu = props => {
         ))}
         {socialChannels.map(socialChannel => (
           <li key={socialChannel.title}>
-            <a href={socialChannel.link} target="_blank">
-              <img src={socialChannel.image} />
+            <a
+              href={socialChannel.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={socialChannel.image} alt={socialChannel.altText} />
             </a>
           </li>
         ))}

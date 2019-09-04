@@ -3,18 +3,18 @@
     "title": "Github",
     "image": "/features/GitHub-Mark.svg",
     "link": "https://github.com/secureCodeBox",
-    "tag": "social"
+    "altText": "github icon"
   },
   {
     "title": "Twitter",
     "image": "/features/Twitter_Social_Icon_Circle_White.svg",
     "link": "https://twitter.com/securecodebox",
-    "tag": "social"
+    "altText": "twitter icon"
   },
   {
     "title": "Slack",
     "image": "/features/Slack_Mark_Monochrome_White.svg",
     "link": "https://join.slack.com/t/securecodebox/shared_invite/enQtNDU3MTUyOTM0NTMwLTJiNzg3MmU2ZDY2NDFiMGI0Y2FkM2I5Mzc2ZmEzYTcyN2FlN2Y2NDFiZDE5NjAxMjg1M2IxNDViNzE3OTIxMGU",
-    "tag": "social"
+    "altText": "slack icon"
   }
 ]
