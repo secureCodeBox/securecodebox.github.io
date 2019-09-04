@@ -3,24 +3,24 @@
     "title": "Cloud Ready",
     "description": "Ready to be deployed on a Cloud Server",
     "image": "/features/cloud.svg",
-    "tag": "provision"
+    "altText": "cloud icon"
   },
   {
     "title": "Open Source",
     "description": "We are an Open Source project and happy about your contribution",
     "image": "/features/Open Source.svg",
-    "tag": "provision"
+    "altText": "open source icon"
   },
   {
     "title": "Scanner out of the box",
     "description": "We integrate Open Source Scanner ready to use",
     "image": "/features/scan.svg",
-    "tag": "provision"
+    "altText": "scanner icon"
   },
   {
     "title": "Scans behind firewalls",
     "description": "Our Scans can dig deeply into your Network",
     "image": "/features/firewall.svg",
-    "tag": "provision"
+    "altText": "firewall icon"
   }
 ]

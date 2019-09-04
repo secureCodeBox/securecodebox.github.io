@@ -43,7 +43,10 @@ const Home = () => {
               <div className="feature hoverable">
                 {feature.image && (
                   <div className="feature-image">
-                    <img src={withPrefix(feature.image)} />
+                    <img
+                      src={withPrefix(feature.image)}
+                      alt={feature.altText}
+                    />
                   </div>
                 )}
                 <h2 className="feature-title">{feature.title}</h2>
