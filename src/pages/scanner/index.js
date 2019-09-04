@@ -1,8 +1,8 @@
-import React from "react";
-import { graphql } from "gatsby";
-import { Link } from "gatsby";
-import SEO from "../../components/SEO";
-import Layout from "../../components/Layout";
+import React from 'react';
+import { graphql } from 'gatsby';
+import { Link } from 'gatsby';
+import SEO from '../../components/SEO';
+import Layout from '../../components/Layout';
 
 const Scanner = props => {
   const scanner = props.data.allMarkdownRemark.edges;
@@ -31,27 +31,18 @@ const Scanner = props => {
           {scanner.map(edge => (
             <div
               key={edge.node.id}
-              className="col-12 col-md-6 col-lg-6 col-sm-12 mb-2"
+              className="col-12 col-md-6 col-lg-6 col-sm-12 mb-2 no-highlight"
             >
-              <div className="feature">
-                {/* TODO add images 
-                    {edge.node.image && (
-                      <div className="feature-image">
-                        <img src={withPrefix(edge.node.image)} />
-                      </div>
-                    )} */}
-                <Link
-                  to={edge.node.frontmatter.path}
-                  
-                >
+              <Link to={edge.node.frontmatter.path}>
+                <div className="feature hoverable">
                   <h2 className="feature-title">
                     {edge.node.frontmatter.title}
                   </h2>
-                </Link>
-                <div className="feature-content">
-                  <p>{edge.node.excerpt}</p>
+                  <div className="feature-content">
+                    <p>{edge.node.excerpt}</p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
           ))}
         </div>
