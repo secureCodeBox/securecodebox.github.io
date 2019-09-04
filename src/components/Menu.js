@@ -1,22 +1,24 @@
 import React from 'react';
 import { graphql, StaticQuery, Link } from 'gatsby';
-import { node } from 'prop-types';
 
-const Menu = (props) => {
+import socialChannels from '../data/social.json';
+
+const Menu = props => {
   const { menuLinks } = props.data.site.siteMetadata;
-  const json = props.data.allFeaturesJson.edges;
   return (
     <div id="main-menu" className="main-menu">
       <ul>
         {menuLinks.map(link => (
           <li key={link.name}>
             {/* <Link to={link.link}>{link.name}</Link> */}
-           <a href={link.link}>{link.name}</a>
+            <a href={link.link}>{link.name}</a>
           </li>
         ))}
-        {json.map(edge =>(
-          <li key={edge.node.title}>
-            <a href={edge.node.link} target="_blank"><img src={edge.node.image} /></a>
+        {socialChannels.map(socialChannel => (
+          <li key={socialChannel.title}>
+            <a href={socialChannel.link} target="_blank">
+              <img src={socialChannel.image} />
+            </a>
           </li>
         ))}
       </ul>
@@ -33,17 +35,6 @@ export default props => (
             menuLinks {
               name
               link
-            }
-          }
-        }
-        allFeaturesJson (filter: {tag: {eq: "social"}}){
-          edges {
-            node {
-              id
-              title
-              link
-              image
-              tag
             }
           }
         }

@@ -1,13 +1,14 @@
 import React from 'react';
-import { graphql, withPrefix } from 'gatsby';
+import { withPrefix } from 'gatsby';
 import Helmet from 'react-helmet';
 import SEO from '../components/SEO';
 import Layout from '../components/Layout';
 import approved from '../images/approved.svg';
 import notApproved from '../images/not approved.svg';
 
-const Home = props => {
-  const json = props.data.allFeaturesJson.edges;
+import features from '../data/features.json';
+
+const Home = () => {
   return (
     <Layout bodyClass="page-home">
       <SEO title="Home" />
@@ -37,15 +38,15 @@ const Home = props => {
               What the secureCodeBox provides:
             </h2>
           </div>
-          {json.map(edge => (
-            <div key={edge.node.id} className="col-12 col-md-3 col-lg-3 mb-2">
+          {features.map(feature => (
+            <div key={feature.id} className="col-12 col-md-3 col-lg-3 mb-2">
               <div className="feature hoverable">
-                {edge.node.image && (
+                {feature.image && (
                   <div className="feature-image">
-                    <img src={withPrefix(edge.node.image)} />
+                    <img src={withPrefix(feature.image)} />
                   </div>
                 )}
-                <h2 className="feature-title">{edge.node.title}</h2>
+                <h2 className="feature-title">{feature.title}</h2>
                 {/* TODO add link to corresponding pages */}
               </div>
             </div>
@@ -93,20 +94,5 @@ const Home = props => {
     </Layout>
   );
 };
-
-export const query = graphql`
-  query {
-    allFeaturesJson(filter: { tag: { eq: "provision" } }) {
-      edges {
-        node {
-          id
-          title
-          image
-          tag
-        }
-      }
-    }
-  }
-`;
 
 export default Home;
