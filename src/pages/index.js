@@ -66,7 +66,6 @@ const Home = () => {
           </div>
         </div>
         <div className="feature">
-          <h2 className="feature-title"></h2>
           <div className="feature-list">
             <ul className="pro">
               <li>
