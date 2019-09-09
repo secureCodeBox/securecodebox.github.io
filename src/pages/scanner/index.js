@@ -1,6 +1,5 @@
 import React from "react";
-import { graphql } from "gatsby";
-import { Link } from "gatsby";
+import { graphql, withPrefix, Link } from "gatsby";
 import SEO from "../../components/SEO";
 import Layout from "../../components/Layout";
 
@@ -26,7 +25,6 @@ const Scanner = props => {
           </div>
         </div>
       </div>
-
       <div className="container  pb-2  pb-md-3">
         <div className="row justify-content-center">
           {scanner.map(edge => (
@@ -37,10 +35,19 @@ const Scanner = props => {
               <Link to={edge.node.frontmatter.path}>
                 <div className="feature hoverable">
                   <div className="feature-scanner-icon">
-                    <img className="scanner-icon" src=""></img>
+                    <img
+                      className="scanner-icon"
+                      src={withPrefix(
+                        "/scannerIcons/" +
+                          edge.node.frontmatter.title +
+                          ".svg"
+                      )}
+                      alt="scanner icon"
+                    ></img>
                     <img
                       className="release"
                       src={edge.node.frontmatter.release}
+                      alt="release version"
                     ></img>
                   </div>
                   <h2 className="feature-title">

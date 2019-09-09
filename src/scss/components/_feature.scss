@@ -5,6 +5,7 @@
   background-color: #ffffff;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   flex-wrap: wrap;
   @include media-breakpoint-down(md) {
@@ -17,6 +18,7 @@
     height: 80px;
     display: flex;
     text-align: center;
+    margin-bottom: 10px;
   }
   img {
     width: 100%;
@@ -27,7 +29,6 @@
     font-size: 1.4rem;
     font-weight: 300;
     line-height: 1.2;
-    margin-top: 10px;
   }
   .feature-content {
     margin-bottom: 0;
@@ -52,11 +53,12 @@
     align-self: flex-start;
     justify-self: stretch;
     justify-content: center;
-    align-content: center;
-    height: 100%;
+    align-items: center;
+    height: 80%;
     img.scanner-icon {
-      width: 80px;
+      width: 40px;
       height: auto;
+      margin-bottom: 10px;
     }
     img.release {
       width: 80px;
@@ -69,8 +71,8 @@
     align-self: flex-end;
     justify-self: stretch;
     justify-content: center;
-    height: 100%;
-    width: 80px;
+    height: 80%; //Same as feature-scanner-icon
+    width: 80px; //Same as the widest of img.scanner-icon or img.release
   }
   .feature-list {
     ul.pro {
