@@ -1,17 +1,18 @@
-.page-scanners {
+.page-scanner {
+  background-image: url('../images/Network.png');
   background-repeat: no-repeat;
-  background-size: 115%;
-  background-position: 49px -40px;
+  background-size: 100%;
+  background-position: 49px -50px;
   @include media-breakpoint-up(sm) {
     background-size: 90%;
-    background-position: 159px -40px;
+    background-position: 620% 70px;
   }
   @include media-breakpoint-up(md) {
     background-size: 85%;
-    background-position: 199px -80px;
+    background-position: 360% 0px;
   }
   @include media-breakpoint-up(lg) {
     background-size: 60%;
-    background-position: 100% -110px;
+    background-position: 110% 0px;
   }
 }
