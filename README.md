@@ -1,8 +1,25 @@
 # LandingPage secureCodeBox
 
-This repository sources the [secureCodeBox landing page][prod-website].
+This repository sources the [securecodebox.io] Website. Our Webpage is meant to provide an extensive documentation about our [secureCodeBox] and many helpful guides on how to start and operate it. The Website is build with the [GatsbyJS] Framework and hosted through [GitHub Pages]. All important decision about this website are documented in our `/adr` folder. If you want to contribute to our Website, please follow the Style Guide down below.
 
 ## Build and Run
+
+In order to build and run this website you need to install [Node.js and NPM] for your platform.  
+If installed run 
+
+```
+npm install -g gatsby-cli 
+```
+
+to install the required Gatsby CLI.  
+Finally you download/clone this repository and install all required Node modules:
+
+```bash
+git clone https://github.com/secureCodeBox/securecodebox.github.io.git
+cd securecodebox.github.io
+npm install
+```
+Done! :) Now you can start developing and contributing.  
 
 For development: 
 ```bash
@@ -57,3 +74,10 @@ Icons should be license free and as close too the other icons' style as possible
 -   [iconmonstr](https://iconmonstr.com/) 
 -   [pixabay](https://pixabay.com/)
 
+
+
+[securecodebox.io]: https://securecodebox.github.io
+[secureCodeBox]: https://github.com/secureCodeBox/secureCodeBox
+[GatsbyJS]: https://www.gatsbyjs.org/
+[GitHub Pages]: https://pages.github.com/
+[Node.js and NPM]: https://nodejs.org/en/download/

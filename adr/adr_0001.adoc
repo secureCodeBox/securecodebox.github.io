@@ -39,7 +39,7 @@ https://jekyllrb.com/[Jekyll]
 === Research
 
 These frameworks do all fulfill the requirements to the extent that I estimate them as wellsuited. First, I researched the listed features on the respective sites or quickly googled after it
-specifically and found instantly the requested feature. I followed up with in general overview
+specifically and found instantly the requested feature. I followed up with a general overview
 of how old the frameworks, how popular they are and for example pages build with them.
 Afterwards I searched for comparison blogs and posts, mostly to examine their comments.
 Most of these „pro-cons “-posts are inaccurate and very superficial, but luckily because of that
@@ -69,7 +69,7 @@ other framework we considered mainly) is based on Golang, and as for my part as 
 feel completely comfortable and prefer working with JSX. Overall it comes down to preferences mostly, since we’re not going to build a giant Website, nor are we planning on implementing “crazy” Features. 
 
 == Consequences
-a
+
 For the integration of our multi-repository documentation we’ll use
 Antora if working this out with Gatsby is going to be more difficult than integrating Antora.
 We’re aware that using Gatsby requires a bit more maintenance and has the drawback, that if
