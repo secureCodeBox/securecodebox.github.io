@@ -6,6 +6,10 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  flex-wrap: wrap;
+  @include media-breakpoint-down(md) {
+    flex-wrap: nowrap;
+  }
   text-align: center;
   .feature-image {
     flex: 0 0 auto;
@@ -41,6 +45,32 @@
         font-style: normal;
       }
     }
+  }
+  .feature-scanner-icon {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    justify-self: stretch;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+    img.scanner-icon {
+      width: 80px;
+      height: auto;
+    }
+    img.release {
+      width: 80px;
+      height: auto;
+    }
+  }
+  .feature-scanner-icon-right-gap {
+    // If you want to use the scanner icon and still keep the other elements in the 
+    // feature element aligned in the center, use this element as well
+    align-self: flex-end;
+    justify-self: stretch;
+    justify-content: center;
+    height: 100%;
+    width: 80px;
   }
   .feature-list {
     ul.pro {

@@ -1,11 +1,12 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import { Link } from 'gatsby';
-import SEO from '../../components/SEO';
-import Layout from '../../components/Layout';
+import React from "react";
+import { graphql } from "gatsby";
+import { Link } from "gatsby";
+import SEO from "../../components/SEO";
+import Layout from "../../components/Layout";
 
 const Scanner = props => {
   const scanner = props.data.allMarkdownRemark.edges;
+
   return (
     <Layout bodyClass="page-scanner">
       <SEO title="Scanner" />
@@ -35,12 +36,20 @@ const Scanner = props => {
             >
               <Link to={edge.node.frontmatter.path}>
                 <div className="feature hoverable">
+                  <div className="feature-scanner-icon">
+                    <img className="scanner-icon" src=""></img>
+                    <img
+                      className="release"
+                      src={edge.node.frontmatter.release}
+                    ></img>
+                  </div>
                   <h2 className="feature-title">
                     {edge.node.frontmatter.title}
                   </h2>
                   <div className="feature-content">
                     <p>{edge.node.frontmatter.usecase}</p>
                   </div>
+                  <div className="feature-scanner-icon-right-gap"></div>
                 </div>
               </Link>
             </div>
@@ -65,6 +74,7 @@ export const query = graphql`
             path
             category
             usecase
+            release
           }
         }
       }
