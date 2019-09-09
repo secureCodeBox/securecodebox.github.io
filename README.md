@@ -1,6 +1,6 @@
 # LandingPage secureCodeBox
 
-This repository sources the [securecodebox.io] Website. Our Webpage is meant to provide an extensive documentation about our [secureCodeBox] and many helpful guides on how to start and operate it. The Website is build with the [GatsbyJS] Framework and hosted through [GitHub Pages]. All important decision about this website are documented in our `/adr` folder. If you want to contribute to our Website, please follow the Style Guide down below.
+This repository sources the [securecodebox.io] website. Our webpage is meant to provide an extensive documentation about our [secureCodeBox] and many helpful guides on how to start and operate it. The website is build with the [GatsbyJS] Framework and hosted through [GitHub Pages]. All important decision about this website are documented in our `/adr` folder. If you want to contribute to our website, please follow the Style Guide down below.
 
 ## Build and Run
 
@@ -69,7 +69,7 @@ Used Fonts:
 
 ### Icons & Images 
 
-Icons should be license free and as close too the other icons' style as possible. They should be outlined and monochrome. Color should only be used to fill, never as line color, and only if color does provide a more pleasing look than monochrome. Images should be fitting and mainly used as background (partially). They should fit the color scheme if possible or do __not__ stand out through a high contrast to the website. Recommended Websites for free icons or images: 
+Icons should be license free and as close to the other icons' style as possible. They should be outlined and monochrome. Color should only be used to fill, never as line color, and only if color does provide a more pleasing look than monochrome. Images should be fitting and mainly used as background (partially). They should fit the color scheme if possible or do __not__ stand out through a high contrast to the website. Recommended websites for free icons or images: 
 
 -   [iconmonstr](https://iconmonstr.com/) 
 -   [pixabay](https://pixabay.com/)
