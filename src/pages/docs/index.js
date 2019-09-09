@@ -12,58 +12,22 @@ const Docs = (props) => {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <h1>Meet The Team</h1>
-              <p>
-                Our team of qualified accountants and financial consultants can help your business
-                at any stage of it’s growth.
-              </p>
+              <h1>Documentation</h1>
+              <h2>For developers and users</h2>
+              <p>Documentation for developing purposes and advanced usage.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="container pb-6">
-        {/* <div className="row">
-          {teams.map(edge => (
-            <div key={edge.node.frontmatter.path} className="col-12 col-md-6 mb-1">
-              <div className="team card-two">
-                <div className="card-header">
-                  <div className="card-header-left">
-                    {edge.node.frontmatter.image && (
-                      <div className="card-image">
-                        <img
-                          alt={edge.node.frontmatter.title}
-                          className="img-fluid mb-2"
-                          src={edge.node.frontmatter.image}
-                        />
-                      </div>
-                    )}
-                  </div>
-                  <div className="card-right">
-                    <h2 className="card-title">{edge.node.frontmatter.title}</h2>
-                    <ul className="card-meta">
-                      <li>
-                        <strong>{edge.node.frontmatter.jobtitle}</strong>
-                      </li>
-                      <li>
-                        <a target="_blank" href={edge.node.frontmatter.linkedinurl}>
-                          {edge.node.frontmatter.linkedinurl}
-                        </a>
-                      </li>
-                      <li>
-                        <a href={edge.node.frontmatter.email}>{edge.node.frontmatter.email}</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div
-                  className="team-content"
-                  dangerouslySetInnerHTML={{ __html: edge.node.html }}
-                />
-              </div>
+      <div className="container  pb-2  pb-md-3">
+        <div className="row justify-content-center">
+          {docs.map(doc => (
+            <div className="feature">
+              <h1>{doc.node.frontmatter.title}</h1>
             </div>
           ))}
-        </div> */}
+        </div>
       </div>
     </Layout>
   );
