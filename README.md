@@ -5,13 +5,6 @@ This repository sources the [securecodebox.io] website. Our webpage is meant to 
 ## Build and Run
 
 In order to build and run this website you need to install [Node.js and NPM] for your platform.  
-If installed run 
-
-```
-npm install -g gatsby-cli 
-```
-
-to install the required Gatsby CLI.  
 Finally you download/clone this repository and install all required Node modules:
 
 ```bash
@@ -23,15 +16,14 @@ Done! :) Now you can start developing and contributing.
 
 For development: 
 ```bash
-gatsby develop
+npm run develop
 ```
 For production locally:
 ```bash
-gatsby build
-gatsby serve
+npm run build
+npm run serve
 ```
 And then visit [this](http://localhost:8000/) in your browser.
-
 
 ## Style Guide
 
@@ -74,7 +66,11 @@ Icons should be license free and as close to the other icons' style as possible.
 -   [iconmonstr](https://iconmonstr.com/) 
 -   [pixabay](https://pixabay.com/)
 
+## Production Deployment
 
+All changes pushed to the `gh-source` branch get automatically build by GitHub Actions. 
+The artifacts of the build, aka. the build site, gets forced pushed to the master branch.
+The master branch then gets automatically deployed as a GitHub Page.
 
 [securecodebox.io]: https://securecodebox.github.io
 [secureCodeBox]: https://github.com/secureCodeBox/secureCodeBox
