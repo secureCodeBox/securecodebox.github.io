@@ -30,12 +30,12 @@ const scannerRepos = [
     url: 'https://github.com/secureCodeBox/scanner-infrastructure-sslyze',
   },
   {
-    name: 'WPScan',
-    url: 'https://github.com/secureCodeBox/scanner-cms-wpscan',
-  },
-  {
     name: 'Zap',
     url: 'https://github.com/secureCodeBox/scanner-webapplication-zap',
+  },
+  {
+    name: 'WPScan',
+    url: 'https://github.com/secureCodeBox/scanner-cms-wpscan',
   },
 ];
 
