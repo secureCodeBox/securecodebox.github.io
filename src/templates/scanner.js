@@ -14,7 +14,10 @@ const Scanner = ({ data }) => {
           <ul class="list-unstyled components">
             {scanner.map(scanner => (
               <li>
-                <Link to={scanner.node.frontmatter.path}>
+                <Link
+                  to={scanner.node.frontmatter.path}
+                  activeClassName="active-Link"
+                >
                   {scanner.node.frontmatter.title}
                 </Link>
               </li>
