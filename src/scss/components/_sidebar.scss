@@ -42,7 +42,7 @@ a {
 	}
 }
 .sidebar-wrapper{
-    display: flex;
+    display: inline-flex;
 }
 .navbar {
 	padding: 15px 10px;
@@ -72,10 +72,16 @@ i {
 span {
 	display: inline-block;
 }
-#sidebar {
-	min-width: 250px;
+.sidebar {
+	min-width: 100px;
 	max-width: 250px;
-	background: #7386d5;
+    background: #7386d5;
+    height: 100vh;
+    align-self: flex-start;
+    position: sticky;
+    top: 50px;
+    z-index: 9;
+    overflow-y: auto;
 	color: $white;
 	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: all 0.3s;
@@ -140,7 +146,6 @@ span {
 		}
 		&.components {
 			padding: 20px 0;
-			border-bottom: 1px solid #47748b;
 		}
 	}
 	.sidebar-header {
