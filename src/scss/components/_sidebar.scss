@@ -28,18 +28,6 @@ a {
 	&:focus {
 		@extend %extend_1;
 	}
-	&.download {
-		background: $white;
-		color: #7386d5;
-	}
-	&.article {
-		background: #6d7fcc !important;
-		color: $white !important;
-		&:hover {
-			background: #6d7fcc !important;
-			color: $white !important;
-		}
-	}
 }
 .sidebar-wrapper{
     display: inline-flex;
@@ -132,8 +120,8 @@ span {
 				font-size: 1.1em;
 				display: block;
 				&:hover {
-					color: $secureCodeBlue;
-					background: $white;
+					color: $white;
+					background: $highlight;
 				}
 				i {
 					margin-right: 10px;
@@ -141,7 +129,7 @@ span {
 			}
 			&.active > a {
 				color: $white;
-				background: $secureCodeBlue;
+				background: $highlight;
 			}
 		}
 		&.components {
@@ -150,7 +138,7 @@ span {
 	}
 	.sidebar-header {
 		padding: 20px;
-		background: $secureCodeBlue;
+		background: $highlight;
 		strong {
 			display: none;
 			font-size: 1.8em;
@@ -159,7 +147,7 @@ span {
 }
 a[aria-expanded="true"] {
 	color: $white;
-	background: $secureCodeBlue;
+	background: $highlight;
 }
 a[data-toggle="collapse"] {
 	position: relative;
@@ -187,7 +175,7 @@ ul {
 	ul a {
 		font-size: 0.9em !important;
 		padding-left: 30px !important;
-		background: $secureCodeBlue;
+		background: $highlight;
 	}
 }
 #content {
