@@ -10,9 +10,12 @@
   align-items: center;
   box-shadow: 0 1px 15px rgba(50, 50, 93, 0.2);
   .container {
+    max-width: 4060px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: 20px;
+    margin-right: 20px;
   }
   .header-social {
     height: inherit;

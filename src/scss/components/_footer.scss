@@ -2,6 +2,12 @@
   background: $secureCodeBlue;
   padding-top: 20px;
   padding-bottom: 20px;
+  .container {
+    width: inherit;
+    max-width: 4060px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }
 .footer {
   display: flex;
