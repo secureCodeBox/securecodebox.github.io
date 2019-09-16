@@ -23,15 +23,13 @@ const Scanner = ({ data }) => {
         </nav>
 
         <div id="content">
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-              <h1 className="title">{title}</h1>
-              <div
-                className="content"
-                dangerouslySetInnerHTML={{ __html: html }}
-              />
-            </div>
-          </nav>
+          <div class="container-fluid">
+            <h1 className="title">{title}</h1>
+            <div
+              className="content"
+              dangerouslySetInnerHTML={{ __html: html }}
+            />
+          </div>
         </div>
       </div>
     </Layout>
