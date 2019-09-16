@@ -27,7 +27,7 @@ And then visit [this](http://localhost:8000/) in your browser.
 
 ## Style Guide
 
-The overall design-idea is a clean and professional look. And since securecodebox.io serves mostly an informational purpose, it should stay more simplistic than extraordinary, meaning include only information and elements which either are necessary or helpful and very few basic elements for a good look (e.g. fitting background picture). 
+The overall design-idea is a clean and professional look. And since securecodebox.io serves mostly an informational purpose, it should stay more simplistic than extraordinary, meaning include only information and elements which either are necessary or helpful and very few basic elements for a good look (e.g. fitting background picture). The development started off from this template theme: [gatsbyserif](https://gatsby-serif.netlify.com/).
 
 ### Colors
 
