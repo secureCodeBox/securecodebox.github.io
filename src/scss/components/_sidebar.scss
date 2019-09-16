@@ -75,7 +75,7 @@ span {
 .sidebar {
 	min-width: 100px;
 	max-width: 250px;
-    background: #7386d5;
+    background: $secureCodeBlue;
     height: 100vh;
     align-self: flex-start;
     position: sticky;
@@ -132,7 +132,7 @@ span {
 				font-size: 1.1em;
 				display: block;
 				&:hover {
-					color: #7386d5;
+					color: $secureCodeBlue;
 					background: $white;
 				}
 				i {
@@ -141,7 +141,7 @@ span {
 			}
 			&.active > a {
 				color: $white;
-				background: #6d7fcc;
+				background: $secureCodeBlue;
 			}
 		}
 		&.components {
@@ -150,7 +150,7 @@ span {
 	}
 	.sidebar-header {
 		padding: 20px;
-		background: #6d7fcc;
+		background: $secureCodeBlue;
 		strong {
 			display: none;
 			font-size: 1.8em;
@@ -159,7 +159,7 @@ span {
 }
 a[aria-expanded="true"] {
 	color: $white;
-	background: #6d7fcc;
+	background: $secureCodeBlue;
 }
 a[data-toggle="collapse"] {
 	position: relative;
@@ -187,7 +187,7 @@ ul {
 	ul a {
 		font-size: 0.9em !important;
 		padding-left: 30px !important;
-		background: #6d7fcc;
+		background: $secureCodeBlue;
 	}
 }
 #content {
