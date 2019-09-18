@@ -1,23 +1,42 @@
 .scanner {
   display: flex;
   #content {
-    width: 80vw;
+    width: 90vw;
+    #scanner-doc{
+      width: 55vw;
+    }
     h1 {
+      font-family: $font-family-heading;
+      font-size: 2.2rem;
+      font-weight: bold;
       color: $black;
+      margin-top: 5px;
+      margin-bottom: 10px;
     }
     h2 {
+      font-family: $font-family-heading;
+      font-size: 1.6rem;
       color: $black;
+      margin-bottom: 10px;
     }
     h3 {
+      font-family: $font-family-heading;
+      font-size: 1.1rem;
       color: $black;
+      margin-bottom: 5px;
     }
     p {
+      font-family: $font-family-base;
       color: $secondary;
+      margin-bottom: 15px;
+    }
+    pre {
+      color: $secondary;
+      margin-bottom: 15px;
     }
     img {
-     max-height: 10vw;
-     max-width: 80vw;
-      
+      max-height: 10vw;
+      max-width: 80vw;
     }
     a {
       img {

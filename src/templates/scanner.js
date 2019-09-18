@@ -26,7 +26,7 @@ const Scanner = ({ data }) => {
         </nav>
 
         <div id="content">
-          <div class="container-fluid">
+          <div class="container-fluid" id="scanner-doc">
             <h1 className="title">{title}</h1>
             <div
               className="content"
