@@ -4,6 +4,9 @@
     width: 90vw;
     #scanner-doc{
       width: 55vw;
+      @include media-breakpoint-down(sm) {
+        width: 90vw;
+      }
     }
     h1 {
       font-family: $font-family-heading;
