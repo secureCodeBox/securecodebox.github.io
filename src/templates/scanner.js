@@ -8,7 +8,7 @@ const Scanner = ({ data }) => {
   const scanner = data.allMarkdownRemark.edges;
 
   return (
-    <Layout bodyClass="page-scanners">
+    <Layout bodyClass="scanner">
       <div className="sidebar-wrapper">
         <nav className="sidebar">
           <ul class="list-unstyled components">
