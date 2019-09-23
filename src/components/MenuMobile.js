@@ -1,21 +1,27 @@
-import React from 'react';
-import { graphql, StaticQuery, Link } from 'gatsby';
+import React from "react";
+import { graphql, StaticQuery, Link } from "gatsby";
+import { slide as Menu } from "react-burger-menu";
+import hamburgerIcon from "../images/hamburger-white.svg";
 
 const MenuMobile = props => {
   const { menuLinks } = props.data.site.siteMetadata;
   return (
-    <div
-      id="main-menu-mobile"
-      className={`main-menu-mobile ${props.active ? 'open' : ''}`}
+    <Menu
+      right
+      id="slide"
+      width={"100vw"}
+      className={`main-menu-mobile ${props.active ? "open" : ""}`}
+      customBurgerIcon={<img src={hamburgerIcon} alt="menu"/>}
+      styles={{
+        bmBurgerBars: {
+          height: "3px"
+        }
+      }}
     >
-      <ul>
-        {menuLinks.map(link => (
-          <li key={link.name}>
-            <Link to={link.link}>{link.name}</Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+      {menuLinks.map(link => (
+        <Link to={link.link}>{link.name}</Link>
+      ))}
+    </Menu>
   );
 };
 
@@ -33,6 +39,6 @@ export default props => (
         }
       }
     `}
-    render={data => <MenuMobile active={props.active} data={data} />}
+    render={data => <MenuMobile data={data} />}
   />
 );
