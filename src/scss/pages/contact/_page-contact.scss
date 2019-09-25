@@ -1,4 +1,5 @@
 .page-contact {
+  background: #fafafa;
   background-repeat: no-repeat;
   background-size: 115%;
   background-position: 49px -40px;
@@ -14,7 +15,20 @@
     background-size: 55%;
     background-position: 100% 70px;
   }
-  .form-group {
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    .form-group {
       color: $secondary;
+      width: 500px;
+      label {
+        margin-right: 20px;
+        float: left;
+        margin-left: 2px;
+      }
+    }
   }
 }

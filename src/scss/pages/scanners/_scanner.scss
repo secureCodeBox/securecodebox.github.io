@@ -1,8 +1,9 @@
 .scanner {
+  background: #fafafa;
   display: flex;
   #content {
     width: 90vw;
-    #scanner-doc{
+    #scanner-doc {
       width: 55vw;
       @include media-breakpoint-down(sm) {
         width: 90vw;

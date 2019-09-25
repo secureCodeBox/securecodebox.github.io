@@ -77,84 +77,78 @@ class ContactPage extends React.Component {
             </address>
           </div> */}
 
-          <div class="row">
+          <div class="form-row">
             <div class="col-lg-12 text-center">
-              <div id="mc_embed_signup">
-                <form onSubmit={this._handleSubmit}>
-                  <div class="form-group">
-                    <label for="mce-EMAIL">
-                      Email address<span class="asterisk">*</span>
-                    </label>
-                    <div class="col-lg-8">
-                      <input
-                        type="email"
-                        onChange={this._handleChange}
-                        placeholder="email"
-                        name="email"
-                        id="mce-EMAIL"
-                      />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="mce-FNAME">
-                      First name<span class="asterisk">*</span>
-                    </label>
-                    <div class="col-lg-8">
-                      <input
-                        type="text"
-                        onChange={this._handleChange}
-                        placeholder="first name"
-                        name="fname"
-                        id="mce-FNAME"
-                      />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="mce-LNAME">
-                      Surname<span class="asterisk">*</span>
-                    </label>
-                    <div class="col-lg-8">
-                      <input
-                        type="text"
-                        onChange={this._handleChange}
-                        placeholder="surname"
-                        name="lname"
-                        id="mce-LNAME"
-                      />
-                    </div>
-                  </div>
+              <form onSubmit={this._handleSubmit}>
+                <div class="form-group">
+                  <label for="mce-EMAIL" className="col-form-label">
+                    Email address<span class="asterisk">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    onChange={this._handleChange}
+                    placeholder="email"
+                    name="email"
+                    className="form-control"
+                    id="mce-EMAIL"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="mce-FNAME" className="col-form-label">
+                    First name<span class="asterisk">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    onChange={this._handleChange}
+                    placeholder="first name"
+                    name="fname"
+                    className="form-control"
+                    id="mce-FNAME"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="mce-LNAME" className="col-form-label">
+                    Surname<span class="asterisk">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    onChange={this._handleChange}
+                    placeholder="surname"
+                    name="lname"
+                    className="form-control"
+                    id="mce-LNAME"
+                  />
+                </div>
 
-                  <div class="form-group">
-                    <label for="mce-MESSAGE">
-                      Interessted in &hellip;
-                    </label>
-                    <div class="col-lg-8">
-                      <input
-                        type="text"
-                        onChange={this._handleChange}
-                        placeholder="Write your message!"
-                        name="message"
-                        id="mce-MESSAGE"
-                      />
-                    </div>
-                  </div>
-                  <div id="mce-responses" class="clear">
-                    <div class="response" id="mce-error-response"></div>
-                    <div class="response" id="mce-success-response"></div>
-                  </div>
-                  <p class="m-t-sm">* required fields</p>
+                <div class="form-group">
+                  <label for="mce-MESSAGE" className="col-form-label">
+                    Interessted in &hellip;
+                  </label>
+                  <input
+                    type="text"
+                    onChange={this._handleChange}
+                    placeholder="Write your message!"
+                    name="message"
+                    className="form-control"
+                    id="mce-MESSAGE"
+                  />
+                </div>
+                <div id="mce-responses" class="clear">
+                  <div class="response" id="mce-error-response"></div>
+                  <div class="response" id="mce-success-response"></div>
+                </div>
+                <p class="m-t-sm">* required fields</p>
 
-                  <div class="clear">
-                    <input
-                      type="submit"
-                      value="Subscribe"
-                      name="subscribe"
-                      id="mc-embedded-subscribe"
-                      class="button-submit"
-                    />
-                  </div>
-                </form>
-              </div>
+                <div class="clear">
+                  <input
+                    type="submit"
+                    value="Subscribe"
+                    name="subscribe"
+                    id="mc-embedded-subscribe"
+                    class="button-submit"
+                  />
+                </div>
+              </form>
             </div>
           </div>
         </div>
