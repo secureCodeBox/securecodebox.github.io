@@ -40,31 +40,12 @@ class ContactPage extends React.Component {
 
   render() {
     return (
-      <Layout bodyclass="page-contact">
+      <Layout bodyClass="page-contact">
         <SEO title="Contact" />
-        <div clas="container">
-          <div class="row m-b-lg">
-            <div class="col-lg-12 text-center">
-              <div class="navy-line"></div>
+        <div class="container">
+          <div className="intro pb-4">
+            <div class="container">
               <h1>Contact us now!</h1>
-              <p></p>
-            </div>
-          </div>
-          <div class="row m-b-lg">
-            <div class="col-lg-3 col-lg-offset-3">
-              <address>
-                <strong>
-                  <span class="navy">iteratec GmbH</span>
-                </strong>
-                <br />
-                St.-Martin-Straße 114
-                <br />
-                81669 München
-                <br />
-                Telefon: +49 89 614551-0
-              </address>
-            </div>
-            <div class="col-lg-4">
               <p class="text-color">
                 You're interested about{" "}
                 <a href="https://github.com/secureCodeBox">secureCodeBox</a> or
@@ -82,12 +63,26 @@ class ContactPage extends React.Component {
             </div>
           </div>
 
+          {/* <div class="col-lg-3 col-lg-offset-3">
+            <address>
+              <strong>
+                <span class="navy">iteratec GmbH</span>
+              </strong>
+              <br />
+              St.-Martin-Straße 114
+              <br />
+              81669 München
+              <br />
+              Telefon: +49 89 614551-0
+            </address>
+          </div> */}
+
           <div class="row">
             <div class="col-lg-12 text-center">
               <div id="mc_embed_signup">
                 <form onSubmit={this._handleSubmit}>
                   <div class="form-group">
-                    <label for="mce-EMAIL" class="col-lg-4 control-label">
+                    <label for="mce-EMAIL">
                       Email address<span class="asterisk">*</span>
                     </label>
                     <div class="col-lg-8">
@@ -101,7 +96,7 @@ class ContactPage extends React.Component {
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="mce-FNAME" class="col-lg-4 control-label">
+                    <label for="mce-FNAME">
                       First name<span class="asterisk">*</span>
                     </label>
                     <div class="col-lg-8">
@@ -115,7 +110,7 @@ class ContactPage extends React.Component {
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="mce-LNAME" class="col-lg-4 control-label">
+                    <label for="mce-LNAME">
                       Surname<span class="asterisk">*</span>
                     </label>
                     <div class="col-lg-8">
@@ -130,7 +125,7 @@ class ContactPage extends React.Component {
                   </div>
 
                   <div class="form-group">
-                    <label for="mce-MESSAGE" class="col-lg-4 control-label">
+                    <label for="mce-MESSAGE">
                       Interessted in &hellip;
                     </label>
                     <div class="col-lg-8">
@@ -155,7 +150,7 @@ class ContactPage extends React.Component {
                       value="Subscribe"
                       name="subscribe"
                       id="mc-embedded-subscribe"
-                      class="btn btn-primary"
+                      class="button-submit"
                     />
                   </div>
                 </form>

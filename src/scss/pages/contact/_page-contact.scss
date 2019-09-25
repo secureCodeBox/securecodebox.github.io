@@ -1,0 +1,20 @@
+.page-contact {
+  background-repeat: no-repeat;
+  background-size: 115%;
+  background-position: 49px -40px;
+  @include media-breakpoint-up(sm) {
+    background-size: 50%;
+    background-position: 300px 50px;
+  }
+  @include media-breakpoint-up(md) {
+    background-size: 70%;
+    background-position: 100% -100px;
+  }
+  @include media-breakpoint-up(lg) {
+    background-size: 55%;
+    background-position: 100% 70px;
+  }
+  .form-group {
+      color: $secondary;
+  }
+}
