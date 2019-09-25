@@ -64,9 +64,9 @@ module.exports = {
         link: "https://github.com/secureCodeBox/secureCodeBox/tree/master/docs"
       },
       {
-        name: "Scanner",
+        name: "Integrations",
         external: false,
-        link: "/scanner"
+        link: "/integrations"
       }
     ]
   },

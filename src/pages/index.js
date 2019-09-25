@@ -50,7 +50,6 @@ const Home = () => {
                   </div>
                 )}
                 <h2 className="feature-title">{feature.title}</h2>
-                {/* TODO add link to corresponding pages */}
               </div>
             </div>
           ))}

@@ -3,17 +3,17 @@ import { graphql, withPrefix, Link } from "gatsby";
 import SEO from "../../components/SEO";
 import Layout from "../../components/Layout";
 
-const Scanner = props => {
+const Integrations = props => {
   const scanner = props.data.allMarkdownRemark.edges;
 
   return (
-    <Layout bodyClass="page-scanner">
+    <Layout bodyClass="page-integrations">
       <SEO title="Scanner" />
       <div className="intro">
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <h1>Scanner</h1>
+              <h1>Integrations</h1>
               <h2>Out of the Box</h2>
               <p>
                 Each Scanner is an individual tool. We took no part in building
@@ -27,6 +27,11 @@ const Scanner = props => {
       </div>
       <div className="container  pb-2  pb-md-3">
         <div className="row justify-content-center">
+          <div className="col-12">
+            <h2 className="title-3 text-dark mb-2">
+              Scanner
+            </h2>
+          </div>
           {scanner.map(edge => (
             <div
               key={edge.node.id}
@@ -38,9 +43,7 @@ const Scanner = props => {
                     <img
                       className="scanner-icon"
                       src={withPrefix(
-                        "/scannerIcons/" +
-                          edge.node.frontmatter.title +
-                          ".svg"
+                        "/scannerIcons/" + edge.node.frontmatter.title + ".svg"
                       )}
                       alt="scanner icon"
                     ></img>
@@ -89,4 +92,4 @@ export const query = graphql`
   }
 `;
 
-export default Scanner;
+export default Integrations;

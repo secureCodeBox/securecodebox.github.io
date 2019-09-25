@@ -75,7 +75,7 @@ exports.createPages = ({ graphql, actions }) => {
           });
         });
         result.data.scanner.edges.forEach(({ node }) => {
-          const component = path.resolve("src/templates/scanner.js");
+          const component = path.resolve("src/templates/integration.js");
           createPage({
             path: node.frontmatter.path,
             component,

@@ -2,13 +2,13 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 
-const Scanner = ({ data }) => {
+const Integration = ({ data }) => {
   const { title } = data.markdownRemark.frontmatter;
   const { html } = data.markdownRemark;
   const scanner = data.allMarkdownRemark.edges;
 
   return (
-    <Layout bodyClass="scanner">
+    <Layout bodyClass="integration">
       <div className="sidebar-wrapper">
         <nav className="sidebar">
           <ul class="list-unstyled components">
@@ -26,7 +26,7 @@ const Scanner = ({ data }) => {
         </nav>
 
         <div id="content">
-          <div class="container-fluid" id="scanner-doc">
+          <div class="container-fluid" id="integration-doc">
             <h1 className="title">{title}</h1>
             <div
               className="content"
@@ -67,4 +67,4 @@ export const query = graphql`
   }
 `;
 
-export default Scanner;
+export default Integration;
