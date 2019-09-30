@@ -5,8 +5,6 @@ category: "presistence provider"
 
 ---
 
-# Defect Dojo
-
 ## About
 
 DefectDojo is a OpenSource Tools for importing and managing findings of security scanners. The DefectDojo Persistence Provider can be used to create new Engagment for SecurityTest run via the secureCodeBox and import all findings which were identified.

@@ -122,7 +122,7 @@ class ContactPage extends React.Component {
 
                 <div class="form-group">
                   <label for="mce-MESSAGE" className="col-form-label">
-                    Interessted in &hellip;
+                    Interested in &hellip;
                   </label>
                   <input
                     type="text"

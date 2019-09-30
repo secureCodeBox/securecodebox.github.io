@@ -38,7 +38,7 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
           scanner: allMarkdownRemark(
-            filter: {fileAbsolutePath: { regex: "/gatsby-source-git/"} }
+            filter: { fileAbsolutePath: { regex: "/gatsby-source-git/" } }
           ) {
             edges {
               node {
@@ -49,6 +49,20 @@ exports.createPages = ({ graphql, actions }) => {
                 }
                 id
                 excerpt
+              }
+            }
+          }
+          persistenceProvider: allMarkdownRemark(
+            filter: { fileAbsolutePath: { regex: "/integrations/persistence-provider/" } }
+          ) {
+            edges {
+              node {
+                frontmatter {
+                  title
+                  path
+                  category
+                }
+                id
               }
             }
           }
@@ -75,6 +89,16 @@ exports.createPages = ({ graphql, actions }) => {
           });
         });
         result.data.scanner.edges.forEach(({ node }) => {
+          const component = path.resolve("src/templates/integration.js");
+          createPage({
+            path: node.frontmatter.path,
+            component,
+            context: {
+              id: node.id
+            }
+          });
+        });
+        result.data.persistenceProvider.edges.forEach(({ node }) => {
           const component = path.resolve("src/templates/integration.js");
           createPage({
             path: node.frontmatter.path,

@@ -4,8 +4,6 @@ path: "persistence-provider/elasticsearch"
 category: "persistence provider"
 ---
 
-# Elasticsearch
-
 ## About
 
 The ElasticSearch PersistenceProvider saves all findings and reports into the configured ElasticSearch index. This allows for some easy searching and visualisation of the findings. To learn more about Elasticsearch visit [elastic.io].

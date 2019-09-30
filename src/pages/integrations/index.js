@@ -4,7 +4,8 @@ import SEO from "../../components/SEO";
 import Layout from "../../components/Layout";
 
 const Integrations = props => {
-  const scanner = props.data.allMarkdownRemark.edges;
+  const scanner = props.data.scanner.edges;
+  const persistenceProvider = props.data.persistenceProvider.edges;
 
   return (
     <Layout bodyClass="page-integrations">
@@ -28,9 +29,7 @@ const Integrations = props => {
       <div className="container  pb-2  pb-md-3">
         <div className="row justify-content-center">
           <div className="col-12">
-            <h2 className="title-3 text-dark mb-2">
-              Scanner
-            </h2>
+            <h2 className="title-3 text-dark mb-2">Scanner</h2>
           </div>
           {scanner.map(edge => (
             <div
@@ -66,13 +65,48 @@ const Integrations = props => {
           ))}
         </div>
       </div>
+      <div className="container  pb-2  pb-md-3">
+        <div className="row justify-content-center">
+          <div className="col-12">
+            <h2 className="title-3 text-dark mb-2">Persistence provider</h2>
+          </div>
+          {persistenceProvider.map(edge => (
+            <div
+              key={edge.node.id}
+              className="col-12 col-md-6 col-lg-6 col-sm-12 mb-2 no-highlight"
+            >
+              <Link to={edge.node.frontmatter.path}>
+                <div className="feature hoverable">
+                  <div className="feature-scanner-icon">
+                    {/* <img
+                      className="scanner-icon"
+                      src={withPrefix(
+                        "/scannerIcons/" + edge.node.frontmatter.title + ".svg"
+                      )}
+                      alt="scanner icon"
+                    ></img> */}
+                    
+                  </div>
+                  <h2 className="feature-title">
+                    {edge.node.frontmatter.title}
+                  </h2>
+                  <div className="feature-content">
+                    <p>{edge.node.frontmatter.usecase}</p>
+                  </div>
+                  <div className="feature-scanner-icon-right-gap"></div>
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
+      </div>
     </Layout>
   );
 };
 
 export const query = graphql`
-  query ScannerQuery {
-    allMarkdownRemark(
+  query {
+    scanner: allMarkdownRemark(
       filter: { frontmatter: { category: { eq: "scanner" } } }
       sort: { fields: [frontmatter___title], order: ASC }
     ) {
@@ -86,6 +120,23 @@ export const query = graphql`
             usecase
             release
           }
+        }
+      }
+    }
+    persistenceProvider: allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: { regex: "/integrations/persistence-provider/" }
+      }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            path
+            category
+          }
+          id
+          html
         }
       }
     }
