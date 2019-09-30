@@ -42,7 +42,7 @@ const Integrations = props => {
                     <img
                       className="scanner-icon"
                       src={withPrefix(
-                        "/scannerIcons/" + edge.node.frontmatter.title + ".svg"
+                        "/integrationIcons/" + edge.node.frontmatter.title + ".svg"
                       )}
                       alt="scanner icon"
                     ></img>
@@ -78,14 +78,13 @@ const Integrations = props => {
               <Link to={edge.node.frontmatter.path}>
                 <div className="feature hoverable">
                   <div className="feature-scanner-icon">
-                    {/* <img
+                    <img
                       className="scanner-icon"
                       src={withPrefix(
-                        "/scannerIcons/" + edge.node.frontmatter.title + ".svg"
+                        "/integrationIcons/" + edge.node.frontmatter.title + ".svg"
                       )}
-                      alt="scanner icon"
-                    ></img> */}
-                    
+                      alt="persistence provider icon"
+                    ></img>        
                   </div>
                   <h2 className="feature-title">
                     {edge.node.frontmatter.title}
