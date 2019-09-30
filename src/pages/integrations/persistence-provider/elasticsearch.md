@@ -6,15 +6,15 @@ category: "persistence provider"
 
 ## About
 
-The ElasticSearch PersistenceProvider saves all findings and reports into the configured ElasticSearch index. This allows for some easy searching and visualisation of the findings. To learn more about Elasticsearch visit [elastic.io].
+The ElasticSearch persistenceProvider saves all findings and reports into the configured ElasticSearch index. This allows for some easy searching and visualization of the findings. To learn more about Elasticsearch visit [elastic.io].
 
 ## Configuration
 
 ### Setting the Persistence Provider
 
-The engine supports multiple different persistence providers. Each of the prepackaged persistence providers can be toggle on by using environment variables.
+The engine supports multiple different persistence providers. Each of the prepackaged persistence providers can be toggled on by using environment variables.
 
-The currently availible persistence providers are:
+The currently available persistence providers are:
 
 | Name          | Environment Variable                              | Default Value |
 | ------------- | ------------------------------------------------- | ------------- |

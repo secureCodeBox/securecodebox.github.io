@@ -7,9 +7,9 @@ category: "presistence provider"
 
 ## About
 
-DefectDojo is a OpenSource Tools for importing and managing findings of security scanners. The DefectDojo Persistence Provider can be used to create new Engagment for SecurityTest run via the secureCodeBox and import all findings which were identified.
+DefectDojo is an OpenSource Tools for importing and managing findings of security scanner. The DefectDojo persistence provider can be used to create new Engagements for SecurityTests run via the secureCodeBox and import all findings which were identified.
 
-Tools which are supported by the secureCodeBox and DefectDojo (OWASP ZAP, Arachni & Nmap) this is done by importing the raw scan report into DefectDojo. Findings by other secureCodeBox supported scanners are currently not directly supported by DefectDojo. These findings are improted via a generic finding api of defectdojo, which might cause some loss of imformation about the findings.  
+Tools which are supported by the secureCodeBox and DefectDojo (OWASP ZAP, Arachni & Nmap) this is done by importing the raw scan report into DefectDojo. Findings by other secureCodeBox supported scanners are currently not directly supported by DefectDojo. These findings are imported via a generic finding api of defectDojo, which might cause some loss of information about the findings.  
 
 To learn more about DefectDojo visit [defectdojo.io].
 
@@ -17,9 +17,9 @@ To learn more about DefectDojo visit [defectdojo.io].
 
 ### Setting the Persistence Provider
 
-The engine supports multiple different persistence providers. Each of the prepackaged persistence providers can be toggle on by using environment variables.
+The engine supports multiple different persistence providers. Each of the prepackaged persistence providers can be toggled on by using environment variables.
 
-The currently availible persistence providers are:
+The currently available persistence providers are:
 
 | Name          | Environment Variable                              | Default Value |
 | ------------- | ------------------------------------------------- | ------------- |
