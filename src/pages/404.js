@@ -3,10 +3,19 @@ import Layout from '../components/Layout';
 
 class NotFoundPage extends React.Component {
   render() {
+
     return (
-      <Layout>
-        <h1>Not Found</h1>
-        <p>You just hit a page that doesn&#39;t exist...</p>
+      <Layout bodyClass="page-404">
+          <div className="circles">
+            <p>
+              404
+              <br />
+              <small>PAGE NOT FOUND</small>
+            </p>
+            <span className="circle big" />
+            <span className="circle med" />
+            <span className="circle small" />
+          </div>
       </Layout>
     );
   }
