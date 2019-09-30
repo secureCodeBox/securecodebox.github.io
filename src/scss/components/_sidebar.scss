@@ -64,7 +64,7 @@ span {
 	@include media-breakpoint-down(sm) {
 		display: none;
 	}
-	width: 10vw;
+	width: 150px;
     background: $secureCodeBlue;
     height: 100vh;
     align-self: flex-start;

@@ -70,10 +70,11 @@ $url_0: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAA
   display: flex;
   #content {
     width: 90vw;
+    overflow-x: scroll;
     #integration-doc {
-      width: 55vw;
+      width: 60%;
       @include media-breakpoint-down(sm) {
-        width: 90vw;
+        width: auto;
       }
     }
 
