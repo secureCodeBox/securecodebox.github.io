@@ -11,6 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - uses: enriikke/gatsby-gh-pages-action@v2
-        env:
+        with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           DEPLOY_BRANCH: 'master'
