@@ -2,15 +2,17 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 
-const Integration = ({ data }) => {
-  const { title } = data.markdownRemark.frontmatter;
-  const { html } = data.markdownRemark;
-  const scanner = data.allMarkdownRemark.edges;
+const Integration = props => {
+  const { title } = props.data.markdownRemark.frontmatter;
+  const { html } = props.data.markdownRemark;
+  const scanner = props.data.scanner.edges;
+  const persistenceProvider = props.data.persistenceProvider.edges;
 
   return (
     <Layout bodyClass="integration">
       <div className="sidebar-wrapper">
         <nav className="sidebar">
+          <h1 className="sidebar-header">Scanner</h1>
           <ul class="list-unstyled components">
             {scanner.map(scanner => (
               <li>
@@ -19,6 +21,19 @@ const Integration = ({ data }) => {
                   activeClassName="active-Link"
                 >
                   {scanner.node.frontmatter.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <h1 className="sidebar-header">Persistence provider</h1>
+          <ul class="list-unstyled components">
+            {persistenceProvider.map(persistenceProvider => (
+              <li>
+                <Link
+                  to={persistenceProvider.node.frontmatter.path}
+                  activeClassName="active-Link"
+                >
+                  {persistenceProvider.node.frontmatter.title}
                 </Link>
               </li>
             ))}
@@ -47,7 +62,7 @@ export const query = graphql`
       }
       html
     }
-    allMarkdownRemark(
+    scanner: allMarkdownRemark(
       filter: { frontmatter: { category: { eq: "scanner" } } }
       sort: { fields: [frontmatter___title], order: ASC }
     ) {
@@ -61,6 +76,23 @@ export const query = graphql`
             usecase
             release
           }
+        }
+      }
+    }
+    persistenceProvider: allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: { regex: "/integrations/persistence-provider/" }
+      }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            path
+            category
+          }
+          id
+          html
         }
       }
     }

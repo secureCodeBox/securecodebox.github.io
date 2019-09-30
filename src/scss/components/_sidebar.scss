@@ -64,7 +64,7 @@ span {
 	@include media-breakpoint-down(sm) {
 		display: none;
 	}
-	width: 8vw;
+	width: 10vw;
     background: $secureCodeBlue;
     height: 100vh;
     align-self: flex-start;
@@ -139,17 +139,13 @@ span {
 			}
 		}
 		&.components {
-			padding: 20px 0;
 		}
 	}
 	.sidebar-header {
 		padding: 20px;
         background: $highlight;
-        width: auto;
-		strong {
-			display: none;
-			font-size: 1.8em;
-		}
+		width: auto;
+		font-size: 1.3rem;
 	}
 }
 a[aria-expanded="true"] {
