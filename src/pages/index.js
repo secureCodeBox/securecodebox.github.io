@@ -84,7 +84,7 @@ const Home = () => {
             <ul className="con">
               <li>
                 <img src={notApproved} alt="unchecked icon" />
-                As the first security steps
+                For the first security steps
               </li>
               <li>
                 <img src={notApproved} alt="unchecked icon" />
