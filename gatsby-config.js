@@ -61,7 +61,7 @@ module.exports = {
         name: "Docs",
         external: true,
         // link: '/docs',
-        link: "https://github.com/secureCodeBox/secureCodeBox/tree/master/docs"
+        link: "https://github.com/secureCodeBox/secureCodeBox/tree/master/docs/index.md"
       },
       {
         name: "Integrations",
