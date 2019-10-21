@@ -157,7 +157,9 @@ class ContactPage extends React.Component {
                   )}
                   {this.state.submitted && (
                     <div class="alert alert-success" id="mce-success-response">
-                      {this.state.response}
+                      Nearly done. 
+                      We first have to confirm your mail address. 
+                      To complete the signup, click the link in the email we've just send you.
                     </div>
                   )}
                 </div>
