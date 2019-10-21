@@ -1,39 +1,39 @@
-import React from "react";
-import Layout from "../../components/Layout";
-import SEO from "../../components/SEO";
-import addToMailchimp from "gatsby-plugin-mailchimp";
+import React from 'react';
+import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
+import addToMailchimp from 'gatsby-plugin-mailchimp';
 
 class ContactPage extends React.Component {
   state = {
     name: null,
-    email: null
+    email: null,
   };
 
   _handleChange = e => {
     console.log({
-      [`${e.target.name}`]: e.target.value
+      [`${e.target.name}`]: e.target.value,
     });
     this.setState({
-      [`${e.target.name}`]: e.target.value
+      [`${e.target.name}`]: e.target.value,
     });
   };
 
   _handleSubmit = e => {
     e.preventDefault();
 
-    console.log("submit", this.state);
+    console.log('submit', this.state);
 
     addToMailchimp(this.state.email, this.state)
       .then(({ msg, result }) => {
-        console.log("msg", `${result}: ${msg}`);
+        console.log('msg', `${result}: ${msg}`);
 
-        if (result !== "success") {
+        if (result !== 'success') {
           throw msg;
         }
         alert(msg);
       })
       .catch(err => {
-        console.log("err", err);
+        console.log('err', err);
         alert(err);
       });
   };
@@ -47,17 +47,17 @@ class ContactPage extends React.Component {
             <div class="container">
               <h1>Contact us now!</h1>
               <p class="text-color">
-                You're interested about{" "}
+                You're interested about{' '}
                 <a href="https://github.com/secureCodeBox">secureCodeBox</a> or
-                security in generell? Subscribe our newsletter and get in touch
+                security in general? Subscribe our newsletter and get in touch
                 with us. We'll keep you up to date.
               </p>
               <p class="text-color">
-                You want hands on? Checkout our{" "}
+                You want hands on? Checkout our{' '}
                 <a href="https://github.com/secureCodeBox/secureCodeBox">
                   Git repository
-                </a>{" "}
-                and spin up your own <em>secureCodeBox</em> with{" "}
+                </a>{' '}
+                and spin up your own <em>secureCodeBox</em> with{' '}
                 <a href="https://docs.docker.com/compose/">Docker Compose</a>.
               </p>
             </div>
