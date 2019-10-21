@@ -5,16 +5,15 @@ import addToMailchimp from 'gatsby-plugin-mailchimp';
 
 class ContactPage extends React.Component {
   state = {
-    name: null,
+    fname: null,
+    lname: null,
+    message: null,
     email: null,
   };
 
   _handleChange = e => {
-    console.log({
-      [`${e.target.name}`]: e.target.value,
-    });
     this.setState({
-      [`${e.target.name}`]: e.target.value,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -22,8 +21,12 @@ class ContactPage extends React.Component {
     e.preventDefault();
 
     console.log('submit', this.state);
+    const { email, fname, lname, message } = this.state;
 
-    addToMailchimp(this.state.email, this.state)
+    addToMailchimp(email, {
+      name: `${fname} ${lname}`,
+      message: message,
+    })
       .then(({ msg, result }) => {
         console.log('msg', `${result}: ${msg}`);
 
