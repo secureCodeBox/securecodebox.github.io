@@ -9,6 +9,9 @@ class ContactPage extends React.Component {
     lname: null,
     message: null,
     email: null,
+    submitted: false,
+    errored: false,
+    response: null,
   };
 
   _handleChange = e => {
@@ -20,24 +23,31 @@ class ContactPage extends React.Component {
   _handleSubmit = e => {
     e.preventDefault();
 
-    console.log('submit', this.state);
     const { email, fname, lname, message } = this.state;
 
+    this.setState({
+      errored: false,
+      submitted: false,
+      response: null,
+    });
+
     addToMailchimp(email, {
-      name: `${fname} ${lname}`,
-      message: message,
+      FNAME: fname,
+      LNAME: lname,
+      MESSAGE: message,
     })
       .then(({ msg, result }) => {
-        console.log('msg', `${result}: ${msg}`);
-
         if (result !== 'success') {
           throw msg;
         }
-        alert(msg);
+        this.setState({ submitted: true, response: msg });
       })
       .catch(err => {
-        console.log('err', err);
-        alert(err);
+        console.error(err);
+        this.setState({
+          errored: true,
+          response: 'Failed to submit your mail address.',
+        });
       });
   };
 
@@ -84,7 +94,7 @@ class ContactPage extends React.Component {
             <div class="col-lg-12 text-center">
               <form onSubmit={this._handleSubmit}>
                 <div class="form-group">
-                  <label for="mce-EMAIL" className="col-form-label">
+                  <label for="email" className="col-form-label">
                     Email address<span class="asterisk">*</span>
                   </label>
                   <input
@@ -93,11 +103,12 @@ class ContactPage extends React.Component {
                     placeholder="email"
                     name="email"
                     className="form-control"
-                    id="mce-EMAIL"
+                    id="email"
+                    required
                   />
                 </div>
                 <div class="form-group">
-                  <label for="mce-FNAME" className="col-form-label">
+                  <label for="fname" className="col-form-label">
                     First name<span class="asterisk">*</span>
                   </label>
                   <input
@@ -106,11 +117,12 @@ class ContactPage extends React.Component {
                     placeholder="first name"
                     name="fname"
                     className="form-control"
-                    id="mce-FNAME"
+                    id="fname"
+                    required
                   />
                 </div>
                 <div class="form-group">
-                  <label for="mce-LNAME" className="col-form-label">
+                  <label for="lname" className="col-form-label">
                     Surname<span class="asterisk">*</span>
                   </label>
                   <input
@@ -119,12 +131,13 @@ class ContactPage extends React.Component {
                     placeholder="surname"
                     name="lname"
                     className="form-control"
-                    id="mce-LNAME"
+                    id="lname"
+                    required
                   />
                 </div>
 
                 <div class="form-group">
-                  <label for="mce-MESSAGE" className="col-form-label">
+                  <label for="message" className="col-form-label">
                     Interested in &hellip;
                   </label>
                   <input
@@ -133,12 +146,20 @@ class ContactPage extends React.Component {
                     placeholder="Write your message!"
                     name="message"
                     className="form-control"
-                    id="mce-MESSAGE"
+                    id="message"
                   />
                 </div>
                 <div id="mce-responses" class="clear">
-                  <div class="response" id="mce-error-response"></div>
-                  <div class="response" id="mce-success-response"></div>
+                  {this.state.errored && (
+                    <div class="alert alert-warning" id="mce-error-response">
+                      {this.state.response}
+                    </div>
+                  )}
+                  {this.state.submitted && (
+                    <div class="alert alert-success" id="mce-success-response">
+                      {this.state.response}
+                    </div>
+                  )}
                 </div>
                 <p class="m-t-sm">* required fields</p>
 
