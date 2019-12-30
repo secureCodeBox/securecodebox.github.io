@@ -60,7 +60,7 @@ const Home = () => {
         <div className="row justify-content-center">
           <div className="col-12">
             <h2 className="title-3 text-dark mb-2">
-              When is the secureCodeBox right for your team?
+              When is the secureCodeBox the right toolset for your team?
             </h2>
           </div>
         </div>
