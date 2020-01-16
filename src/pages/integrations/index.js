@@ -70,7 +70,7 @@ const Integrations = props => {
       <div className="container  pb-2  pb-md-3">
         <div className="row justify-content-center">
           <div className="col-12">
-            <h2 className="title-3 text-dark mb-2">Persistence provider</h2>
+            <h2 className="title-3 text-dark mb-2">Persistence Provider</h2>
           </div>
           {persistenceProvider.map(edge => (
             <div
