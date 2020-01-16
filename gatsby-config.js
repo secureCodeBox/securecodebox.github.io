@@ -43,32 +43,33 @@ module.exports = {
   siteMetadata: {
     title: `secureCodeBox`,
     company: `iteratec GmbH`,
-    description: "",
+    description: '',
     // siteUrl: '',
     contact: {
-      phone: "XXX XXX XXX",
-      email: "security@iteratec.de"
+      phone: 'XXX XXX XXX',
+      email: 'security@iteratec.de',
     },
     // TODO: replace links with actual pages here and link the correct reference in Menu.js
     menuLinks: [
       {
-        name: "Get Started",
+        name: 'Get Started',
         external: true,
         // link: '/getStarted',
-        link: "https://github.com/secureCodeBox/secureCodeBox"
+        link: 'https://github.com/secureCodeBox/secureCodeBox',
       },
       {
-        name: "Docs",
+        name: 'Docs',
         external: true,
         // link: '/docs',
-        link: "https://github.com/secureCodeBox/secureCodeBox/tree/master/docs/index.md"
+        link:
+          'https://github.com/secureCodeBox/secureCodeBox/tree/master/docs/index.md',
       },
       {
-        name: "Integrations",
+        name: 'Integrations',
         external: false,
-        link: "/integrations"
-      }
-    ]
+        link: '/integrations',
+      },
+    ],
   },
 
   plugins: [
@@ -79,10 +80,10 @@ module.exports = {
       options: {
         tableOfContents: {
           heading: null,
-          maxDepth: 6
+          maxDepth: 6,
         },
-        excerpt_separator: `<!-- end -->`
-      }
+        excerpt_separator: `<!-- end -->`,
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -95,45 +96,45 @@ module.exports = {
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: `standalone`,
-        icon: `src/images/icon.png` // This path is relative to the root of the site.
-      }
+        icon: `src/images/icon.png`, // This path is relative to the root of the site.
+      },
     },
     `gatsby-plugin-offline`, //should be listed *after* gatsby-plugin-manifest
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: "src",
-        path: `${__dirname}/src/`
-      }
+        name: 'src',
+        path: `${__dirname}/src/`,
+      },
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/pages`,
-        name: "pages"
-      }
+        name: 'pages',
+      },
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/data`,
-        name: "data"
-      }
+        name: 'data',
+      },
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/images`,
-        name: "images"
-      }
+        name: 'images',
+      },
     },
     {
-      resolve: "gatsby-plugin-mailchimp",
+      resolve: 'gatsby-plugin-mailchimp',
       options: {
         endpoint:
-          "https://securecodebox.us16.list-manage.com/subscribe/post?u=3aeba03d53798fc931e449d46&amp;id=252edbca74"
-      }
+          'https://securecodebox.us16.list-manage.com/subscribe/post?u=3aeba03d53798fc931e449d46&amp;id=252edbca74',
+      },
     },
 
     ...scannerRepos.map(({ name, url }) => {
@@ -143,9 +144,9 @@ module.exports = {
           name: name,
           remote: url,
           branch: `update-doc`,
-          patterns: `README.md`
-        }
+          patterns: `README.md`,
+        },
       };
-    })
-  ]
+    }),
+  ],
 };
