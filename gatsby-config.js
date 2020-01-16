@@ -143,7 +143,7 @@ module.exports = {
         options: {
           name: name,
           remote: url,
-          branch: `update-doc`,
+          branch: `master`,
           patterns: `README.md`,
         },
       };
