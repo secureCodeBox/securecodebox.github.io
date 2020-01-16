@@ -1,7 +1,7 @@
-import React from "react";
-import { graphql, withPrefix, Link } from "gatsby";
-import SEO from "../../components/SEO";
-import Layout from "../../components/Layout";
+import React from 'react';
+import { graphql, withPrefix, Link } from 'gatsby';
+import SEO from '../../components/SEO';
+import Layout from '../../components/Layout';
 
 const Integrations = props => {
   const scanner = props.data.scanner.edges;
@@ -42,7 +42,9 @@ const Integrations = props => {
                     <img
                       className="scanner-icon"
                       src={withPrefix(
-                        "/integrationIcons/" + edge.node.frontmatter.title + ".svg"
+                        '/integrationIcons/' +
+                          edge.node.frontmatter.title +
+                          '.svg'
                       )}
                       alt="scanner icon"
                     ></img>
@@ -81,10 +83,12 @@ const Integrations = props => {
                     <img
                       className="scanner-icon"
                       src={withPrefix(
-                        "/integrationIcons/" + edge.node.frontmatter.title + ".svg"
+                        '/integrationIcons/' +
+                          edge.node.frontmatter.title +
+                          '.svg'
                       )}
                       alt="persistence provider icon"
-                    ></img>        
+                    ></img>
                   </div>
                   <h2 className="feature-title">
                     {edge.node.frontmatter.title}
