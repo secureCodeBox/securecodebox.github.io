@@ -14,18 +14,18 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
-    "@emotion/core": "^10.0.17",
+    "@emotion/core": "^10.0.27",
     "core-js": "^3.2.1",
-    "gatsby": "^2.18.23",
-    "gatsby-plugin-emotion": "^4.1.7",
+    "gatsby": "^2.18.25",
+    "gatsby-plugin-emotion": "^4.1.21",
     "gatsby-plugin-mailchimp": "^5.1.2",
-    "gatsby-plugin-manifest": "^2.2.18",
-    "gatsby-plugin-offline": "^2.2.10",
-    "gatsby-plugin-react-helmet": "^3.1.8",
-    "gatsby-plugin-sass": "^2.1.15",
-    "gatsby-source-filesystem": "^2.1.26",
+    "gatsby-plugin-manifest": "^2.2.37",
+    "gatsby-plugin-offline": "^3.0.32",
+    "gatsby-plugin-react-helmet": "^3.1.21",
+    "gatsby-plugin-sass": "^2.1.27",
+    "gatsby-source-filesystem": "^2.1.46",
     "gatsby-source-git": "github:stevetweeddale/gatsby-source-git",
-    "gatsby-transformer-remark": "^2.6.24",
+    "gatsby-transformer-remark": "^2.6.48",
     "react": "^16.12.0",
     "react-burger-menu": "^2.6.13",
     "react-dom": "^16.12.0",
@@ -33,9 +33,9 @@
   },
   "devDependencies": {
     "node-sass": "^4.13.1",
-    "prettier": "^1.18.2",
-    "sass-loader": "^7.3.1",
-    "webpack": "^4.41.0"
+    "prettier": "^1.19.1",
+    "sass-loader": "^8.0.2",
+    "webpack": "^4.41.5"
   },
   "repository": {
     "type": "git",
