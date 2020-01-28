@@ -37,6 +37,10 @@ const scannerRepos = [
     name: 'WPScan',
     url: 'https://github.com/secureCodeBox/scanner-cms-wpscan',
   },
+  {
+    name: 'Ncrack',
+    url: 'https://github.com/secureCodeBox/scanner-infrastructure-ncrack',
+  },
 ];
 
 module.exports = {
