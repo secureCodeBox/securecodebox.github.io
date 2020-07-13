@@ -50,8 +50,8 @@ module.exports = {
     description: '',
     // siteUrl: '',
     contact: {
-      phone: 'XXX XXX XXX',
-      email: 'security@iteratec.de',
+      phone: '+49 89 614551-0',
+      email: 'security@iteratec.com',
     },
     // TODO: replace links with actual pages here and link the correct reference in Menu.js
     menuLinks: [
