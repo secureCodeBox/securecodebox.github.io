@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12'
       - uses: antoncarlsson/gatsby-gh-pages-action@c90784561c612621907c6bd8e6ca45bb2473aafe
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
