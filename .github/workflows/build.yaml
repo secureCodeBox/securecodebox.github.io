@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '12'
-      - uses: antoncarlsson/gatsby-gh-pages-action@c90784561c612621907c6bd8e6ca45bb2473aafe
+      - uses: enriikke/gatsby-gh-pages-action@v2
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-branch: 'master'
