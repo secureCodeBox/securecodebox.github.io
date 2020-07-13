@@ -133,14 +133,6 @@ module.exports = {
         name: 'images',
       },
     },
-    {
-      resolve: 'gatsby-plugin-mailchimp',
-      options: {
-        endpoint:
-          'https://securecodebox.us16.list-manage.com/subscribe/post?u=3aeba03d53798fc931e449d46&amp;id=252edbca74',
-      },
-    },
-
     ...scannerRepos.map(({ name, url }) => {
       return {
         resolve: `gatsby-source-git`,
