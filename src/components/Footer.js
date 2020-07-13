@@ -15,9 +15,6 @@ const Footer = props => (
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/contact">Contact</Link>
-              </li>
-              <li>
                 <a href="https://www.iteratec.de/impressum/">Imprint</a>
               </li>
               <li>
