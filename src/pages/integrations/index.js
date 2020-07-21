@@ -48,11 +48,6 @@ const Integrations = props => {
                       )}
                       alt="scanner icon"
                     ></img>
-                    <img
-                      className="release"
-                      src={edge.node.frontmatter.release}
-                      alt="release version"
-                    ></img>
                   </div>
                   <h2 className="feature-title">
                     {edge.node.frontmatter.title}
@@ -121,7 +116,6 @@ export const query = graphql`
             path
             category
             usecase
-            release
           }
         }
       }

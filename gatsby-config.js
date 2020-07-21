@@ -7,40 +7,40 @@
 const scannerRepos = [
   {
     name: 'Amass',
-    url: 'https://github.com/secureCodeBox/scanner-infrastructure-amass',
+    directory: 'scanners/amass'
   },
   {
-    name: 'Arachni',
-    url: 'https://github.com/secureCodeBox/scanner-webapplication-arachni',
+    name: 'kube-hunter',
+    directory: 'scanners/kube-hunter'
   },
   {
     name: 'Nikto',
-    url: 'https://github.com/secureCodeBox/scanner-webserver-nikto',
+    directory: 'scanners/nikto'
   },
   {
     name: 'Nmap',
-    url: 'https://github.com/secureCodeBox/scanner-infrastructure-nmap',
+    directory: 'scanners/nmap'
   },
   {
     name: 'SSH',
-    url: 'https://github.com/secureCodeBox/scanner-infrastructure-ssh',
+    directory: 'scanners/ssh_scan'
   },
   {
     name: 'SSLyze',
-    url: 'https://github.com/secureCodeBox/scanner-infrastructure-sslyze',
+    directory: 'scanners/sslyze'
   },
   {
-    name: 'Zap',
-    url: 'https://github.com/secureCodeBox/scanner-webapplication-zap',
+    name: 'Trivy',
+    directory: 'scanners/trivy'
   },
   {
     name: 'WPScan',
-    url: 'https://github.com/secureCodeBox/scanner-cms-wpscan',
+    directory: 'scanners/wpscan'
   },
   {
-    name: 'Ncrack',
-    url: 'https://github.com/secureCodeBox/scanner-infrastructure-ncrack',
-  },
+    name: 'ZAP',
+    directory: 'scanners/zap'
+  }
 ];
 
 module.exports = {
@@ -59,14 +59,14 @@ module.exports = {
         name: 'Get Started',
         external: true,
         // link: '/getStarted',
-        link: 'https://github.com/secureCodeBox/secureCodeBox',
+        link: 'https://github.com/secureCodeBox/secureCodeBox-v2-alpha',
       },
       {
         name: 'Docs',
         external: true,
         // link: '/docs',
         link:
-          'https://github.com/secureCodeBox/secureCodeBox/tree/master/docs/index.md',
+          'https://github.com/secureCodeBox/secureCodeBox-v2-alpha/blob/master/docs/index.md',
       },
       {
         name: 'Integrations',
@@ -133,14 +133,14 @@ module.exports = {
         name: 'images',
       },
     },
-    ...scannerRepos.map(({ name, url }) => {
+    ...scannerRepos.map(({ name, directory }) => {
       return {
         resolve: `gatsby-source-git`,
         options: {
           name: name,
-          remote: url,
+          remote: `https://github.com/secureCodeBox/secureCodeBox-v2-alpha`,
           branch: `master`,
-          patterns: `README.md`,
+          patterns: `${directory}/README.md`,
         },
       };
     }),

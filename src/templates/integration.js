@@ -17,7 +17,7 @@ const Integration = props => {
             {scanner.map(scanner => (
               <li>
                 <Link
-                  to={scanner.node.frontmatter.path}
+                  to={`/integrations/${scanner.node.frontmatter.path}`}
                   activeClassName="active-Link"
                 >
                   {scanner.node.frontmatter.title}
@@ -30,7 +30,7 @@ const Integration = props => {
             {persistenceProvider.map(persistenceProvider => (
               <li>
                 <Link
-                  to={persistenceProvider.node.frontmatter.path}
+                  to={`/integrations/${persistenceProvider.node.frontmatter.path}`}
                   activeClassName="active-Link"
                 >
                   {persistenceProvider.node.frontmatter.title}
@@ -74,7 +74,6 @@ export const query = graphql`
             path
             category
             usecase
-            release
           }
         }
       }

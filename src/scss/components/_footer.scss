@@ -51,8 +51,10 @@
         }
       }
       &.copyright {
-        font-weight: bold;
-        color: #ffffff;
+        a {
+          font-weight: bold;
+          color: #ffffff;
+        }
       }
     }
     @include media-breakpoint-up(sm) {
