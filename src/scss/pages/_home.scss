@@ -3,14 +3,14 @@
   background-image: url('../images/macbook_kibana_klein.png');
   background-repeat: no-repeat;
   background-size: 115%;
-  background-position: 49px -40px;
+  background-position: 49px 40px;
   @include media-breakpoint-up(sm) {
     background-size: 50%;
-    background-position: 300px 50px;
+    background-position: 300px 130px;
   }
   @include media-breakpoint-up(md) {
     background-size: 70%;
-    background-position: 100% -100px;
+    background-position: 100% -20px;
   }
   @include media-breakpoint-up(lg) {
     background-size: 55%;

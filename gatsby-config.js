@@ -7,39 +7,39 @@
 const scannerRepos = [
   {
     name: 'Amass',
-    directory: 'scanners/amass'
+    directory: 'amass'
   },
   {
     name: 'kube-hunter',
-    directory: 'scanners/kube-hunter'
+    directory: 'kube-hunter'
   },
   {
     name: 'Nikto',
-    directory: 'scanners/nikto'
+    directory: 'nikto'
   },
   {
     name: 'Nmap',
-    directory: 'scanners/nmap'
+    directory: 'nmap'
   },
   {
     name: 'SSH',
-    directory: 'scanners/ssh_scan'
+    directory: 'ssh_scan'
   },
   {
     name: 'SSLyze',
-    directory: 'scanners/sslyze'
+    directory: 'sslyze'
   },
   {
     name: 'Trivy',
-    directory: 'scanners/trivy'
+    directory: 'trivy'
   },
   {
     name: 'WPScan',
-    directory: 'scanners/wpscan'
+    directory: 'wpscan'
   },
   {
     name: 'ZAP',
-    directory: 'scanners/zap'
+    directory: 'zap'
   }
 ];
 
@@ -140,7 +140,7 @@ module.exports = {
           name: name,
           remote: `https://github.com/secureCodeBox/secureCodeBox-v2-alpha`,
           branch: `master`,
-          patterns: `${directory}/README.md`,
+          patterns: `scanners/${directory}/README.md`,
         },
       };
     }),

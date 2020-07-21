@@ -77,7 +77,7 @@ Since we work with various different tools, it is even more important to keep a 
 
 ### Adding a scanner or persistence provider
 
-Scanner and persistence provider are referred as integrations. Scanner, which are integrated into our secureCodeBox project have their own repository in which the main documentation must be written in the README.md. Persistence provider documentation is located at `/src/pages/integrations/persistence-provider/`.
+Scanners and persistence providers are referred to as integrations. Scanners, which are integrated into our [secureCodeBox-v2-alpha](https://github.com/secureCodeBox/secureCodeBox-v2-alpha) repository have their own directories (located at [/scanners/](https://github.com/secureCodeBox/secureCodeBox-v2-alpha/tree/master/scanners)) in which the main documentation must be written in a `README.md` file. Persistence provider documentation is located at `/src/pages/integrations/persistence-provider/`.
 
 #### Scanner
 
@@ -86,7 +86,7 @@ To add a scanner documentation you need to extend the `scannerRepos` Array in th
 ```bash
   {
     name: 'scanner name',
-    url: 'https://github.com/secureCodeBox/scanner_repository',
+    directory: 'directoryName' # in /scanners/
   }
 ```
 
@@ -98,11 +98,11 @@ Additionally you can and (for the sake of aesthetics) should provide an icon in 
 <pre>
 
         ---
+
         title: "Scame"
         path: "scanner/Scame"
         category: "scanner"
         usecase: "general use of this scanner"
-        release: "url to the release badge"
 
         ---
 
