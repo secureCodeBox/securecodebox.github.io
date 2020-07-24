@@ -13,9 +13,9 @@ const Integration = props => {
       <div className="sidebar-wrapper">
         <nav className="sidebar">
           <h1 className="sidebar-header">Scanner</h1>
-          <ul class="list-unstyled components">
+          <ul className="list-unstyled components">
             {scanner.map(scanner => (
-              <li>
+              <li key={scanner.node.frontmatter.title}>
                 <Link
                   to={`/integrations/${scanner.node.frontmatter.path}`}
                   activeClassName="active-Link"
@@ -26,9 +26,9 @@ const Integration = props => {
             ))}
           </ul>
           <h1 className="sidebar-header">Persistence provider</h1>
-          <ul class="list-unstyled components">
+          <ul className="list-unstyled components">
             {persistenceProvider.map(persistenceProvider => (
-              <li>
+              <li key={persistenceProvider.node.frontmatter.title}>
                 <Link
                   to={`/integrations/${persistenceProvider.node.frontmatter.path}`}
                   activeClassName="active-Link"
@@ -41,7 +41,7 @@ const Integration = props => {
         </nav>
 
         <div id="content">
-          <div class="container-fluid" id="integration-doc">
+          <div className="container-fluid" id="integration-doc">
             <h1 className="title">{title}</h1>
             <div
               className="content"

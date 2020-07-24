@@ -4,45 +4,6 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
-const scannerRepos = [
-  {
-    name: 'Amass',
-    directory: 'amass'
-  },
-  {
-    name: 'kube-hunter',
-    directory: 'kube-hunter'
-  },
-  {
-    name: 'Nikto',
-    directory: 'nikto'
-  },
-  {
-    name: 'Nmap',
-    directory: 'nmap'
-  },
-  {
-    name: 'SSH',
-    directory: 'ssh_scan'
-  },
-  {
-    name: 'SSLyze',
-    directory: 'sslyze'
-  },
-  {
-    name: 'Trivy',
-    directory: 'trivy'
-  },
-  {
-    name: 'WPScan',
-    directory: 'wpscan'
-  },
-  {
-    name: 'ZAP',
-    directory: 'zap'
-  }
-];
-
 module.exports = {
   siteMetadata: {
     title: `secureCodeBox`,
@@ -133,16 +94,21 @@ module.exports = {
         name: 'images',
       },
     },
-    ...scannerRepos.map(({ name, directory }) => {
-      return {
-        resolve: `gatsby-source-git`,
-        options: {
-          name: name,
-          remote: `https://github.com/secureCodeBox/secureCodeBox-v2-alpha`,
-          branch: `master`,
-          patterns: `scanners/${directory}/README.md`,
-        },
-      };
-    }),
+    {
+      resolve: `gatsby-source-git`,
+      options: {
+        name: `secureCodeBox-v2-alpha`,
+        remote: `https://github.com/secureCodeBox/secureCodeBox-v2-alpha`,
+        branch: `master`,
+        patterns: `scanners`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `scanners`,
+        path: `${__dirname}/.cache/gatsby-source-git/secureCodeBox-v2-alpha/scanners`,
+      }
+    }
   ],
 };

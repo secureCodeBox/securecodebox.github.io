@@ -31,9 +31,9 @@ const Integrations = props => {
           <div className="col-12">
             <h2 className="title-3 text-dark mb-2">Scanner</h2>
           </div>
-          {scanner.map(edge => (
+          {scanner.map((edge, index) => (
             <div
-              key={edge.node.id}
+              key={index}
               className="col-12 col-md-6 col-lg-6 col-sm-12 mb-2 no-highlight"
             >
               <Link to={edge.node.frontmatter.path}>
@@ -43,8 +43,8 @@ const Integrations = props => {
                       className="scanner-icon"
                       src={withPrefix(
                         '/integrationIcons/' +
-                          edge.node.frontmatter.title +
-                          '.svg'
+                        edge.node.frontmatter.title +
+                        '.svg'
                       )}
                       alt="scanner icon"
                     ></img>
@@ -79,8 +79,8 @@ const Integrations = props => {
                       className="scanner-icon"
                       src={withPrefix(
                         '/integrationIcons/' +
-                          edge.node.frontmatter.title +
-                          '.svg'
+                        edge.node.frontmatter.title +
+                        '.svg'
                       )}
                       alt="persistence provider icon"
                     ></img>

@@ -19,7 +19,7 @@ const MenuMobile = props => {
       }}
     >
       {menuLinks.map(link => (
-        <Link to={link.link}>{link.name}</Link>
+        <Link to={link.link} key={link.name}>{link.name}</Link>
       ))}
     </Menu>
   );
