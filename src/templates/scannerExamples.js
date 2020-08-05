@@ -28,7 +28,7 @@ const ScannerExamples = props => {
             {targets.map(target => (<TabPanel key={target}>
               <Tabs>
                 <TabList>
-                  {examples.filter(example => example.fields.scanTarget === target).map((example, index) => (
+                  {examples.reverse().filter(example => example.fields.scanTarget === target).map((example, index) => (
                     <Tab key={index}>{example.fields.fileName}</Tab>
                   ))}
                 </TabList>
