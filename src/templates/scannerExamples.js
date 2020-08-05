@@ -49,7 +49,7 @@ const ScannerExamples = props => {
 
 export const query = graphql`
 query($basePath: String!) {
-    examples: allFile(filter: {absolutePath: {regex: $basePath}, extension: {eq: "yaml"}}) {
+    examples: allFile(filter: {base: {regex: "/^(findings|scan).yaml/"}, absolutePath: {regex: $basePath}, extension: {eq: "yaml"}}) {
         edges {
           node {
             base
