@@ -4,8 +4,8 @@ import SEO from '../../components/SEO';
 import Layout from '../../components/Layout';
 
 const Integrations = props => {
-  const scanner = props.data.scanner.edges;
-  const persistenceProvider = props.data.persistenceProvider.edges;
+  const scanners = props.data.scanner.edges;
+  const persistenceProviders = props.data.persistenceProvider.edges;
 
   return (
     <Layout bodyClass="page-integrations">
@@ -31,7 +31,7 @@ const Integrations = props => {
           <div className="col-12">
             <h2 className="title-3 text-dark mb-2">Scanner</h2>
           </div>
-          {scanner.map((edge, index) => (
+          {scanners.map((edge, index) => (
             <div
               key={index}
               className="col-12 col-md-6 col-lg-6 col-sm-12 mb-2 no-highlight"
@@ -67,7 +67,7 @@ const Integrations = props => {
           <div className="col-12">
             <h2 className="title-3 text-dark mb-2">Persistence Provider</h2>
           </div>
-          {persistenceProvider.map(edge => (
+          {persistenceProviders.map(edge => (
             <div
               key={edge.node.id}
               className="col-12 col-md-6 col-lg-6 col-sm-12 mb-2 no-highlight"
