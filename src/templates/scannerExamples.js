@@ -5,7 +5,6 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
 const ScannerExamples = props => {
-  const path = `${props.path.substring(13)}/`;
   const examples = props.data.examples.nodes;
   const targets = [];
 
@@ -19,7 +18,7 @@ const ScannerExamples = props => {
     <Layout bodyClass="integration">
       <div className="container-fluid">
         <div id="content">
-          <h1 className="title">Examples for {path.split('/')[2]}</h1>
+          <h1 className="title">Examples for {props.path.split('/')[3]}</h1>
 
           <Tabs>
             <TabList>

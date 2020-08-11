@@ -39,7 +39,7 @@ const Home = () => {
             </h2>
           </div>
           {features.map(feature => (
-            <div key={feature.id} className="col-12 col-md-3 col-lg-3 mb-2">
+            <div key={feature.title} className="col-12 col-md-3 col-lg-3 mb-2">
               <div className="feature hoverable">
                 {feature.image && (
                   <div className="feature-image">
