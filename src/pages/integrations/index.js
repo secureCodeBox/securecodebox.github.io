@@ -60,7 +60,7 @@ const Integrations = (props) => {
         <div className="row left-content-center">
           <div className="col-12">
             <h2 className="title-3 text-dark mb-2">
-              Data Processing and Integration-card Hooks
+              Data Processing and Integration Hooks
             </h2>
             <p>
               Each Scanner is an individual tool. We took no part in building
