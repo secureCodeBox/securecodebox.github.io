@@ -56,6 +56,29 @@ const Integrations = (props) => {
           ))}
         </div>
       </div>
+      <div className="container  pb-2  pb-md-3">
+        <div className="row left-content-center">
+          <div className="col-12">
+            <h2 className="title-3 text-dark ">Persistence Provider</h2>
+            <p>
+              Each Scanner is an individual tool. We took no part in building
+              them and did not adjust them for our purposes, which is great,
+              because, like so we can provide them as they are and ready for
+              use.
+            </p>
+          </div>
+          {persistenceProvider.map((edge, index) => (
+            <div
+              key={index}
+              className="col-12 col-md-6 col-lg-6 col-sm-12 mb-2 no-highlight"
+            >
+              <Link to={edge.node.frontmatter.path}>
+                <IntegrationCard frontmatter={edge.node.frontmatter} />
+              </Link>
+            </div>
+          ))}
+        </div>
+      </div>
       <div className="container pb-2 pb-md-3">
         <div className="row left-content-center">
           <div className="col-12">
@@ -73,29 +96,6 @@ const Integrations = (props) => {
             <div
               key={index}
               className="col-12 col-md-6 col-lg-6 col-sm-12 no-highlight"
-            >
-              <Link to={edge.node.frontmatter.path}>
-                <IntegrationCard frontmatter={edge.node.frontmatter} />
-              </Link>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="container  pb-2  pb-md-3">
-        <div className="row left-content-center">
-          <div className="col-12">
-            <h2 className="title-3 text-dark ">Persistence Provider</h2>
-            <p>
-              Each Scanner is an individual tool. We took no part in building
-              them and did not adjust them for our purposes, which is great,
-              because, like so we can provide them as they are and ready for
-              use.
-            </p>
-          </div>
-          {persistenceProvider.map((edge, index) => (
-            <div
-              key={index}
-              className="col-12 col-md-6 col-lg-6 col-sm-12 mb-2 no-highlight"
             >
               <Link to={edge.node.frontmatter.path}>
                 <IntegrationCard frontmatter={edge.node.frontmatter} />
