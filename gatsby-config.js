@@ -4,45 +4,6 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
-const scannerRepos = [
-  {
-    name: 'Amass',
-    url: 'https://github.com/secureCodeBox/scanner-infrastructure-amass',
-  },
-  {
-    name: 'Arachni',
-    url: 'https://github.com/secureCodeBox/scanner-webapplication-arachni',
-  },
-  {
-    name: 'Nikto',
-    url: 'https://github.com/secureCodeBox/scanner-webserver-nikto',
-  },
-  {
-    name: 'Nmap',
-    url: 'https://github.com/secureCodeBox/scanner-infrastructure-nmap',
-  },
-  {
-    name: 'SSH',
-    url: 'https://github.com/secureCodeBox/scanner-infrastructure-ssh',
-  },
-  {
-    name: 'SSLyze',
-    url: 'https://github.com/secureCodeBox/scanner-infrastructure-sslyze',
-  },
-  {
-    name: 'Zap',
-    url: 'https://github.com/secureCodeBox/scanner-webapplication-zap',
-  },
-  {
-    name: 'WPScan',
-    url: 'https://github.com/secureCodeBox/scanner-cms-wpscan',
-  },
-  {
-    name: 'Ncrack',
-    url: 'https://github.com/secureCodeBox/scanner-infrastructure-ncrack',
-  },
-];
-
 module.exports = {
   siteMetadata: {
     title: `secureCodeBox`,
@@ -59,14 +20,14 @@ module.exports = {
         name: 'Get Started',
         external: true,
         // link: '/getStarted',
-        link: 'https://github.com/secureCodeBox/secureCodeBox',
+        link: 'https://github.com/secureCodeBox/secureCodeBox-v2-alpha',
       },
       {
         name: 'Docs',
         external: true,
         // link: '/docs',
         link:
-          'https://github.com/secureCodeBox/secureCodeBox/tree/master/docs/index.md',
+          'https://github.com/secureCodeBox/secureCodeBox-v2-alpha/blob/master/docs/index.md',
       },
       {
         name: 'Integrations',
@@ -133,16 +94,28 @@ module.exports = {
         name: 'images',
       },
     },
-    ...scannerRepos.map(({ name, url }) => {
-      return {
-        resolve: `gatsby-source-git`,
-        options: {
-          name: name,
-          remote: url,
-          branch: `master`,
-          patterns: `README.md`,
-        },
-      };
-    }),
+    {
+      resolve: `gatsby-source-git`,
+      options: {
+        name: `secureCodeBox-v2-alpha`,
+        remote: `https://github.com/secureCodeBox/secureCodeBox-v2-alpha`,
+        branch: `master`,
+        patterns: [`scanners`, `hooks`, `docs`],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `scanners`,
+        path: `${__dirname}/.cache/gatsby-source-git/secureCodeBox-v2-alpha/scanners`,
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `hooks`,
+        path: `${__dirname}/.cache/gatsby-source-git/secureCodeBox-v2-alpha/hooks`,
+      }
+    }
   ],
 };

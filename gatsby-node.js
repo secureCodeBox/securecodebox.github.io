@@ -1,4 +1,5 @@
 const path = require("path");
+const fs = require("fs");
 
 // Create pages from markdown files
 exports.createPages = ({ graphql, actions }) => {
@@ -113,3 +114,15 @@ exports.createPages = ({ graphql, actions }) => {
     );
   });
 };
+
+exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions;
+
+  if (node.internal.type === `File` && (node.base === `scan.yaml` || node.base === `findings.yaml`)) {
+    fs.readFile(node.absolutePath, undefined, (_err, buf) => {
+      createNodeField({ node, name: `content`, value: buf.toString() });
+    });
+    createNodeField({ node, name: `fileName`, value: node.base });
+    createNodeField({ node, name: `scanTarget`, value: node.relativeDirectory.split('/examples/')[1] });
+  }
+}

@@ -23,8 +23,10 @@ const Footer = props => (
                 </a>
               </li>
               <li className="copyright">
-                © {new Date().getFullYear()}{' '}
-                {props.data.site.siteMetadata.company}
+                <a href="https://www.iteratec.de">
+                  © {new Date().getFullYear()}{' '}
+                  {props.data.site.siteMetadata.company}
+                </a>
               </li>
             </ul>
           </div>
