@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
+import ScannerExamples from "../components/ScannerExamples.js";
 
 const Integration = props => {
   const { title } = props.data.markdownRemark.frontmatter;
@@ -47,6 +48,7 @@ const Integration = props => {
               className="content"
               dangerouslySetInnerHTML={{ __html: html }}
             />
+          <ScannerExamples scanner={props.path} />
           </div>
         </div>
       </div>

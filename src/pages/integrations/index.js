@@ -5,7 +5,7 @@ import Layout from '../../components/Layout';
 import IntegrationCard from '../../components/IntegrationCard';
 
 const Integrations = (props) => {
-  const scanner = props.data.scanner.edges;
+  const scanners = props.data.scanner.edges;
   const hook = props.data.hook.edges;
   const persistenceProvider = props.data.persistenceProvider.edges;
 
@@ -44,7 +44,7 @@ const Integrations = (props) => {
               use.
             </p>
           </div>
-          {scanner.map((edge, index) => (
+          {scanners.map((edge, index) => (
             <div
               key={index}
               className="col-12 col-md-6 col-lg-6 col-sm-12 no-highlight"

@@ -53,16 +53,6 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
           }
-          scannerExamples: allFile(filter: {absolutePath: {regex: "/scanners/(.*)/examples/"}, extension: {eq: "yaml"}}) {
-            edges {
-              node {
-                id
-                name
-                extension
-                dir
-              }
-            }
-          }
           persistenceProvider: allMarkdownRemark(
             filter: { fileAbsolutePath: { regex: "/integrations/persistence-provider/" } }
           ) {
@@ -106,15 +96,6 @@ exports.createPages = ({ graphql, actions }) => {
             component,
             context: {
               id: node.id
-            }
-          });
-
-          const examplesComponent = path.resolve("src/templates/scannerExamples.js");
-          createPage({
-            path: `integrations/${node.frontmatter.path}/examples`,
-            component: examplesComponent,
-            context: {
-              basePath: `/${node.frontmatter.path}/examples/`
             }
           });
         });
