@@ -38,7 +38,7 @@ export default function ScannerExamples(props) {
         const node = data.examples.nodes[i];
         if (edge.node.relativeDirectory.includes(scanner)) {
             const target = data.examples.nodes[i].fields.scanTarget
-            if (!targets.includes(target))
+            if(!targets.includes(target))
                 targets.push(target);
             examples.push(node);
         }
@@ -56,7 +56,7 @@ export default function ScannerExamples(props) {
                         <TabList>
                             {/* We are reversing to ensure that the scan.yaml is shown before the findings.yaml */}
                             {examples.filter(example => example.fields.scanTarget === target).reverse().map((example, index) => (
-                                <Tab key={index}>{example.fields.fileName}</Tab>
+                                <Tab key={index}>{example.fields.fileName.split(".")[0]}</Tab>
                             ))}
                         </TabList>
 
