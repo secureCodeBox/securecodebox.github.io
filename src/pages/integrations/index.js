@@ -5,7 +5,7 @@ import Layout from '../../components/Layout';
 import IntegrationCard from '../../components/IntegrationCard';
 
 const Integrations = (props) => {
-  const scanner = props.data.scanner.edges;
+  const scanners = props.data.scanner.edges;
   const hook = props.data.hook.edges;
   const persistenceProvider = props.data.persistenceProvider.edges;
 
