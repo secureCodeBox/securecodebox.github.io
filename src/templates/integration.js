@@ -25,7 +25,7 @@ const Integration = props => {
               </li>
             ))}
           </ul>
-          <h1 className="sidebar-header">Persistence provider</h1>
+          <h1 className="sidebar-header">Hooks</h1>
           <ul className="list-unstyled components">
             {persistenceProvider.map(persistenceProvider => (
               <li key={persistenceProvider.node.frontmatter.title}>
