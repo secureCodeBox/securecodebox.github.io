@@ -100,7 +100,7 @@ module.exports = {
         name: `secureCodeBox-v2-alpha`,
         remote: `https://github.com/secureCodeBox/secureCodeBox-v2-alpha`,
         branch: `master`,
-        patterns: `scanners`,
+        patterns: [`scanners`, `hooks`, `docs`],
       },
     },
     {
@@ -108,6 +108,13 @@ module.exports = {
       options: {
         name: `scanners`,
         path: `${__dirname}/.cache/gatsby-source-git/secureCodeBox-v2-alpha/scanners`,
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `hooks`,
+        path: `${__dirname}/.cache/gatsby-source-git/secureCodeBox-v2-alpha/hooks`,
       }
     }
   ],
