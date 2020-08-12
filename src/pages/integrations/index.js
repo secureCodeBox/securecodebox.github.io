@@ -4,7 +4,7 @@ import SEO from '../../components/SEO';
 import Layout from '../../components/Layout';
 import IntegrationCard from '../../components/IntegrationCard';
 
-const Integration = (props) => {
+const Integrations = (props) => {
   const scanner = props.data.scanner.edges;
   const hook = props.data.hook.edges;
   const persistenceProvider = props.data.persistenceProvider.edges;
@@ -69,9 +69,9 @@ const Integration = (props) => {
               use.
             </p>
           </div>
-          {hook.map((edge) => (
+          {hook.map((edge, index) => (
             <div
-              key={edge.node.id}
+              key={index}
               className="col-12 col-md-6 col-lg-6 col-sm-12 no-highlight"
             >
               <Link to={edge.node.frontmatter.path}>
@@ -92,14 +92,14 @@ const Integration = (props) => {
               use.
             </p>
           </div>
-          {persistenceProvider.map((edge) => (
+          {persistenceProvider.map((edge, index) => (
             <div
-              key={edge.node.id}
+              key={index}
               className="col-12 col-md-6 col-lg-6 col-sm-12 mb-2 no-highlight"
             >
               <Link to={edge.node.frontmatter.path}>
                 <IntegrationCard frontmatter={edge.node.frontmatter} />
-               </Link>
+              </Link>
             </div>
           ))}
         </div>
@@ -178,4 +178,4 @@ export const query = graphql`
   }
 `;
 
-export default Integration;
+export default Integrations;
