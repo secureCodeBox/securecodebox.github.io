@@ -5,9 +5,6 @@ import 'react-tabs/style/react-tabs.css';
 
 const PREFIX = 23
 export default function ScannerExamples(props) {
-
-    console.log(props.scanner);
-
     const scanner = props.scanner.substring(PREFIX);
     const query = graphql`
             query {
