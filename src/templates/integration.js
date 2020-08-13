@@ -1,13 +1,14 @@
-import React from "react";
-import { graphql, Link } from "gatsby";
-import Layout from "../components/Layout";
-import ScannerExamples from "../components/ScannerExamples.js";
+import React from 'react';
+import { graphql, Link } from 'gatsby';
+import Layout from '../components/Layout';
+import ScannerExamples from '../components/ScannerExamples.js';
 
-const Integration = props => {
+const Integration = (props) => {
   const { title } = props.data.markdownRemark.frontmatter;
   const { html } = props.data.markdownRemark;
   const scanner = props.data.scanner.edges;
   const persistenceProvider = props.data.persistenceProvider.edges;
+  const showExamples = props.path.includes('scanners');
 
   return (
     <Layout bodyClass="integration">
@@ -15,7 +16,7 @@ const Integration = props => {
         <nav className="sidebar">
           <h1 className="sidebar-header">Scanner</h1>
           <ul className="list-unstyled components">
-            {scanner.map(scanner => (
+            {scanner.map((scanner) => (
               <li key={scanner.node.frontmatter.title}>
                 <Link
                   to={`/integrations/${scanner.node.frontmatter.path}`}
@@ -28,7 +29,7 @@ const Integration = props => {
           </ul>
           <h1 className="sidebar-header">Hooks</h1>
           <ul className="list-unstyled components">
-            {persistenceProvider.map(persistenceProvider => (
+            {persistenceProvider.map((persistenceProvider) => (
               <li key={persistenceProvider.node.frontmatter.title}>
                 <Link
                   to={`/integrations/${persistenceProvider.node.frontmatter.path}`}
@@ -48,7 +49,7 @@ const Integration = props => {
               className="content"
               dangerouslySetInnerHTML={{ __html: html }}
             />
-          <ScannerExamples scanner={props.path} />
+            {showExamples && <ScannerExamples scanner={props.path} />}
           </div>
         </div>
       </div>
