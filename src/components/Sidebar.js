@@ -4,44 +4,24 @@ import { Link } from 'gatsby';
 // Toggles sidebar menus, only one may be open at a time
 function toggleMenu(id) {
   const element = document.getElementById(id);
+
   const scanners = document.getElementById('Scanners');
   const persistenceProviders = document.getElementById('Persistence Providers');
   const hooks = document.getElementById('Hooks');
 
-  switch (element) {
-    case scanners:
-      persistenceProviders.style.display = 'none';
-      hooks.style.display = 'none';
-
-      element.style.display === 'block'
-        ? (element.style.display = 'none')
-        : (element.style.display = 'block');
-      break;
-
-    case persistenceProviders:
-      scanners.style.display = 'none';
-      hooks.style.display = 'none';
-
-      element.style.display === 'block'
-        ? (element.style.display = 'none')
-        : (element.style.display = 'block');
-      break;
-
-    case hooks:
-      scanners.style.display = 'none';
-      persistenceProviders.style.display = 'none';
-
-      element.style.display === 'block'
-        ? (element.style.display = 'none')
-        : (element.style.display = 'block');
-      break;
-
-    default:
-      scanners.style.display = 'none';
-      persistenceProviders.style.display = 'none';
-      hooks.style.display = 'none';
-      break;
+  if (element !== scanners) {
+    scanners.style.display = 'none';
   }
+  if (element !== persistenceProviders) {
+    persistenceProviders.style.display = 'none';
+  }
+  if (element !== hooks) {
+    hooks.style.display = 'none';
+  }
+
+  element.style.display === 'block'
+    ? (element.style.display = 'none')
+    : (element.style.display = 'block');
 }
 
 // Determine the naming of Sidebar categories
