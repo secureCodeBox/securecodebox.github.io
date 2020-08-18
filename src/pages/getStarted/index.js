@@ -12,12 +12,23 @@ const GetStarted = (props) => {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <h1>Tutorials</h1>
-              <h2>For starting up things</h2>
-              <p>
-                Guides on how to start up engine, scanner, persistence provider
-                and do scan jobs etc.. Perhaps with screencasts.
-              </p>
+              <h1>Getting Started</h1>
+              <h2>User and developer oriented documentation</h2>
+              <span>
+                How To:
+                <ul>
+                  <li>
+                    Start
+                    <ul>
+                      <li>Operator</li>
+                      <li>Scanner</li>
+                      <li>Persistence Provider</li>
+                    </ul>
+                  </li>
+                  <li>Hooks</li>
+                  <li>Contribute</li>
+                </ul>
+              </span>
             </div>
           </div>
         </div>
@@ -25,8 +36,8 @@ const GetStarted = (props) => {
 
       <div className="container  pb-2  pb-md-3">
         <div className="row justify-content-center">
-          {tutorials.map(tutorial => (
-            <div className="feature">
+          {tutorials.map((tutorial, index) => (
+            <div key={index} className="feature">
               <h1>{tutorial.node.frontmatter.title}</h1>
             </div>
           ))}
@@ -39,7 +50,7 @@ const GetStarted = (props) => {
 export const query = graphql`
   query ServicesQuery {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/getStarted/" } }
+      filter: { fileAbsolutePath: { regex: "/docs/" } }
       sort: { fields: [frontmatter___title], order: DESC }
     ) {
       edges {
@@ -48,6 +59,7 @@ export const query = graphql`
           frontmatter {
             title
             path
+            category
           }
         }
       }

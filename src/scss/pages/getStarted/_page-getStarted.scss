@@ -3,17 +3,14 @@
   background-image: url('../images/documentation.png');
   background-repeat: no-repeat;
   background-size: 100%;
-  background-position: 49px -50px;
+  background-position: right bottom;
   @include media-breakpoint-up(sm) {
     background-size: 90%;
-    background-position: 620% 70px;
   }
   @include media-breakpoint-up(md) {
     background-size: 85%;
-    background-position: 360% 0px;
   }
   @include media-breakpoint-up(lg) {
     background-size: 60%;
-    background-position: 110% 0px;
   }
 }
