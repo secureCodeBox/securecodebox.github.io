@@ -99,14 +99,22 @@ module.exports = {
       options: {
         name: `scanners`,
         path: `${__dirname}/.cache/gatsby-source-git/secureCodeBox-v2-alpha/scanners`,
-      }
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `hooks`,
         path: `${__dirname}/.cache/gatsby-source-git/secureCodeBox-v2-alpha/hooks`,
-      }
-    }
+      },
+    },
+    // TODO: when #76 merged
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `docs`,
+    //     path: `${__dirname}/.cache/gatsby-source-git/secureCodeBox-v2-alpha/docs`,
+    //   },
+    // },
   ],
 };

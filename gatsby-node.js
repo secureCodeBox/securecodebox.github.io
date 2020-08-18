@@ -4,25 +4,11 @@ const fs = require("fs");
 // Create pages from markdown files
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
+  // TODO: Remove docs when #76 was merged & use docs template for git remote docs
   return new Promise((resolve, reject) => {
     resolve(
       graphql(`
         {
-          getStarted: allMarkdownRemark(
-            filter: { fileAbsolutePath: { regex: "/getStarted/" } }
-            sort: { fields: [frontmatter___date], order: DESC }
-          ) {
-            edges {
-              node {
-                id
-                frontmatter {
-                  path
-                  title
-                }
-                excerpt
-              }
-            }
-          }
           docs: allMarkdownRemark(
             filter: { fileAbsolutePath: { regex: "/docs/" } }
             sort: { fields: [frontmatter___date], order: DESC }
@@ -53,34 +39,10 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
           }
-          persistenceProvider: allMarkdownRemark(
-            filter: { fileAbsolutePath: { regex: "/integrations/persistence-provider/" } }
-          ) {
-            edges {
-              node {
-                frontmatter {
-                  title
-                  path
-                  category
-                }
-                id
-              }
-            }
-          }
         }
       `).then(result => {
-        result.data.getStarted.edges.forEach(({ node }) => {
-          const component = path.resolve("src/templates/getStarted.js");
-          createPage({
-            path: node.frontmatter.path,
-            component,
-            context: {
-              id: node.id
-            }
-          });
-        });
         result.data.docs.edges.forEach(({ node }) => {
-          const component = path.resolve("src/templates/docs.js");
+          const component = path.resolve("src/templates/doc.js");
           createPage({
             path: node.frontmatter.path,
             component,
@@ -93,16 +55,6 @@ exports.createPages = ({ graphql, actions }) => {
           const component = path.resolve("src/templates/integration.js");
           createPage({
             path: `integrations/${node.frontmatter.path}`,
-            component,
-            context: {
-              id: node.id
-            }
-          });
-        });
-        result.data.persistenceProvider.edges.forEach(({ node }) => {
-          const component = path.resolve("src/templates/integration.js");
-          createPage({
-            path:`integrations/${node.frontmatter.path}`,
             component,
             context: {
               id: node.id

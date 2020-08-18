@@ -6,7 +6,7 @@ const docs = ({ data }) => {
   const { title } = data.markdownRemark.frontmatter;
   const { html } = data.markdownRemark;
   return (
-    <Layout bodyClass="page-docs">
+    <Layout bodyClass="doc">
       <div className="strip strip-white strip-diagonal">
         <div className="container pt-4 pt-md-10">
           <div className="row justify-content-start">
