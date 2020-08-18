@@ -10,11 +10,13 @@ const Integration = (props) => {
   const scanners = props.data.scanner.edges;
   const persistenceProviders = props.data.persistenceProvider.edges;
   const hooks = props.data.hook.edges;
+  const showExamples = props.path.includes('scanners');
 
   return (
     <Layout bodyClass="integration">
       <div className="sidebar-wrapper">
         <Sidebar dataArray={[scanners, persistenceProviders, hooks]}/>
+
         <div id="content">
           <div className="container-fluid" id="integration-doc">
             <h1 className="title">{title}</h1>
@@ -22,7 +24,7 @@ const Integration = (props) => {
               className="content"
               dangerouslySetInnerHTML={{ __html: html }}
             />
-            <ScannerExamples scanner={props.path} />
+            {showExamples && <ScannerExamples scanner={props.path} />}
           </div>
         </div>
       </div>
