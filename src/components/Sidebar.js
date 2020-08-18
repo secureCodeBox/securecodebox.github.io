@@ -9,19 +9,12 @@ function toggleMenu(id) {
   const persistenceProviders = document.getElementById('Persistence Providers');
   const hooks = document.getElementById('Hooks');
 
-  if (element !== scanners) {
-    scanners.style.display = 'none';
-  }
-  if (element !== persistenceProviders) {
+  if (element !== scanners) scanners.style.display = 'none';
+  if (element !== persistenceProviders)
     persistenceProviders.style.display = 'none';
-  }
-  if (element !== hooks) {
-    hooks.style.display = 'none';
-  }
+  if (element !== hooks) hooks.style.display = 'none';
 
-  element.style.display === 'block'
-    ? (element.style.display = 'none')
-    : (element.style.display = 'block');
+  element.style.display = element.style.display === 'block' ? 'none' : 'block';
 }
 
 // Determine the naming of Sidebar categories
@@ -34,9 +27,10 @@ function getCategoryTitle(category) {
       break;
 
     case 'hook':
-      category[0].node.frontmatter.type === 'persistenceProvider'
-        ? (categoryTitle = 'Persistence Providers')
-        : (categoryTitle = 'Hooks');
+      categoryTitle =
+        category[0].node.frontmatter.type === 'persistenceProvider'
+          ? 'Persistence Providers'
+          : 'Hooks';
       break;
 
     default:
