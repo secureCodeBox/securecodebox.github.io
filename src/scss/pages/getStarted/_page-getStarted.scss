@@ -1,16 +1,3 @@
 .page-getStarted {
   background: #fafafa;
-  background-image: url('../images/documentation.png');
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: right bottom;
-  @include media-breakpoint-up(sm) {
-    background-size: 90%;
-  }
-  @include media-breakpoint-up(md) {
-    background-size: 85%;
-  }
-  @include media-breakpoint-up(lg) {
-    background-size: 60%;
-  }
 }

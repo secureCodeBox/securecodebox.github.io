@@ -1,14 +1,15 @@
-import React from "react";
-import { withPrefix } from "gatsby";
-import Helmet from "react-helmet";
-import SEO from "../components/SEO";
-import Layout from "../components/Layout";
-import approved from "../images/approved.svg";
-import notApproved from "../images/not approved.svg";
+import React from 'react';
+import { withPrefix } from 'gatsby';
+import Helmet from 'react-helmet';
+import SEO from '../components/SEO';
+import Layout from '../components/Layout';
+import approved from '../images/approved.svg';
+import notApproved from '../images/not approved.svg';
+import Img from 'gatsby-image';
 
-import features from "../data/features.json";
+import features from '../data/features.json';
 
-const Home = () => {
+const Home = (props) => {
   return (
     <Layout bodyClass="page-home">
       <SEO title="Home" />
@@ -19,43 +20,54 @@ const Home = () => {
         />
       </Helmet>
       <div className="intro pb-4">
+        <div className="background-plane">
+          <Img
+            fluid={props.data.ImageHomeQuery.childImageSharp.fluid}
+            alt="secureCodeBox preview"
+            objectFit="cover"
+            className="background-image"
+          />
+        </div>
         <div className="container">
-          <h1>secureCodeBox</h1>
-          <h2>Testing your Software Security</h2>
-          <p>
-            secureCodeBox is a docker based, modularized toolchain for
-            continuous security scans of your software project. Its goal is to
-            orchestrate and easily automate a bunch of security-testing tools
-            out of the box.
-          </p>
-        </div>
-      </div>
-
-      <div className="container pt-3 pb-2 pt-md-3 pb-md-3">
-        <div className="row justify-content-center">
-          <div className="col-12">
-            <h2 className="title-3 text-dark mb-2">
-              What the secureCodeBox provides:
-            </h2>
+          <div className="text-box">
+            <h1>secureCodeBox</h1>
+            <h2>Testing your Software Security</h2>
+            <p>
+              secureCodeBox is a docker based, modularized toolchain for
+              continuous security scans of your software project. Its goal is to
+              orchestrate and easily automate a bunch of security-testing tools
+              out of the box.
+            </p>
           </div>
-          {features.map(feature => (
-            <div key={feature.title} className="col-12 col-md-3 col-lg-3 mb-2">
-              <div className="feature hoverable">
-                {feature.image && (
-                  <div className="feature-image">
-                    <img
-                      src={withPrefix(feature.image)}
-                      alt={feature.altText}
-                    />
-                  </div>
-                )}
-                <h2 className="feature-title">{feature.title}</h2>
-              </div>
+        </div>
+        <div className="container pt-3 pb-2 pt-md-3 pb-md-3">
+          <div className="row justify-content-center">
+            <div className="col-12">
+              <h2 className="title-3 text-dark mb-2">
+                What the secureCodeBox provides:
+              </h2>
             </div>
-          ))}
+            {features.map((feature) => (
+              <div
+                key={feature.title}
+                className="col-12 col-md-3 col-lg-3 mb-2"
+              >
+                <div className="feature hoverable">
+                  {feature.image && (
+                    <div className="feature-image">
+                      <img
+                        src={withPrefix(feature.image)}
+                        alt={feature.altText}
+                      />
+                    </div>
+                  )}
+                  <h2 className="feature-title">{feature.title}</h2>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-
       <div className="container pt-3 pb-5 pb-md-7">
         <div className="row justify-content-center">
           <div className="col-12">
@@ -97,5 +109,18 @@ const Home = () => {
     </Layout>
   );
 };
+
+export const query = graphql`
+  query {
+    ImageHomeQuery: file(relativePath: { eq: "images/LandingPage.png" }) {
+      childImageSharp {
+        # Specify the image processing specifications right in the query.
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
 
 export default Home;

@@ -1,73 +1,77 @@
 .intro {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding-top: 200px;
-  padding-bottom: 100px;
-  @include media-breakpoint-up(sm) {
-    padding-top: 80px;
-    padding-bottom: 80px;
-  }
-  @include media-breakpoint-up(md) {
-    padding-top: 80px;
-    padding-bottom: 80px;
-  }
-  @include media-breakpoint-up(lg) {
-    padding-top: 100px;
-    padding-bottom: 100px;
-  }
-  h1 {
-    color: $primary;
-    font-size: 2.2rem;
-    line-height: 1.0;
-    font-family: $font-family-heading;
-    width: 70%;
+  .text-box {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    position: relative;
+    z-index: 5;
+    padding-top: 200px;
+    padding-bottom: 60px;
+    @include media-breakpoint-up(xs) {
+      padding-top: 40px;
+    }
     @include media-breakpoint-up(sm) {
-      width: 70%;
+      padding-top: 40px;
+      padding-bottom: 60px;
     }
     @include media-breakpoint-up(md) {
-      font-size: 2.8rem;
-      width: 70%;
+      padding-top: 60px;
+      padding-bottom: 60px;
     }
     @include media-breakpoint-up(lg) {
-      font-size: 2.8rem;
-      width: 50%;
+      padding-top: 100px;
+      padding-bottom: 60px;
+    }
+    h1 {
+      color: $primary;
+      font-size: 2.2rem;
+      line-height: 1;
+      font-family: $font-family-heading;
+      @include media-breakpoint-up(md) {
+        font-size: 2.8rem;
+      }
+      @include media-breakpoint-up(lg) {
+        font-size: 2.8rem;
+      }
+    }
+    h2 {
+      color: $primary;
+      font-size: 2rem;
+      line-height: 1.1;
+      font-family: $font-family-heading;
+      padding-bottom: 25px;
+    }
+    p {
+      font-size: 1.1rem;
+      font-weight: lighter;
+      font-family: $font-family-base;
+      line-height: 1.4;
+      color: $secondary;
     }
   }
-  h2 {
-    color: $primary;
-    font-size: 2.0rem;
-    line-height: 1.1;
-    font-family: $font-family-heading;
-    width: 70%;
-    padding-bottom: 25px;
-    @include media-breakpoint-up(sm) {
-      width: 70%;
-    }
-    @include media-breakpoint-up(md) {
-      font-size: 2.0rem;
-      width: 70%;
-    }
-    @include media-breakpoint-up(lg) {
-      font-size: 2.0rem;
-      width: 50%;
-    }
-  }
-  p {
-    width: 80%;
-    font-size: 1.1rem;
-    font-weight: lighter;
-    font-family: $font-family-base;
-    line-height: 1.4;
-    color: $secondary;
-    @include media-breakpoint-up(sm) {
-      width: 70%;
-    }
-    @include media-breakpoint-up(md) {
-      width: 60%;
-    }
-    @include media-breakpoint-up(lg) {
-      width: 40%;
+  .background-plane {
+    display: flex;
+    position: absolute;
+    justify-content: flex-end;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    .background-image {
+      align-self: center;
+      margin-bottom: 150px;
+      @include media-breakpoint-up(xs) {
+        width: 240px;
+      }
+      @include media-breakpoint-up(sm) {
+        width: 480px;
+      }
+       @include media-breakpoint-up(md) {
+        width: 720px;
+      }
+       @include media-breakpoint-up(lg) {
+        width: 1080px;
+      }
     }
   }
 }

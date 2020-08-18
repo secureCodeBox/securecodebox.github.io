@@ -2,9 +2,10 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import SEO from '../../components/SEO';
 import Layout from '../../components/Layout';
+import Img from 'gatsby-image';
 
 const GetStarted = (props) => {
-  const tutorials = props.data.allMarkdownRemark.edges;
+  const tutorials = props.data.ServicesQuery.edges;
   return (
     <Layout bodyClass="page-getStarted">
       <SEO title="Services" />
@@ -34,6 +35,11 @@ const GetStarted = (props) => {
         </div>
       </div>
 
+      <Img
+        fluid={props.data.ImageGetStartedQuery.childImageSharp.fluid}
+        alt="people"
+      />
+
       <div className="container  pb-2  pb-md-3">
         <div className="row justify-content-center">
           {tutorials.map((tutorial, index) => (
@@ -48,8 +54,8 @@ const GetStarted = (props) => {
 };
 
 export const query = graphql`
-  query ServicesQuery {
-    allMarkdownRemark(
+  query {
+    ServicesQuery: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/docs/" } }
       sort: { fields: [frontmatter___title], order: DESC }
     ) {
@@ -61,6 +67,16 @@ export const query = graphql`
             path
             category
           }
+        }
+      }
+    }
+    ImageGetStartedQuery: file(
+      relativePath: { eq: "images/GetStarted.png" }
+    ) {
+      childImageSharp {
+        # Specify the image processing specifications right in the query.
+        fluid {
+          ...GatsbyImageSharpFluid
         }
       }
     }
