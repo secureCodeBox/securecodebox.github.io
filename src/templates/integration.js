@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import ScannerExamples from '../components/ScannerExamples.js';
-import Sidebar from '../components/Sidebar.js'
+import Sidebar from '../components/Sidebar.js';
 
 const Integration = (props) => {
   const { title } = props.data.markdownRemark.frontmatter;
@@ -15,8 +15,14 @@ const Integration = (props) => {
   return (
     <Layout bodyClass="integration">
       <div className="sidebar-wrapper">
-        <Sidebar dataArray={[scanners, persistenceProviders, hooks]}/>
-
+        <Sidebar
+          categories={[
+            { categoryName: 'Scanners', entries: scanners },
+            { categoryName: 'Persistence Providers', entries: persistenceProviders },
+            { categoryName: 'Hooks', entries: hooks },
+          ]}
+          currentPathname={props.location.pathname}
+        />
         <div id="content">
           <div className="container-fluid" id="integration-doc">
             <h1 className="title">{title}</h1>
