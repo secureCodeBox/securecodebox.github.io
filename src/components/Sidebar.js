@@ -16,10 +16,7 @@ const Sidebar = ({ categories = [], currentPathname }) => {
         }
       }
     }
-
-    throw new Error(
-      `Could not find matching Category for path ${currentPathname}`
-    );
+    return null;
   });
 
   return (
