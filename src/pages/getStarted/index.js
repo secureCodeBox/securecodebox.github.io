@@ -1,52 +1,58 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import SEO from '../../components/SEO';
 import Layout from '../../components/Layout';
 import Img from 'gatsby-image';
 
 const GetStarted = (props) => {
-  const tutorials = props.data.ServicesQuery.edges;
+  const docs = props.data.ServicesQuery.edges;
   return (
     <Layout bodyClass="page-getStarted">
       <SEO title="Services" />
       <div className="intro">
+        <div className="background-plane">
+          <Img
+            fluid={props.data.ImageGetStartedQuery.childImageSharp.fluid}
+            alt="people"
+            objectFit="cover"
+            className="background-image bottom"
+          />
+        </div>
         <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <h1>Getting Started</h1>
-              <h2>User and developer oriented documentation</h2>
-              <span>
-                How To:
-                <ul>
-                  <li>
-                    Start
-                    <ul>
-                      <li>Operator</li>
-                      <li>Scanner</li>
-                      <li>Persistence Provider</li>
-                    </ul>
-                  </li>
-                  <li>Hooks</li>
-                  <li>Contribute</li>
-                </ul>
-              </span>
+          <div className="text-box with-element-right">
+            <div className="row">
+              <div className="col-12">
+                <h1>Getting Started</h1>
+                <h2>Documentation for user and developer</h2>
+                <span>
+                  How To:
+                  <ul>
+                    <li>
+                      Start
+                      <ul>
+                        <li>Operator</li>
+                        <li>Scanner</li>
+                        <li>Persistence Provider</li>
+                      </ul>
+                    </li>
+                    <li>Hooks</li>
+                    <li>Contribute</li>
+                  </ul>
+                </span>
+              </div>
+            </div>
+            <div className="container  pb-2  pb-md-3 doc-selection">
+              <div className="row docs">
+                {docs.map((doc, index) => (
+                  <Link key={index} to={doc.node.frontmatter.path}>
+                    <div className="feature hoverable">
+                      <h1>{doc.node.frontmatter.title}</h1>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <Img
-        fluid={props.data.ImageGetStartedQuery.childImageSharp.fluid}
-        alt="people"
-      />
-
-      <div className="container  pb-2  pb-md-3">
-        <div className="row justify-content-center">
-          {tutorials.map((tutorial, index) => (
-            <div key={index} className="feature">
-              <h1>{tutorial.node.frontmatter.title}</h1>
-            </div>
-          ))}
         </div>
       </div>
     </Layout>
@@ -70,9 +76,7 @@ export const query = graphql`
         }
       }
     }
-    ImageGetStartedQuery: file(
-      relativePath: { eq: "images/GetStarted.png" }
-    ) {
+    ImageGetStartedQuery: file(relativePath: { eq: "images/GetStarted.png" }) {
       childImageSharp {
         # Specify the image processing specifications right in the query.
         fluid {

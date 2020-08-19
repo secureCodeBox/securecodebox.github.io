@@ -4,4 +4,8 @@ path: "/docs/developer-guide"
 category: "develop"
 ---
 
-This is just a placeholer for preperation purposes.
+<!-- end -->
+
+# Developing with the secureCodeBox
+
+> ✍ **Page under construction.**

@@ -49,6 +49,10 @@
       color: $secondary;
     }
   }
+  .with-element-right {
+    width: 100%;
+    flex-direction: row;
+  }
   .background-plane {
     display: flex;
     position: absolute;
@@ -72,6 +76,19 @@
        @include media-breakpoint-up(lg) {
         width: 1080px;
       }
+      @media (min-width: 2160px) {
+        width: 1400px;
+        align-self: flex-start;
+      }
+    }
+    .top {
+      align-self: flex-start;
+      margin-bottom: 0px;
+      margin-top: 50px;
+    }
+    .bottom {
+      align-self: flex-end;
+      margin-bottom: 70px;
     }
   }
 }

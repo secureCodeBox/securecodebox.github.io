@@ -6,6 +6,6 @@ category: "use"
 
 <!-- end -->
 
-# Developing with the secureCodeBox
+# Using the secureCodeBox
 
 > ✍ **Page under construction.**
