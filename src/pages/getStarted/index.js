@@ -1,11 +1,13 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql, Link, withPrefix } from 'gatsby';
 import SEO from '../../components/SEO';
 import Layout from '../../components/Layout';
 import Img from 'gatsby-image';
 
 const GetStarted = (props) => {
-  const docs = props.data.ServicesQuery.edges;
+  const docs = props.data.ServicesQuery.edges.filter(function(doc) {
+    return doc.node.frontmatter.path !== null;
+  });
   return (
     <Layout bodyClass="page-getStarted">
       <SEO title="Services" />
@@ -46,7 +48,17 @@ const GetStarted = (props) => {
                 {docs.map((doc, index) => (
                   <Link key={index} to={doc.node.frontmatter.path}>
                     <div className="feature hoverable">
-                      <h1>{doc.node.frontmatter.title}</h1>
+                      <div className="feature-image">
+                        <img
+                          src={withPrefix(
+                            `/features/${doc.node.frontmatter.title}.svg`
+                          )}
+                          alt={doc.node.frontmatter.title}
+                        />
+                      </div>
+                      <h2 className="feature-title">
+                        {doc.node.frontmatter.title}
+                      </h2>
                     </div>
                   </Link>
                 ))}
