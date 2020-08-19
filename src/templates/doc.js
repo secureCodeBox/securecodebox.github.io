@@ -1,21 +1,19 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
+import Sidebar from '../components/Sidebar.js';
 
-const docs = ({ data }) => {
-  const { title } = data.markdownRemark.frontmatter;
+const docs = ({ data, location }) => {
   const { html } = data.markdownRemark;
   return (
-    <Layout bodyClass="doc">
-      <div className="strip strip-white strip-diagonal">
-        <div className="container pt-4 pt-md-10">
-          <div className="row justify-content-start">
-            <div className="col-12 col-md-8">
-              <div className="team">
-                <h1 className="title">{title}</h1>
-                <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
-              </div>
-            </div>
+    <Layout bodyClass="integration">
+      <div className="sidebar-wrapper">
+        <div id="content">
+          <div className="container-fluid" id="integration-doc">
+            <div
+              className="content"
+              dangerouslySetInnerHTML={{ __html: html }}
+            />
           </div>
         </div>
       </div>
