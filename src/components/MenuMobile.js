@@ -9,17 +9,25 @@ const MenuMobile = props => {
     <Menu
       right
       id="slide"
-      width={"100vw"}
-      className={`main-menu-mobile ${props.active ? "open" : ""}`}
-      customBurgerIcon={<img src={hamburgerIcon} alt="menu"/>}
+      width={'100vw'}
+      className={`main-menu-mobile ${props.active ? 'open' : ''}`}
+      customBurgerIcon={<img src={hamburgerIcon} alt="menu" />}
       styles={{
         bmBurgerBars: {
-          height: "3px"
-        }
+          height: '3px',
+        },
       }}
     >
-      {menuLinks.map(link => (
-        <Link to={link.link} key={link.name}>{link.name}</Link>
+      {menuLinks.map((link) => (
+        <li key={link.name}>
+          {link.external ? (
+            <a href={link.link} target="_blank" rel="noopener noreferrer">
+              {link.name}
+            </a>
+          ) : (
+            <Link to={link.link}>{link.name}</Link>
+          )}
+        </li>
       ))}
     </Menu>
   );
@@ -33,6 +41,7 @@ export default props => (
           siteMetadata {
             menuLinks {
               name
+              external
               link
             }
           }

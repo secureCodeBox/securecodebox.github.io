@@ -1,62 +1,51 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link } from 'gatsby';
 
-// Toggles sidebar menus, only one may be open at a time
-function toggleMenu(id) {
-  const element = document.getElementById(id);
+/**
+ * Interactive Sidebar with toggleable categories.
+ *
+ * @requires categories of form: [ { name: "foobar", entires: []} ]
+ */
+const Sidebar = ({ categories = [], currentPathname }) => {
+  const [selectedCategory, selectCategory] = useState(() => {
+    for (const { categoryName, entries } of categories) {
+      for (const entry of entries) {
+        if (
+          currentPathname === `/integrations/${entry.node.frontmatter.path}`
+        ) {
+          return categoryName;
+        }
+      }
+    }
 
-  const scanners = document.getElementById('Scanners');
-  const persistenceProviders = document.getElementById('Persistence Providers');
-  const hooks = document.getElementById('Hooks');
+    throw new Error(
+      `Could not find matching Category for path ${currentPathname}`
+    );
+  });
 
-  if (element !== scanners) scanners.style.display = 'none';
-  if (element !== persistenceProviders)
-    persistenceProviders.style.display = 'none';
-  if (element !== hooks) hooks.style.display = 'none';
-
-  element.style.display = element.style.display === 'block' ? 'none' : 'block';
-}
-
-// Determine the naming of Sidebar categories
-function getCategoryTitle(category) {
-  let categoryTitle = '';
-
-  switch (category[0].node.frontmatter.category) {
-    case 'scanner':
-      categoryTitle = 'Scanners';
-      break;
-
-    case 'hook':
-      categoryTitle =
-        category[0].node.frontmatter.type === 'persistenceProvider'
-          ? 'Persistence Providers'
-          : 'Hooks';
-      break;
-
-    default:
-      categoryTitle = 'Unknown Category';
-      break;
-  }
-
-  return categoryTitle;
-}
-
-const Sidebar = (props) => {
   return (
     <nav className="sidebar">
-      {props.dataArray.map((category, index) => (
-        <Fragment key={index}>
-          <h1
-            onClick={() => toggleMenu(getCategoryTitle(category))}
+      {categories.map(({ categoryName, entries }) => (
+        <Fragment key={categoryName}>
+          <button
+            onClick={() =>
+              selectCategory(
+                selectedCategory === categoryName ? null : categoryName
+              )
+            }
             className="sidebar-header"
           >
-            {getCategoryTitle(category)}
-          </h1>
+            {categoryName}
+          </button>
           <ul
-            id={getCategoryTitle(category)}
+            id={categoryName}
+            name="Category"
             className="list-unstyled components show"
+            style={{
+              display: selectedCategory === categoryName ? 'block' : 'none',
+            }}
           >
-            {category.map((element) => (
+            {entries.map((element) => (
               <li key={element.node.frontmatter.title}>
                 <Link
                   to={`/integrations/${element.node.frontmatter.path}`}
