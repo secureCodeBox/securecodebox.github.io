@@ -16,6 +16,7 @@ const Sidebar = ({ categories = [], currentPathname }) => {
         }
       }
     }
+    return null;
   });
 
   return (
