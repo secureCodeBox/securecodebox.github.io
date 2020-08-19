@@ -1,13 +1,26 @@
 .page-getStarted {
   background: #fafafa;
+
+  .quick-link-menu {
+    filter: blur(3px);
+  }
+
+  .quick-link-menu:hover {
+    filter: none;
+  }
+
   .doc-selection {
     text-align: center;
+    margin-top: 40px;
+
     h1 {
       color: $black;
+      font-size: 2.2rem;
     }
+
     .docs {
       justify-content: space-evenly;
-      margin-top: 100px;
+      margin-top: 40px;
     }
   }
 }

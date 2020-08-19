@@ -5,7 +5,7 @@ import Layout from '../../components/Layout';
 import Img from 'gatsby-image';
 
 const GetStarted = (props) => {
-  const docs = props.data.ServicesQuery.edges.filter(function(doc) {
+  const docs = props.data.ServicesQuery.edges.filter(function (doc) {
     return doc.node.frontmatter.path !== null;
   });
   return (
@@ -26,7 +26,10 @@ const GetStarted = (props) => {
               <div className="col-12">
                 <h1>Getting Started</h1>
                 <h2>Documentation for user and developer</h2>
-                <span>
+                {/* TODO: Build quick link navigation  */}
+                <div className="quick-link-menu">
+                  ✍ Page under construction.
+                  <br />
                   How To:
                   <ul>
                     <li>
@@ -40,13 +43,18 @@ const GetStarted = (props) => {
                     <li>Hooks</li>
                     <li>Contribute</li>
                   </ul>
-                </span>
+                </div>
               </div>
             </div>
             <div className="container  pb-2  pb-md-3 doc-selection">
+              <h1>Choose you Guide</h1>
               <div className="row docs">
                 {docs.map((doc, index) => (
-                  <Link key={index} to={doc.node.frontmatter.path}>
+                  <Link
+                    key={index}
+                    className="col-12 col-md-2 col-lg-4 mb-2"
+                    to={doc.node.frontmatter.path}
+                  >
                     <div className="feature hoverable">
                       <div className="feature-image">
                         <img
@@ -56,9 +64,9 @@ const GetStarted = (props) => {
                           alt={doc.node.frontmatter.title}
                         />
                       </div>
-                      <h2 className="feature-title">
+                      <div className="feature-title">
                         {doc.node.frontmatter.title}
-                      </h2>
+                      </div>
                     </div>
                   </Link>
                 ))}

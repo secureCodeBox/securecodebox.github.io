@@ -8,6 +8,11 @@ const docs = ({ data, location }) => {
   return (
     <Layout bodyClass="integration">
       <div className="sidebar-wrapper">
+        {/* TODO: add sidebar for navigation through the page. 
+        <Sidebar
+          categories={[{ categoryName: 'Scanners', entries: [] }]}
+          currentPathname={location.pathname}
+        /> */}
         <div id="content">
           <div className="container-fluid" id="integration-doc">
             <div
