@@ -1,3 +1,8 @@
 html {
-  background-color:  rgba(255, 255, 255, 0.356);
+  background-color: rgba(255, 255, 255, 0.356);
+}
+
+:root {
+  --deckgo-highlight-code-font-family: "Dank Mono", monospace;
+  --deckgo-highlight-code-carbon-margin: 16px -24px;
 }

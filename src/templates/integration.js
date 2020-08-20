@@ -1,8 +1,11 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import ScannerExamples from '../components/ScannerExamples.js';
-import Sidebar from '../components/Sidebar.js';
+import React from "react";
+import { graphql } from "gatsby";
+import Layout from "../components/Layout";
+import ScannerExamples from "../components/ScannerExamples.js";
+import Sidebar from "../components/Sidebar.js";
+
+import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
+deckDeckGoHighlightElement();
 
 const Integration = (props) => {
   const { title } = props.data.markdownRemark.frontmatter;
@@ -10,16 +13,19 @@ const Integration = (props) => {
   const scanners = props.data.scanner.edges;
   const persistenceProviders = props.data.persistenceProvider.edges;
   const hooks = props.data.hook.edges;
-  const showExamples = props.path.includes('scanners');
+  const showExamples = props.path.includes("scanners");
 
   return (
     <Layout bodyClass="integration">
       <div className="sidebar-wrapper">
         <Sidebar
           categories={[
-            { categoryName: 'Scanners', entries: scanners },
-            { categoryName: 'Persistence Providers', entries: persistenceProviders },
-            { categoryName: 'Hooks', entries: hooks },
+            { categoryName: "Scanners", entries: scanners },
+            {
+              categoryName: "Persistence Providers",
+              entries: persistenceProviders,
+            },
+            { categoryName: "Hooks", entries: hooks },
           ]}
           currentPathname={props.location.pathname}
         />
