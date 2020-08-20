@@ -10,10 +10,13 @@ deckDeckGoHighlightElement();
 const Integration = (props) => {
   const { title } = props.data.markdownRemark.frontmatter;
   const { html } = props.data.markdownRemark;
+
   const scanners = props.data.scanner.edges;
   const persistenceProviders = props.data.persistenceProvider.edges;
   const hooks = props.data.hook.edges;
-  const showExamples = props.path.includes("scanners");
+
+  const examples = props.data.examples.nodes.map(({ fields }) => fields);
+  const showExamples = examples.length > 0;
 
   return (
     <Layout bodyClass="integration">
@@ -36,7 +39,7 @@ const Integration = (props) => {
               className="content"
               dangerouslySetInnerHTML={{ __html: html }}
             />
-            {showExamples && <ScannerExamples scanner={props.path} />}
+            {showExamples && <ScannerExamples examples={examples} />}
           </div>
         </div>
       </div>
@@ -45,7 +48,7 @@ const Integration = (props) => {
 };
 
 export const query = graphql`
-  query($id: String!) {
+  query($id: String!, $exampleFilter: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
@@ -114,6 +117,27 @@ export const query = graphql`
             type
             state
           }
+        }
+      }
+    }
+    examples: allFile(
+      filter: {
+        base: { regex: "/(findings|scan).yaml/" }
+        relativeDirectory: { regex: $exampleFilter }
+        extension: { eq: "yaml" }
+      }
+    ) {
+      edges {
+        node {
+          base
+          relativeDirectory
+        }
+      }
+      nodes {
+        fields {
+          content
+          fileName
+          scanTarget
         }
       }
     }
