@@ -92,7 +92,6 @@ exports.createPages = ({ graphql, actions }) => {
           });
         });
         result.data.scanner.edges.forEach(({ node }) => {
-          console.log(node.frontmatter);
           const component = path.resolve("src/templates/integration.js");
 
           let componentName = "";
@@ -118,9 +117,6 @@ exports.createPages = ({ graphql, actions }) => {
             // The path consists normally like "scanners/nmap" or "hook/persistence-elastic"
             componentName = node.frontmatter.path.split("/")[1];
           }
-
-          console.log("filter");
-          console.log(`/${componentName}/examples/`);
 
           createPage({
             path: `integrations/${node.frontmatter.path}`,
