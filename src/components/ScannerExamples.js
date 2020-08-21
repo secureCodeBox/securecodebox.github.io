@@ -30,7 +30,7 @@ export default function ScannerExamples({ examples: allExamples }) {
 
             {examples.map(({ fileName, content }) => (
               <TabPanel key={fileName}>
-                <deckgo-highlight-code>
+                <deckgo-highlight-code theme="cobalt">
                   <code slot="code">{content}</code>
                 </deckgo-highlight-code>
               </TabPanel>
