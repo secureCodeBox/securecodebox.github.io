@@ -22,7 +22,7 @@ const Sidebar = ({ categories = [], currentPathname }) => {
   return (
     <nav className="sidebar">
       {categories.map(({ categoryName, entries }) => (
-        <Fragment key={categoryName}>
+        <Fragment key={categoryName}></Fragment>
           <Collapsible
             className="sidebar-category"
             openedClassName="sidebar-category"
@@ -31,11 +31,16 @@ const Sidebar = ({ categories = [], currentPathname }) => {
             trigger={categoryName}
             triggerTagName="div"
             open={selectedCategory === categoryName}
-            onTriggerOpening={() => {
+            onTriggerOpening={() =>
               selectCategory(
                 selectedCategory === categoryName ? null : categoryName
-              );
-            }}
+              )
+            }
+            onTriggerClosing={() =>
+              selectCategory(
+                selectedCategory === categoryName ? null : categoryName
+              )
+            }
           >
             <ul
               id={categoryName}
