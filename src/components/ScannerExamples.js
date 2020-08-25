@@ -1,9 +1,10 @@
-import React from "react";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import "react-tabs/style/react-tabs.css";
+import React from 'react';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
+import Collapsible from './Collapsible';
 
-import groupBy from "lodash/groupBy";
-import mapValues from "lodash/mapValues";
+import groupBy from 'lodash/groupBy';
+import mapValues from 'lodash/mapValues';
 
 export default function ScannerExamples({ examples: allExamples }) {
   const exampleGroups = mapValues(
@@ -21,20 +22,26 @@ export default function ScannerExamples({ examples: allExamples }) {
       {Object.entries(exampleGroups).map(([targetName, examples]) => {
         return (
           <Tabs key={targetName}>
-            <h3>{targetName}</h3>
-            <TabList>
-              {examples.map(({ fileName }) => (
-                <Tab key={fileName}>{fileName.split(".")[0]}</Tab>
-              ))}
-            </TabList>
+            <Collapsible
+              lazyRender
+              transitionTime={150}
+              trigger={targetName}
+              triggerTagName="h3"
+            >
+              <TabList>
+                {examples.map(({ fileName }) => (
+                  <Tab key={fileName}>{fileName.split('.')[0]}</Tab>
+                ))}
+              </TabList>
 
-            {examples.map(({ fileName, content }) => (
-              <TabPanel key={fileName}>
-                <deckgo-highlight-code theme="cobalt">
-                  <code slot="code">{content}</code>
-                </deckgo-highlight-code>
-              </TabPanel>
-            ))}
+              {examples.map(({ fileName, content }) => (
+                <TabPanel key={fileName}>
+                  <deckgo-highlight-code theme="cobalt">
+                    <code slot="code">{content}</code>
+                  </deckgo-highlight-code>
+                </TabPanel>
+              ))}
+            </Collapsible>
           </Tabs>
         );
       })}
