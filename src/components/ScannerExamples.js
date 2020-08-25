@@ -1,10 +1,9 @@
-import React from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
-import Collapsible from './Collapsible';
-
 import groupBy from 'lodash/groupBy';
 import mapValues from 'lodash/mapValues';
+import React from 'react';
+import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
+import Collapsible from './Collapsible';
 
 export default function ScannerExamples({ examples: allExamples }) {
   const exampleGroups = mapValues(
@@ -23,8 +22,10 @@ export default function ScannerExamples({ examples: allExamples }) {
         return (
           <Tabs key={targetName}>
             <Collapsible
+              overflowWhenOpen="visible"
               lazyRender={true}
               transitionTime={150}
+              transitionCloseTime={50}
               trigger={targetName}
               triggerTagName="h3"
             >
