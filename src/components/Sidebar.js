@@ -22,7 +22,7 @@ const Sidebar = ({ categories = [], currentPathname }) => {
   return (
     <nav className="sidebar">
       {categories.map(({ categoryName, entries }) => (
-        <Fragment key={categoryName}></Fragment>
+        <Fragment key={categoryName}>
           <Collapsible
             className="sidebar-category"
             openedClassName="sidebar-category"
