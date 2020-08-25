@@ -55,6 +55,7 @@ exports.createPages = ({ graphql, actions }) => {
               component,
               context: {
                 id: node.id,
+                exampleFilter: `/${componentName}/examples/`,
               },
             });
           }
