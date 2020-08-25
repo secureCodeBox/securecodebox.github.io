@@ -26,24 +26,38 @@ exports.createPages = ({ graphql, actions }) => {
         }
       `).then((result) => {
         result.data.git.edges.forEach(({ node }) => {
-          const component = path.resolve('src/templates/doc.js');
-          createPage({
-            path: `getStarted/${node.frontmatter.path}`,
-            component,
-            context: {
-              id: node.id,
-            },
-          });
-        });
-        result.data.git.edges.forEach(({ node }) => {
-          const component = path.resolve('src/templates/integration.js');
-          createPage({
-            path: `integrations/${node.frontmatter.path}`,
-            component,
-            context: {
-              id: node.id,
-            },
-          });
+          let componentName = '';
+          if (node.frontmatter.path) {
+            // The path consists normally like "scanners/nmap" or "hook/persistence-elastic"
+            componentName = node.frontmatter.path.split('/')[1];
+          }
+
+          if (
+            node.frontmatter.category === 'scanner' ||
+            node.frontmatter.category === 'hook'
+          ) {
+            const component = path.resolve('src/templates/integration.js');
+            createPage({
+              path: `integrations/${node.frontmatter.path}`,
+              component,
+              context: {
+                id: node.id,
+                exampleFilter: `/${componentName}/examples/`,
+              },
+            });
+          } else if (
+            node.frontmatter.category === 'develop' ||
+            node.frontmatter.category === 'use'
+          ) {
+            const component = path.resolve('src/templates/doc.js');
+            createPage({
+              path: `getStarted/${node.frontmatter.path}`,
+              component,
+              context: {
+                id: node.id,
+              },
+            });
+          }
         });
         resolve();
       })
