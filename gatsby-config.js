@@ -8,31 +8,31 @@ module.exports = {
   siteMetadata: {
     title: `secureCodeBox`,
     company: `iteratec GmbH`,
-    description: '',
+    description: "",
     // siteUrl: '',
     contact: {
-      phone: '+49 89 614551-0',
-      email: 'security@iteratec.com',
+      phone: "+49 89 614551-0",
+      email: "security@iteratec.com",
     },
     // TODO: replace links with actual pages here and link the correct reference in Menu.js
     menuLinks: [
       {
-        name: 'Get Started',
+        name: "Get Started",
         external: true,
         // link: '/getStarted',
-        link: 'https://github.com/secureCodeBox/secureCodeBox-v2-alpha',
+        link: "https://github.com/secureCodeBox/secureCodeBox-v2-alpha",
       },
       {
-        name: 'Docs',
+        name: "Docs",
         external: true,
         // link: '/docs',
         link:
-          'https://github.com/secureCodeBox/secureCodeBox-v2-alpha/blob/master/docs/index.md',
+          "https://github.com/secureCodeBox/secureCodeBox-v2-alpha/blob/master/docs/index.md",
       },
       {
-        name: 'Integrations',
+        name: "Integrations",
         external: false,
-        link: '/integrations',
+        link: "/integrations",
       },
     ],
   },
@@ -48,6 +48,21 @@ module.exports = {
           maxDepth: 6,
         },
         excerpt_separator: `<!-- end -->`,
+        plugins: [
+          {
+            resolve: `gatsby-remark-highlight-code`,
+            options: {
+              terminal: "carbon",
+              theme: "cobalt",
+            },
+          },
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              icon: `<svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg>`,
+            },
+          },
+        ],
       },
     },
     {
@@ -69,29 +84,29 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'src',
+        name: "src",
         path: `${__dirname}/src/`,
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/src/pages`,
-        name: 'pages',
+        name: "pages",
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/src/data`,
-        name: 'data',
+        name: "data",
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/src/images`,
-        name: 'images',
+        name: "images",
       },
     },
     {
@@ -108,14 +123,14 @@ module.exports = {
       options: {
         name: `scanners`,
         path: `${__dirname}/.cache/gatsby-source-git/secureCodeBox-v2-alpha/scanners`,
-      }
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `hooks`,
         path: `${__dirname}/.cache/gatsby-source-git/secureCodeBox-v2-alpha/hooks`,
-      }
-    }
+      },
+    },
   ],
 };
