@@ -62,7 +62,7 @@ a {
     }
   }
   ul {
-    display: none;
+    margin-top: 20px;
     li {
       a {
         text-align: left;
@@ -89,7 +89,6 @@ a {
     text-align: left;
   }
   .sidebar-category:hover {
-    cursor: pointer;
     box-shadow: 0 1px 18px rgba(0, 0, 0, 0.2);
   }
   .sidebar-element {

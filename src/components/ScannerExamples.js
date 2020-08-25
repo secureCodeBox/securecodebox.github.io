@@ -23,7 +23,7 @@ export default function ScannerExamples({ examples: allExamples }) {
         return (
           <Tabs key={targetName}>
             <Collapsible
-              lazyRender
+              lazyRender={true}
               transitionTime={150}
               trigger={targetName}
               triggerTagName="h3"

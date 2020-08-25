@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { Link } from 'gatsby';
-import { IoIosArrowDown, IoIosArrowForward } from 'react-icons/io';
+import Collapsible from './Collapsible';
 
 /**
  * Interactive Sidebar with toggleable categories.
@@ -23,50 +23,40 @@ const Sidebar = ({ categories = [], currentPathname }) => {
     <nav className="sidebar">
       {categories.map(({ categoryName, entries }) => (
         <Fragment key={categoryName}>
-          <button
-            onClick={() =>
+          <Collapsible
+            className="sidebar-category"
+            openedClassName="sidebar-category"
+            transitionTime={150}
+            transitionCloseTime={50}
+            trigger={categoryName}
+            triggerTagName="div"
+            open={selectedCategory === categoryName}
+            onTriggerOpening={() => {
               selectCategory(
                 selectedCategory === categoryName ? null : categoryName
-              )
-            }
-            className="sidebar-category"
-          >
-            {categoryName}
-            <IoIosArrowDown
-              className="arrow"
-              style={{
-                display: selectedCategory === categoryName ? 'block' : 'none',
-              }}
-            />
-            <IoIosArrowForward
-              className="arrow"
-              style={{
-                display: selectedCategory === categoryName ? 'none' : 'block',
-              }}
-            />
-          </button>
-          <ul
-            id={categoryName}
-            name="Category"
-            className="list-unstyled components show"
-            style={{
-              display: selectedCategory === categoryName ? 'block' : 'none',
+              );
             }}
           >
-            {entries.map((element) => (
-              <li
-                key={element.node.frontmatter.title}
-                className="sidebar-element"
-              >
-                <Link
-                  to={`/integrations/${element.node.frontmatter.path}`}
-                  activeClassName="active-Link"
+            <ul
+              id={categoryName}
+              name="Category"
+              className="list-unstyled components show"
+            >
+              {entries.map((element) => (
+                <li
+                  key={element.node.frontmatter.title}
+                  className="sidebar-element"
                 >
-                  {element.node.frontmatter.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
+                  <Link
+                    to={`/integrations/${element.node.frontmatter.path}`}
+                    activeClassName="active-Link"
+                  >
+                    {element.node.frontmatter.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Collapsible>
         </Fragment>
       ))}
     </nav>

@@ -244,7 +244,7 @@ class Collapsible extends Component {
           tabIndex={this.props.tabIndex && this.props.tabIndex}
           {...this.props.triggerElementProps}
         >
-          <div class="collapsible-header">
+          <div className="collapsible-header">
             {trigger}
             <IoIosArrowDown
               style={{
