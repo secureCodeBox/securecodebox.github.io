@@ -1,0 +1,24 @@
+.Collapsible .Collapsible__trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer !important;
+}
+
+.Collapsible__trigger.is-open {
+  .arrow-down {
+    display: none;
+  }
+  .arrow-up {
+    display: block;
+  }
+}
+
+.Collapsible__trigger.is-closed {
+  .arrow-down {
+    display: block;
+  }
+  .arrow-up {
+    display: none;
+  }
+}
