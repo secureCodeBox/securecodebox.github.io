@@ -1,18 +1,18 @@
 [
   {
-    "title": "Cloud Ready",
-    "description": "Ready to be deployed on a Cloud Server",
-    "image": "/features/cloud.svg",
-    "altText": "cloud icon"
+    "title": "Quick & Easy",
+    "description": "It's a quick and straight forward installation. It works on every system and is ready to use.",
+    "image": "/features/quick.svg",
+    "altText": "speed clock"
   },
   {
-    "title": "Open Source",
-    "description": "We are an Open Source project and happy about your contribution",
-    "image": "/features/Open Source.svg",
-    "altText": "open source icon"
+    "title": "Professionals & Rookies",
+    "description": "You can start scans without any configuration right away and use best practice tests. But each scanner also provides extensive configuration options.",
+    "image": "/features/code.svg",
+    "altText": "code terminal"
   },
   {
-    "title": "Scanner out of the box",
+    "title": "Monitoring",
     "description": "We integrate Open Source Scanner ready to use",
     "image": "/features/scan.svg",
     "altText": "scanner icon"

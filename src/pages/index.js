@@ -23,10 +23,9 @@ const Home = () => {
           <h1>secureCodeBox</h1>
           <h2>Testing your Software Security</h2>
           <p>
-            secureCodeBox is a docker based, modularized toolchain for
-            continuous security scans of your software project. Its goal is to
-            orchestrate and easily automate a bunch of security-testing tools
-            out of the box.
+            secureCodeBox is an automated and scalable open source solution that
+            can be used to integrate various security scanners with a simple and
+            lightweight interface.
           </p>
         </div>
       </div>
@@ -38,7 +37,7 @@ const Home = () => {
               What the secureCodeBox provides:
             </h2>
           </div>
-          {features.map(feature => (
+          {features.map((feature) => (
             <div key={feature.title} className="col-12 col-md-3 col-lg-3 mb-2">
               <div className="feature hoverable">
                 {feature.image && (
