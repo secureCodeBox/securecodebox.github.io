@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import SEO from "../../components/SEO";
 import Layout from "../../components/Layout";
 
-const GetStarted = (props) => {
+const TelemetryPage = (props) => {
   const html = props.data.markdownRemark.html;
   return (
     <Layout bodyClass="page-telemetry">
@@ -27,4 +27,4 @@ export const query = graphql`
   }
 `;
 
-export default GetStarted;
+export default TelemetryPage;
