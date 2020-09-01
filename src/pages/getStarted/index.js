@@ -1,8 +1,8 @@
-import React from 'react';
 import { graphql, Link, withPrefix } from 'gatsby';
-import SEO from '../../components/SEO';
-import Layout from '../../components/Layout';
 import Img from 'gatsby-image';
+import React from 'react';
+import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
 
 const GetStarted = (props) => {
   const docs = props.data.ServicesQuery.edges.filter(function (doc) {
@@ -28,7 +28,7 @@ const GetStarted = (props) => {
                 <h2>Documentation for user and developer</h2>
                 {/* TODO: Build quick link navigation  */}
                 <div className="quick-link-menu">
-                  ✍ Page under construction.
+                  <span> ✍ Page under construction. </span>
                   <br />
                   How To:
                   <ul>

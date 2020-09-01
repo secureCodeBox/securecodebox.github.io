@@ -1,7 +1,6 @@
-import React from 'react';
 import { graphql } from 'gatsby';
+import React from 'react';
 import Layout from '../components/Layout';
-import Sidebar from '../components/Sidebar.js';
 
 const docs = ({ data, location }) => {
   const { html } = data.markdownRemark;
