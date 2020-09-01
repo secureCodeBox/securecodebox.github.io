@@ -5,7 +5,10 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Collapsible from './Collapsible';
 
-export default function ScannerExamples({ examples: allExamples }) {
+export default function ScannerExamples({
+  examples: allExamples,
+  descriptions: allDescriptions,
+}) {
   const exampleGroups = mapValues(
     groupBy(allExamples, ({ scanTarget }) => scanTarget),
     (examples) => {
@@ -29,6 +32,17 @@ export default function ScannerExamples({ examples: allExamples }) {
               trigger={targetName}
               triggerTagName="h3"
             >
+              {allDescriptions.some(
+                (x) => x.node.frontmatter.title === targetName
+              ) && (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: allDescriptions.find(
+                      (x) => x.node.frontmatter.title === targetName
+                    ).node.html,
+                  }}
+                ></div>
+              )}
               <TabList>
                 {examples.map(({ fileName }) => (
                   <Tab key={fileName}>{fileName.split('.')[0]}</Tab>

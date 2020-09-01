@@ -1,10 +1,10 @@
-import React from "react";
-import { graphql } from "gatsby";
-import Layout from "../components/Layout";
-import ScannerExamples from "../components/ScannerExamples.js";
-import Sidebar from "../components/Sidebar.js";
+import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
+import { graphql } from 'gatsby';
+import React from 'react';
+import Layout from '../components/Layout';
+import ScannerExamples from '../components/ScannerExamples.js';
+import Sidebar from '../components/Sidebar.js';
 
-import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
 deckDeckGoHighlightElement();
 
 const Integration = (props) => {
@@ -17,18 +17,19 @@ const Integration = (props) => {
 
   const examples = props.data.examples.nodes.map(({ fields }) => fields);
   const showExamples = examples.length > 0;
+  const exampleReadMes = props.data.exampleReadMes.edges;
 
   return (
     <Layout bodyClass="integration">
       <div className="sidebar-wrapper">
         <Sidebar
           categories={[
-            { categoryName: "Scanners", entries: scanners },
+            { categoryName: 'Scanners', entries: scanners },
             {
-              categoryName: "Persistence Providers",
+              categoryName: 'Persistence Providers',
               entries: persistenceProviders,
             },
-            { categoryName: "Hooks", entries: hooks },
+            { categoryName: 'Hooks', entries: hooks },
           ]}
           currentPathname={props.location.pathname}
         />
@@ -39,7 +40,7 @@ const Integration = (props) => {
               className="content"
               dangerouslySetInnerHTML={{ __html: html }}
             />
-            {showExamples && <ScannerExamples examples={examples} />}
+            {showExamples && <ScannerExamples examples={examples} descriptions={exampleReadMes} />}
           </div>
         </div>
       </div>
@@ -138,6 +139,18 @@ export const query = graphql`
           content
           fileName
           scanTarget
+        }
+      }
+    }
+    exampleReadMes: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: $exampleFilter } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+          }
+          html
         }
       }
     }
