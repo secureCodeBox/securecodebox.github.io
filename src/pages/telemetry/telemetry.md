@@ -6,7 +6,7 @@ date: 2020-08-27 14:00:00
 
 # secureCodeBox Telemetry Data
 
-The secureCodeBox Operator collects and submits anonymized data to give the development team a vage overview on how much the secureCodeBox is actually used.
+The secureCodeBox Operator collects and submits anonymized data to give the development team a vague overview on how much the secureCodeBox is actually used.
 
 ## Datapoints Collected:
 
