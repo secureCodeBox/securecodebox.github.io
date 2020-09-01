@@ -28,7 +28,7 @@ const GetStarted = (props) => {
                 <h2>Documentation for user and developer</h2>
                 {/* TODO: Build quick link navigation  */}
                 <div className="quick-link-menu">
-                  <span> ✍ Page under construction. </span>
+                  <span role="img" aria-label="writing"> ✍ </span> Page under construction.
                   <br />
                   How To:
                   <ul>
