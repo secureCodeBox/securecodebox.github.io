@@ -5,7 +5,7 @@ import SEO from '../components/SEO';
 import Layout from '../components/Layout';
 import approved from '../images/approved.svg';
 import notApproved from '../images/not approved.svg';
-import Img from 'gatsby-image';
+import image from '../images/LandingPage.svg';
 
 import features from '../data/features.json';
 
@@ -21,9 +21,9 @@ const Home = (props) => {
       </Helmet>
       <div className="intro pb-4">
         <div className="background-plane">
-          <Img
-            fluid={props.data.ImageHomeQuery.childImageSharp.fluid}
-            alt="secureCodeBox preview"
+          <img
+            src={image}
+            alt="integrations"
             objectFit="cover"
             className="background-image"
           />
@@ -109,18 +109,5 @@ const Home = (props) => {
     </Layout>
   );
 };
-
-export const query = graphql`
-  query {
-    ImageHomeQuery: file(relativePath: { eq: "images/LandingPage.png" }) {
-      childImageSharp {
-        # Specify the image processing specifications right in the query.
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`;
 
 export default Home;
