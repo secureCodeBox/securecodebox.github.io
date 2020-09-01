@@ -1,12 +1,12 @@
-import React from "react";
-import { withPrefix } from "gatsby";
-import Helmet from "react-helmet";
-import SEO from "../components/SEO";
-import Layout from "../components/Layout";
-import approved from "../images/approved.svg";
-import notApproved from "../images/not approved.svg";
-
-import features from "../data/features.json";
+import { withPrefix } from 'gatsby';
+import React from 'react';
+import Helmet from 'react-helmet';
+import ReactTooltip from 'react-tooltip';
+import Layout from '../components/Layout';
+import SEO from '../components/SEO';
+import features from '../data/features.json';
+import tick from '../images/tick.svg';
+import close from '../images/close.svg';
 
 const Home = () => {
   return (
@@ -32,13 +32,12 @@ const Home = () => {
 
       <div className="container pt-3 pb-2 pt-md-3 pb-md-3">
         <div className="row justify-content-center">
-          <div className="col-12">
-            <h2 className="title-3 text-dark mb-2">
-              What the secureCodeBox provides:
-            </h2>
-          </div>
           {features.map((feature) => (
-            <div key={feature.title} className="col-12 col-md-3 col-lg-3 mb-2">
+            <div
+              key={feature.title}
+              className="col-12 col-md-3 col-lg-3 mb-2"
+              data-tip={feature.description}
+            >
               <div className="feature hoverable">
                 {feature.image && (
                   <div className="feature-image">
@@ -59,7 +58,7 @@ const Home = () => {
         <div className="row justify-content-center">
           <div className="col-12">
             <h2 className="title-3 text-dark mb-2">
-              When is the secureCodeBox the right toolset for your team?
+              How does the secureCodeBox help our team?
             </h2>
           </div>
         </div>
@@ -67,32 +66,36 @@ const Home = () => {
           <div className="feature-list">
             <ul className="pro">
               <li>
-                <img src={approved} alt="checked icon" />
-                Teams with an already medium to advanced security program
+                <img src={tick} alt="checked icon" />
+                SDLC support
               </li>
               <li>
-                <img src={approved} alt="checked icon" />
-                Multi-team setups
+                <img src={tick} alt="checked icon" />
+                Highly scalable: multiple teams, applications and whole
+                networks.
               </li>
               <li>
-                <img src={approved} alt="checked icon" />
-                Integration into fast moving teams
+                <img src={tick} alt="checked icon" />
+                Scans can range from low-hanging fruits to pen testing.
               </li>
             </ul>
 
             <ul className="con">
               <li>
-                <img src={notApproved} alt="unchecked icon" />
-                For the first security steps
+                <img src={close} alt="unchecked icon" />
+                We don't assign grades, someone needs to interpret the scan
+                results.
               </li>
               <li>
-                <img src={notApproved} alt="unchecked icon" />
-                Organizations with separate dev, ops and security teams
+                <img src={close} alt="unchecked icon" />
+                Besides our examples, we do not provide many advanced,
+                pre-configured scans.
               </li>
             </ul>
           </div>
         </div>
       </div>
+      <ReactTooltip type="light" effect="solid" className="detailed-info" />
     </Layout>
   );
 };
