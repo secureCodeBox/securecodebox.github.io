@@ -66,10 +66,45 @@ Used Fonts:
 
 ### Icons & Images
 
-Icons should be license free and as close to the other icons' style as possible. They should be outlined and monochrome. Color should only be used to fill, never as line color, and only if color does provide a more pleasing look than monochrome. Images should be fitting and mainly used as background (partially). They should fit the color scheme if possible or do **not** stand out through a high contrast to the website. Recommended websites for free icons or images:
+Icons should be license free and as close to the other icons' style as possible. They should be outlined and monochrome. Color should only be used to fill, never as line color, and only if color does provide a more pleasing look than monochrome. Images should be fitting and mainly used as background (partially). They should fit the color scheme if possible or do **not** stand out through a high contrast to the website. Currently we use svg images from [undraw](https://undraw.co/) as background images. In the case you are going to use a png, jpg or jpeg, and it does not load in an instant, use gatsby-image and fluid to avoid a spontaneously popping image, e.g.:
+
+Query the image on the page:
+
+```javascript
+export const query = graphql`
+  query {
+    ImageHomeQuery: file(relativePath: { eq: "images/<ImageName.any>" }) {
+      childImageSharp {
+        # Specify the image processing specifications right in the query.
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
+```
+
+And use the `<Img/>` component:
+
+```html
+<div className="background-plane">
+  <img
+    fluid="{props.data.ImageHomeQuery.childImageSharp.fluid}"
+    alt="secureCodeBox preview"
+    objectFit="cover"
+    className="background-image"
+  />
+</div>
+```
+
+Of course you can use this not only for background images, just ignore then everything related to to background in the example. However, currently, the intro style class provides basic styling for the background images.
+
+Recommended websites for free icons or images:
 
 - [iconmonstr](https://iconmonstr.com/)
 - [pixabay](https://pixabay.com/)
+- [undraw](https://undraw.co/)
 
 ## Documentation Guide
 
@@ -238,7 +273,7 @@ Currently under development, this will be the guide for our "Get Started" tutori
 
 #### Developer docs
 
-Currently under development, this will be the guide for our "Docs" developer documentation similar to the ones above.  
+Currently under development, this will be the guide for our "Docs" developer documentation similar to the ones above.
 
 ## Production Deployment
 
