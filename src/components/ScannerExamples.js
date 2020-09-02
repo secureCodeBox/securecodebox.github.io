@@ -3,7 +3,7 @@ import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import Collapsible from "./Collapsible";
 
-export default function ScannerExamples({ examples, descriptions = [] }) {
+export default function ScannerExamples({ examples }) {
   return (
     <div className="container-fluid">
       <h2 className="title">Examples</h2>
