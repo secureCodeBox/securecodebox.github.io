@@ -1,5 +1,5 @@
-const path = require("path");
-const fs = require("fs");
+const path = require('path');
+const fs = require('fs');
 
 // Create pages from markdown files
 exports.createPages = ({ graphql, actions }) => {
@@ -8,37 +8,7 @@ exports.createPages = ({ graphql, actions }) => {
     resolve(
       graphql(`
         {
-          getStarted: allMarkdownRemark(
-            filter: { fileAbsolutePath: { regex: "/getStarted/" } }
-            sort: { fields: [frontmatter___date], order: DESC }
-          ) {
-            edges {
-              node {
-                id
-                frontmatter {
-                  path
-                  title
-                }
-                excerpt
-              }
-            }
-          }
-          docs: allMarkdownRemark(
-            filter: { fileAbsolutePath: { regex: "/docs/" } }
-            sort: { fields: [frontmatter___date], order: DESC }
-          ) {
-            edges {
-              node {
-                id
-                frontmatter {
-                  path
-                  title
-                }
-                excerpt
-              }
-            }
-          }
-          scanner: allMarkdownRemark(
+          git: allMarkdownRemark(
             filter: { fileAbsolutePath: { regex: "/gatsby-source-git/" } }
           ) {
             edges {
@@ -53,79 +23,42 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
           }
-          persistenceProvider: allMarkdownRemark(
-            filter: {
-              fileAbsolutePath: { regex: "/integrations/persistence-provider/" }
-            }
-          ) {
-            edges {
-              node {
-                frontmatter {
-                  title
-                  path
-                  category
-                }
-                id
-              }
-            }
-          }
         }
       `).then((result) => {
-        result.data.getStarted.edges.forEach(({ node }) => {
-          const component = path.resolve("src/templates/getStarted.js");
-          createPage({
-            path: node.frontmatter.path,
-            component,
-            context: {
-              id: node.id,
-            },
-          });
-        });
-        result.data.docs.edges.forEach(({ node }) => {
-          const component = path.resolve("src/templates/docs.js");
-          createPage({
-            path: node.frontmatter.path,
-            component,
-            context: {
-              id: node.id,
-            },
-          });
-        });
-        result.data.scanner.edges.forEach(({ node }) => {
-          const component = path.resolve("src/templates/integration.js");
-
-          let componentName = "";
+        result.data.git.edges.forEach(({ node }) => {
+          let componentName = '';
           if (node.frontmatter.path) {
             // The path consists normally like "scanners/nmap" or "hook/persistence-elastic"
-            componentName = node.frontmatter.path.split("/")[1];
+            componentName = node.frontmatter.path.split('/')[1];
           }
 
-          createPage({
-            path: `integrations/${node.frontmatter.path}`,
-            component,
-            context: {
-              id: node.id,
-              exampleFilter: `/${componentName}/examples/`,
-            },
-          });
-        });
-        result.data.persistenceProvider.edges.forEach(({ node }) => {
-          const component = path.resolve("src/templates/integration.js");
-
-          let componentName = "";
-          if (node.frontmatter.path) {
-            // The path consists normally like "scanners/nmap" or "hook/persistence-elastic"
-            componentName = node.frontmatter.path.split("/")[1];
+          if (
+            node.frontmatter.category === 'scanner' ||
+            node.frontmatter.category === 'hook'
+          ) {
+            const component = path.resolve('src/templates/integration.js');
+            createPage({
+              path: `integrations/${node.frontmatter.path}`,
+              component,
+              context: {
+                id: node.id,
+                exampleFilter: `/${componentName}/examples/`,
+              },
+            });
+          } else if (
+            node.frontmatter.category === 'develop' ||
+            node.frontmatter.category === 'use'
+          ) {
+            const component = path.resolve('src/templates/doc.js');
+            createPage({
+              path: `getStarted/${node.frontmatter.path}`,
+              component,
+              context: {
+                id: node.id,
+                exampleFilter: `/${componentName}/examples/`,
+              },
+            });
           }
-
-          createPage({
-            path: `integrations/${node.frontmatter.path}`,
-            component,
-            context: {
-              id: node.id,
-              exampleFilter: `/${componentName}/examples/`,
-            },
-          });
         });
         resolve();
       })
@@ -147,7 +80,7 @@ exports.onCreateNode = ({ node, actions }) => {
     createNodeField({
       node,
       name: `scanTarget`,
-      value: node.relativeDirectory.split("/examples/")[1],
+      value: node.relativeDirectory.split('/examples/')[1],
     });
   }
 };
