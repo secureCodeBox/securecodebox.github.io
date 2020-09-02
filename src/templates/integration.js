@@ -1,9 +1,12 @@
-import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
-import { graphql } from 'gatsby';
-import React from 'react';
-import Layout from '../components/Layout';
-import ScannerExamples from '../components/ScannerExamples.js';
-import Sidebar from '../components/Sidebar.js';
+import React from "react";
+import { graphql } from "gatsby";
+import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
+import groupBy from "lodash/groupBy";
+import map from "lodash/map";
+
+import Layout from "../components/Layout";
+import ScannerExamples from "../components/ScannerExamples.js";
+import Sidebar from "../components/Sidebar.js";
 
 deckDeckGoHighlightElement();
 
@@ -15,21 +18,40 @@ const Integration = (props) => {
   const persistenceProviders = props.data.persistenceProvider.edges;
   const hooks = props.data.hook.edges;
 
-  const examples = props.data.examples.nodes.map(({ fields }) => fields);
-  const showExamples = examples.length > 0;
+  const examplesRaw = props.data.examples.nodes.map(({ fields }) => fields);
   const exampleReadMes = props.data.exampleReadMes.edges;
+
+  // Transforms the examples and readme into one big array with he following structure:
+  // [{ name: "example.com", description: "<html>description", scan: "yaml...", findings: "yaml..."}]
+  const examples = map(
+    groupBy(examplesRaw, ({ scanTarget }) => scanTarget),
+    (examples, scanTarget) => {
+      console.log({ examples, scanTarget });
+      return {
+        name: scanTarget,
+        scan: examples.find(({ fileName }) => fileName === "scan.yaml")
+          ?.content,
+        findings: examples.find(({ fileName }) => fileName === "findings.yaml")
+          ?.content,
+        description: exampleReadMes.find(
+          (x) => x.node.frontmatter.title === scanTarget
+        )?.node.html,
+      };
+    }
+  );
+  const showExamples = examples.length > 0;
 
   return (
     <Layout bodyClass="integration">
       <div className="sidebar-wrapper">
         <Sidebar
           categories={[
-            { categoryName: 'Scanners', entries: scanners },
+            { categoryName: "Scanners", entries: scanners },
             {
-              categoryName: 'Persistence Providers',
+              categoryName: "Persistence Providers",
               entries: persistenceProviders,
             },
-            { categoryName: 'Hooks', entries: hooks },
+            { categoryName: "Hooks", entries: hooks },
           ]}
           currentPathname={props.location.pathname}
         />
@@ -40,7 +62,7 @@ const Integration = (props) => {
               className="content"
               dangerouslySetInnerHTML={{ __html: html }}
             />
-            {showExamples && <ScannerExamples examples={examples} descriptions={exampleReadMes} />}
+            {showExamples && <ScannerExamples examples={examples} />}
           </div>
         </div>
       </div>
