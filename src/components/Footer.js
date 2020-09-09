@@ -1,7 +1,7 @@
+import { graphql, StaticQuery } from 'gatsby';
 import React from 'react';
-import { graphql, Link, StaticQuery } from 'gatsby';
 
-const Footer = props => (
+const Footer = (props) => (
   <div className="footer-strip">
     <div className="container">
       <div className="row">
@@ -12,15 +12,15 @@ const Footer = props => (
             </h3>
             <ul className="footer-menu">
               <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
                 <a href="https://www.iteratec.de/impressum/">Imprint</a>
               </li>
               <li>
                 <a href="https://www.iteratec.com/data-protection/">
                   Data Protection
                 </a>
+              </li>
+              <li>
+                <a href="https://www.flaticon.com/">Icons</a>
               </li>
               <li className="copyright">
                 <a href="https://www.iteratec.de">
@@ -36,7 +36,7 @@ const Footer = props => (
   </div>
 );
 
-export default props => (
+export default (props) => (
   <StaticQuery
     query={graphql`
       query {
@@ -48,6 +48,6 @@ export default props => (
         }
       }
     `}
-    render={data => <Footer data={data} />}
+    render={(data) => <Footer data={data} />}
   />
 );

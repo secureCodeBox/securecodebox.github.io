@@ -66,7 +66,7 @@ Used Fonts:
 
 ### Icons & Images
 
-Icons should be license free and as close to the other icons' style as possible. They should be outlined and monochrome. Color should only be used to fill, never as line color, and only if color does provide a more pleasing look than monochrome. Images should be fitting and mainly used as background (partially). They should fit the color scheme if possible or do **not** stand out through a high contrast to the website. Currently we use svg images from [undraw](https://undraw.co/) as background images. In the case you are going to use a png, jpg or jpeg, and it does not load in an instant, use gatsby-image and fluid to avoid a spontaneously popping image, e.g.:
+The icons of the integrations should be monochrome. It is important to have an icon which corresponds to the integrations original icon, but does not need to be the same (we do not want to copy the original one's due to licenses). Colored icons should have on the one side, a generally coherent look on the respective page and on the other side, not stand out from the websites blueish theme. Icons should be free licensed or from [flaticon]. [flaticon] is a great source of millions of free icons and it is referenced on the website for it's use already. Images should be fitting and mainly used as background (partially). They should fit the color scheme if possible or do **not** stand out through a high contrast to the website. Currently we use svg images from [undraw](https://undraw.co/) as background images. In the case you are going to use a png, jpg or jpeg, and it does not load in an instant, use gatsby-image and fluid to avoid a spontaneously popping image, e.g.:
 
 Query the image on the page:
 
@@ -102,6 +102,7 @@ Of course you can use this not only for background images, just ignore then ever
 
 Recommended websites for free icons or images:
 
+- [flaticon](https://www.flaticon.com/)
 - [iconmonstr](https://iconmonstr.com/)
 - [pixabay](https://pixabay.com/)
 - [undraw](https://undraw.co/)

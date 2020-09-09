@@ -67,7 +67,7 @@
     }
   }
   .feature-scanner-icon-right-gap {
-    // If you want to use the scanner icon and still keep the other elements in the 
+    // If you want to use the scanner icon and still keep the other elements in the
     // feature element aligned in the center, use this element as well
     align-self: flex-end;
     justify-self: stretch;
@@ -76,59 +76,40 @@
     width: 80px; //Same as the widest of img.scanner-icon or img.release
   }
   .feature-list {
-    ul.pro {
-      display: inline-block;
+    display: grid;
+    ul {
       list-style: none;
-      -webkit-columns: 1;
-      -moz-columns: 1;
-      margin: 0;
-      padding: 0;
-      float: left;
-      max-width: 45%;
-      @include media-breakpoint-down(sm) {
-        max-width: 90%;
-        float: unset;
+      padding-left: 0px;
+    }
+    @include media-breakpoint-up(md) {
+      ul.pro {
+        grid-column: 1;
       }
-      li {
-        img {
-          width: 40px;
-          padding-right: 5px;
-        }
-        font-size: 1.1rem;
-        color: $secondary;
-        margin: 25px;
-        line-height: 1.3;
-        text-align: left;
-        // Needs to be the negative of img-width
-        text-indent: -40px;
+      ul.con {
+        grid-column: 2;
       }
     }
-    ul.con {
-      display: inline-block;
-      list-style: none;
-      -webkit-columns: 1;
-      -moz-columns: 1;
-      margin: 0;
-      padding: 0;
-      max-width: 45%;
-      float: right;
-      @include media-breakpoint-down(sm) {
-        max-width: 90%;
-        float: unset;
+    @include media-breakpoint-down(md) {
+      ul.pro {
+        grid-row: 1;
       }
-      li {
-        img {
-          width: 40px;
-          padding-right: 5px;
+      ul.con {
+        grid-row: 2;
+      }
+    }
+    li {
+      img {
+        width: 25px;
+        margin-right: 10px;
+        @include media-breakpoint-down(md) {
+          width: 20px;
         }
-        font-size: 1.1rem;
-        color: $secondary;
-        margin: 25px;
-        line-height: 1.3;
-        text-align: left;
-        // Needs to be the negative of img-width
-        text-indent: -40px;
       }
+      font-size: 1.1rem;
+      color: $secondary;
+      margin: 25px;
+      line-height: 1.3;
+      text-align: left;
     }
   }
 }
