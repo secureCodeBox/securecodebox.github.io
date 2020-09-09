@@ -14,20 +14,11 @@ module.exports = {
       phone: "+49 89 614551-0",
       email: "security@iteratec.com",
     },
-    // TODO: replace links with actual pages here and link the correct reference in Menu.js
     menuLinks: [
       {
-        name: "Get Started",
-        external: true,
-        // link: '/getStarted',
-        link: "https://github.com/secureCodeBox/secureCodeBox-v2-alpha",
-      },
-      {
-        name: "Docs",
-        external: true,
-        // link: '/docs',
-        link:
-          "https://github.com/secureCodeBox/secureCodeBox-v2-alpha/blob/master/docs/index.md",
+        name: 'Get Started',
+        external: false,
+        link: '/getStarted',
       },
       {
         name: "Integrations",
@@ -38,6 +29,8 @@ module.exports = {
   },
 
   plugins: [
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-sass`,
     {
@@ -130,6 +123,13 @@ module.exports = {
       options: {
         name: `hooks`,
         path: `${__dirname}/.cache/gatsby-source-git/secureCodeBox-v2-alpha/hooks`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `docs`,
+        path: `${__dirname}/.cache/gatsby-source-git/secureCodeBox-v2-alpha/docs`,
       },
     },
   ],

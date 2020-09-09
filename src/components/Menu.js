@@ -8,18 +8,20 @@ const Menu = props => {
   return (
     <div id="main-menu" className="main-menu">
       <ul>
-        {menuLinks.map(link => (
+        {menuLinks.map((link) => (
           <li key={link.name}>
             {link.external ? (
               <a href={link.link} target="_blank" rel="noopener noreferrer">
                 {link.name}
               </a>
             ) : (
-              <Link to={link.link}>{link.name}</Link>
+              <Link activeClassName="active-Link" to={link.link}>
+                {link.name}
+              </Link>
             )}
           </li>
         ))}
-        {socialChannels.map(socialChannel => (
+        {socialChannels.map((socialChannel) => (
           <li key={socialChannel.title}>
             <a
               href={socialChannel.link}

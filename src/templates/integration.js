@@ -1,10 +1,13 @@
 import React from "react";
 import { graphql } from "gatsby";
+import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
+import groupBy from "lodash/groupBy";
+import map from "lodash/map";
+
 import Layout from "../components/Layout";
 import ScannerExamples from "../components/ScannerExamples.js";
 import Sidebar from "../components/Sidebar.js";
 
-import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
 deckDeckGoHighlightElement();
 
 const Integration = (props) => {
@@ -15,7 +18,27 @@ const Integration = (props) => {
   const persistenceProviders = props.data.persistenceProvider.edges;
   const hooks = props.data.hook.edges;
 
-  const examples = props.data.examples.nodes.map(({ fields }) => fields);
+  const examplesRaw = props.data.examples.nodes.map(({ fields }) => fields);
+  const exampleReadMes = props.data.exampleReadMes.edges;
+
+  // Transforms the examples and readme into one big array with he following structure:
+  // [{ name: "example.com", description: "<html>description", scan: "yaml...", findings: "yaml..."}]
+  const examples = map(
+    groupBy(examplesRaw, ({ scanTarget }) => scanTarget),
+    (examples, scanTarget) => {
+      console.log({ examples, scanTarget });
+      return {
+        name: scanTarget,
+        scan: examples.find(({ fileName }) => fileName === "scan.yaml")
+          ?.content,
+        findings: examples.find(({ fileName }) => fileName === "findings.yaml")
+          ?.content,
+        description: exampleReadMes.find(
+          (x) => x.node.frontmatter.title === scanTarget
+        )?.node.html,
+      };
+    }
+  );
   const showExamples = examples.length > 0;
 
   return (
@@ -138,6 +161,18 @@ export const query = graphql`
           content
           fileName
           scanTarget
+        }
+      }
+    }
+    exampleReadMes: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: $exampleFilter } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+          }
+          html
         }
       }
     }

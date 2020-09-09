@@ -3,6 +3,7 @@ import { graphql, Link } from 'gatsby';
 import SEO from '../../components/SEO';
 import Layout from '../../components/Layout';
 import IntegrationCard from '../../components/IntegrationCard';
+import Img from 'gatsby-image';
 
 const Integrations = (props) => {
   const scanners = props.data.scanner.edges;
@@ -13,22 +14,32 @@ const Integrations = (props) => {
     <Layout bodyClass="page-integrations">
       <SEO title="Scanner" />
       <div className="intro">
+        <div className="background-plane">
+          <Img
+            fluid={props.data.ImageIntegrationsQuery.childImageSharp.fluid}
+            alt="Network"
+            objectFit="cover"
+            className="background-image"
+          />
+        </div>
         <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <h1>Integrations</h1>
-              <h2>Out of the Box and ready to use</h2>
-              <p>
-                Each Scanner is an individual tool. We took no part in building
-                them and did not adjust them for our purposes, which is great,
-                because, like so we can provide them as they are and ready for
-                use.
-              </p>
-              <p>
-                If you miss your favorite security Scanner or tool you can
-                easily integrate it by adding a contribution (GitHub Pull
-                Request) or contact us if you want help with it.
-              </p>
+          <div className="text-box">
+            <div className="row">
+              <div className="col-12">
+                <h1>Integrations</h1>
+                <h2>Out of the Box and ready to use</h2>
+                <p>
+                  Each Scanner is an individual tool. We took no part in
+                  building them and did not adjust them for our purposes, which
+                  is great, because, like so we can provide them as they are and
+                  ready for use.
+                </p>
+                <p>
+                  If you miss your favorite security Scanner or tool you can
+                  easily integrate it by adding a contribution (GitHub Pull
+                  Request) or contact us if you want help with it.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -172,6 +183,16 @@ export const query = graphql`
             type
             state
           }
+        }
+      }
+    }
+    ImageIntegrationsQuery: file(
+      relativePath: { eq: "images/Integrations.png" }
+    ) {
+      childImageSharp {
+        # Specify the image processing specifications right in the query.
+        fluid {
+          ...GatsbyImageSharpFluid
         }
       }
     }
