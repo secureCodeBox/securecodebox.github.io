@@ -1,5 +1,4 @@
 import { withPrefix } from 'gatsby';
-import Img from 'gatsby-image';
 import { default as React } from 'react';
 import Helmet from 'react-helmet';
 import ReactTooltip from 'react-tooltip';
@@ -7,6 +6,7 @@ import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import features from '../data/features.json';
 import close from '../images/close.svg';
+import image from '../images/LandingPage.svg';
 import tick from '../images/tick.svg';
 
 const Home = (props) => {
@@ -21,9 +21,9 @@ const Home = (props) => {
       </Helmet>
       <div className="intro pb-4">
         <div className="background-plane">
-          <Img
-            fluid={props.data.ImageHomeQuery.childImageSharp.fluid}
-            alt="secureCodeBox preview"
+          <img
+            src={image}
+            alt="integrations"
             objectFit="cover"
             className="background-image"
           />
@@ -108,18 +108,5 @@ const Home = (props) => {
     </Layout>
   );
 };
-
-export const query = graphql`
-  query {
-    ImageHomeQuery: file(relativePath: { eq: "images/LandingPage.png" }) {
-      childImageSharp {
-        # Specify the image processing specifications right in the query.
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`;
 
 export default Home;

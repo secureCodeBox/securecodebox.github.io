@@ -1,8 +1,8 @@
 import { graphql, Link, withPrefix } from 'gatsby';
-import Img from 'gatsby-image';
 import React from 'react';
 import Layout from '../../components/Layout';
 import SEO from '../../components/SEO';
+import image from '../../images/GetStarted.svg';
 
 const GetStarted = (props) => {
   const docs = props.data.ServicesQuery.edges.filter(function (doc) {
@@ -13,9 +13,9 @@ const GetStarted = (props) => {
       <SEO title="Services" />
       <div className="intro">
         <div className="background-plane">
-          <Img
-            fluid={props.data.ImageGetStartedQuery.childImageSharp.fluid}
-            alt="people"
+          <img
+            src={image}
+            alt="integrations"
             objectFit="cover"
             className="background-image bottom"
           />
@@ -28,7 +28,11 @@ const GetStarted = (props) => {
                 <h2>Documentation for user and developer</h2>
                 {/* TODO: Build quick link navigation  */}
                 <div className="quick-link-menu">
-                  <span role="img" aria-label="writing"> ✍ </span> Page under construction.
+                  <span role="img" aria-label="writing">
+                    {' '}
+                    ✍{' '}
+                  </span>{' '}
+                  Page under construction.
                   <br />
                   How To:
                   <ul>
@@ -93,14 +97,6 @@ export const query = graphql`
             path
             category
           }
-        }
-      }
-    }
-    ImageGetStartedQuery: file(relativePath: { eq: "images/GetStarted.png" }) {
-      childImageSharp {
-        # Specify the image processing specifications right in the query.
-        fluid {
-          ...GatsbyImageSharpFluid
         }
       }
     }

@@ -1,9 +1,9 @@
-import React from 'react';
 import { graphql, Link } from 'gatsby';
-import SEO from '../../components/SEO';
-import Layout from '../../components/Layout';
+import React from 'react';
 import IntegrationCard from '../../components/IntegrationCard';
-import Img from 'gatsby-image';
+import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
+import image from '../../images/Integrations.svg';
 
 const Integrations = (props) => {
   const scanners = props.data.scanner.edges;
@@ -15,9 +15,9 @@ const Integrations = (props) => {
       <SEO title="Scanner" />
       <div className="intro">
         <div className="background-plane">
-          <Img
-            fluid={props.data.ImageIntegrationsQuery.childImageSharp.fluid}
-            alt="Network"
+          <img
+            src={image}
+            alt="integrations"
             objectFit="cover"
             className="background-image"
           />
@@ -183,16 +183,6 @@ export const query = graphql`
             type
             state
           }
-        }
-      }
-    }
-    ImageIntegrationsQuery: file(
-      relativePath: { eq: "images/Integrations.png" }
-    ) {
-      childImageSharp {
-        # Specify the image processing specifications right in the query.
-        fluid {
-          ...GatsbyImageSharpFluid
         }
       }
     }

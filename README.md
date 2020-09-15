@@ -66,11 +66,46 @@ Used Fonts:
 
 ### Icons & Images
 
-The icons of the integrations should be monochrome. It is important to have an icon which corresponds to the integrations original icon, but does not need to be the same (we do not want to copy the original one's due to licenses). Colored icons should have on the one side, a generally coherent look on the respective page and on the other side, not stand out from the websites blueish theme. Icons should be free licensed or from [flaticon]. [flaticon] is a great source of millions of free icons and it is referenced on the website for it's use already. Images should be fitting and mainly used as background (partially). They should fit the color scheme if possible or do **not** stand out through a high contrast to the website. Recommended websites for free icons or images:
+The icons of the integrations should be monochrome. It is important to have an icon which corresponds to the integrations original icon, but does not need to be the same (we do not want to copy the original one's due to licenses). Colored icons should have on the one side, a generally coherent look on the respective page and on the other side, not stand out from the websites blueish theme. Icons should be free licensed or from [flaticon]. [flaticon] is a great source of millions of free icons and it is referenced on the website for it's use already. Images should be fitting and mainly used as background (partially). They should fit the color scheme if possible or do **not** stand out through a high contrast to the website. Currently we use svg images from [undraw](https://undraw.co/) as background images. In the case you are going to use a png, jpg or jpeg, and it does not load in an instant, use gatsby-image and fluid to avoid a spontaneously popping image, e.g.:
+
+Query the image on the page:
+
+```javascript
+export const query = graphql`
+  query {
+    ImageHomeQuery: file(relativePath: { eq: "images/<ImageName.any>" }) {
+      childImageSharp {
+        # Specify the image processing specifications right in the query.
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
+```
+
+And use the `<Img/>` component:
+
+```html
+<div className="background-plane">
+  <img
+    fluid="{props.data.ImageHomeQuery.childImageSharp.fluid}"
+    alt="secureCodeBox preview"
+    objectFit="cover"
+    className="background-image"
+  />
+</div>
+```
+
+Of course you can use this not only for background images, just ignore then everything related to to background in the example. However, currently, the intro style class provides basic styling for the background images.
+
+Recommended websites for free icons or images:
 
 - [flaticon](https://www.flaticon.com/)
 - [iconmonstr](https://iconmonstr.com/)
 - [pixabay](https://pixabay.com/)
+- [undraw](https://undraw.co/)
 
 ## Documentation Guide
 
@@ -239,7 +274,7 @@ Currently under development, this will be the guide for our "Get Started" tutori
 
 #### Developer docs
 
-Currently under development, this will be the guide for our "Docs" developer documentation similar to the ones above.  
+Currently under development, this will be the guide for our "Docs" developer documentation similar to the ones above.
 
 ## Production Deployment
 
