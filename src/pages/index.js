@@ -1,13 +1,13 @@
-import React from 'react';
 import { withPrefix } from 'gatsby';
-import Helmet from 'react-helmet';
-import SEO from '../components/SEO';
-import Layout from '../components/Layout';
-import approved from '../images/approved.svg';
-import notApproved from '../images/not approved.svg';
 import Img from 'gatsby-image';
-
+import { default as React } from 'react';
+import Helmet from 'react-helmet';
+import ReactTooltip from 'react-tooltip';
+import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 import features from '../data/features.json';
+import close from '../images/close.svg';
+import tick from '../images/tick.svg';
 
 const Home = (props) => {
   return (
@@ -33,24 +33,19 @@ const Home = (props) => {
             <h1>secureCodeBox</h1>
             <h2>Testing your Software Security</h2>
             <p>
-              secureCodeBox is a docker based, modularized toolchain for
-              continuous security scans of your software project. Its goal is to
-              orchestrate and easily automate a bunch of security-testing tools
-              out of the box.
+              secureCodeBox is an automated and scalable open source solution
+              that can be used to integrate various security scanners with a
+              simple and lightweight interface.
             </p>
           </div>
         </div>
         <div className="container pt-3 pb-2 pt-md-3 pb-md-3">
           <div className="row justify-content-center">
-            <div className="col-12">
-              <h2 className="title-3 text-dark mb-2">
-                What the secureCodeBox provides:
-              </h2>
-            </div>
             {features.map((feature) => (
               <div
                 key={feature.title}
                 className="col-12 col-md-3 col-lg-3 mb-2"
+                data-tip={feature.description}
               >
                 <div className="feature hoverable">
                   {feature.image && (
@@ -67,45 +62,49 @@ const Home = (props) => {
             ))}
           </div>
         </div>
-      </div>
-      <div className="container pt-3 pb-5 pb-md-7">
-        <div className="row justify-content-center">
-          <div className="col-12">
-            <h2 className="title-3 text-dark mb-2">
-              When is the secureCodeBox the right toolset for your team?
-            </h2>
+        <div className="container pt-3 pb-5 pb-md-7">
+          <div className="row justify-content-center">
+            <div className="col-12">
+              <h2 className="title-3 text-dark mb-2">
+                How does the secureCodeBox help our team?
+              </h2>
+            </div>
           </div>
-        </div>
-        <div className="feature">
-          <div className="feature-list">
-            <ul className="pro">
-              <li>
-                <img src={approved} alt="checked icon" />
-                Teams with an already medium to advanced security program
-              </li>
-              <li>
-                <img src={approved} alt="checked icon" />
-                Multi-team setups
-              </li>
-              <li>
-                <img src={approved} alt="checked icon" />
-                Integration into fast moving teams
-              </li>
-            </ul>
+          <div className="feature">
+            <div className="feature-list">
+              <ul className="pro">
+                <li>
+                  <img src={tick} alt="checked icon" />
+                  SDLC support
+                </li>
+                <li>
+                  <img src={tick} alt="checked icon" />
+                  Highly scalable: multiple teams, applications and whole
+                  networks.
+                </li>
+                <li>
+                  <img src={tick} alt="checked icon" />
+                  Scans can range from low-hanging fruits to pen testing.
+                </li>
+              </ul>
 
-            <ul className="con">
-              <li>
-                <img src={notApproved} alt="unchecked icon" />
-                For the first security steps
-              </li>
-              <li>
-                <img src={notApproved} alt="unchecked icon" />
-                Organizations with separate dev, ops and security teams
-              </li>
-            </ul>
+              <ul className="con">
+                <li>
+                  <img src={close} alt="unchecked icon" />
+                  We don't assign grades, someone needs to interpret the scan
+                  results.
+                </li>
+                <li>
+                  <img src={close} alt="unchecked icon" />
+                  Besides our examples, we do not provide many advanced,
+                  pre-configured scans.
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
+      <ReactTooltip type="light" effect="solid" className="detailed-info" />
     </Layout>
   );
 };
